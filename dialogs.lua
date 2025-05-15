@@ -99,8 +99,10 @@ local function createResultText(highlightedText, message_history, previous_text,
         end
       end
       
+      local current_model = CONFIGURATION.provider_settings[CONFIGURATION.provider].model
+      result_text = _("⮞ AI Model: ") .. CONFIGURATION.provider .. "/" .. current_model .. "\n\n"
       if should_show then
-        result_text = _("Highlighted text: ") .. "\"" .. highlightedText .. "\"\n\n"
+        result_text = result_text .. _("⮞ Highlighted text: ") .. "\"" .. highlightedText .. "\"\n\n"
       end
     end
     
