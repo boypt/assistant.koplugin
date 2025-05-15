@@ -4,7 +4,7 @@ local NetworkMgr = require("ui/network/manager")
 local _ = require("gettext")
 
 local showChatGPTDialog = require("dialogs")
-local UpdateChecker = require("update_checker")
+-- local UpdateChecker = require("update_checker")
 
 local Assistant = InputContainer:new {
   name = "Assistant",
@@ -40,7 +40,7 @@ function Assistant:init()
         end
         NetworkMgr:runWhenOnline(function()
           if not updateMessageShown then
-            UpdateChecker.checkForUpdates()
+            -- UpdateChecker.checkForUpdates()
             updateMessageShown = true
           end
           showChatGPTDialog(self.ui, _reader_highlight_instance.selected_text.text)
