@@ -130,6 +130,10 @@ local function createResultText(highlightedText, message_history, previous_text,
         end
       end
     end
+
+    local current_model = CONFIGURATION.provider_settings[CONFIGURATION.provider].model
+    local model_line = string.format("__Model:__ %s/%s\n\n", CONFIGURATION.provider, current_model)
+    result_text = model_line .. result_text
     return result_text
   end
 
