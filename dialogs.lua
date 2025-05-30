@@ -50,6 +50,23 @@ local function getBookContext(ui)
   }
 end
 
+local function formatUserPrompt(user_prompt, highlightedText, ui)
+  local book = getBookContext(ui)
+  local formatted_user_prompt = (user_prompt or "Please analyze: ")
+    :gsub("{title}", book.title)
+    :gsub("{author}", book.author)
+    :gsub("{highlight}", highlightedText)
+  
+  local formatted_user_content = ""
+  if string.find(user_prompt or "Please analyze: ", "{highlight}") then
+    formatted_user_content = formatted_user_prompt
+  else
+    formatted_user_content = formatted_user_prompt .. highlightedText
+  end
+
+  return formatted_user_content
+end
+
 local function createContextMessage(ui, highlightedText)
   local book = getBookContext(ui)
   return {
@@ -66,7 +83,7 @@ local function handleFollowUpQuestion(message_history, new_question, ui, highlig
 
   local question_message = {
     role = "user",
-    content = new_question
+    content = formatUserPrompt(new_question, highlightedText, ui)
   }
   table.insert(message_history, question_message)
 
@@ -181,19 +198,7 @@ local function handlePredefinedPrompt(prompt_type, highlightedText, ui)
     return nil, "Prompt '" .. prompt_type .. "' not found"
   end
 
-  local book = getBookContext(ui)
-  local formatted_user_prompt = (prompt.user_prompt or "Please analyze: ")
-    :gsub("{title}", book.title)
-    :gsub("{author}", book.author)
-    :gsub("{highlight}", highlightedText)
-  
-  local user_content = ""
-  if string.find(prompt.user_prompt or "Please analyze: ", "{highlight}") then
-    user_content = formatted_user_prompt
-  else
-    user_content = formatted_user_prompt .. highlightedText
-  end
-  
+  local user_content = formatUserPrompt(prompt.user_prompt, highlightedText, ui)
   local message_history = {
     {
       role = "system",
