@@ -95,6 +95,7 @@ local CONFIGURATION = {
         show_dictionary_button_in_dictionary_popup = true, -- Set to true to show the Dictionary (AI) button in the dictionary popup
         enable_AI_recap = true, -- Set to true to allow for a popup on a book you haven't read in a while to give you a quick AI recap
         render_markdown = true, -- Set to true to render markdown in the AI responses
+        markdown_font_size = 20, -- Default normal text font size of rendered markdown.
 
         -- Custom prompts for the AI (text = button text in the UI). system-prompt defaults to "You are a helpful assistant." if not set.
         --You can use {author} and {title} variables in the user_prompt,
@@ -139,7 +140,7 @@ local CONFIGURATION = {
                 text = "Key Points",
                 order = 6,
                 system_prompt = "You are a key points expert. Provide a concise list of key points from the text.",
-                user_prompt = "Please provide a concise list of key points from the following text. Answer in Turkish: {highlight}",
+                user_prompt = "Please provide a concise list in markdown format of key points from the following text. Answer in Turkish: {highlight}",
                 show_on_main_popup = false -- Show the button in main popup
             },
             ELI5 = {
