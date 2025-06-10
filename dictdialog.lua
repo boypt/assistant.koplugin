@@ -127,6 +127,10 @@ local function showDictionaryDialog(ui, highlightedText, message_history)
           end
       end
 
+      local current_model = configuration.provider_settings[configuration.provider].model
+      local model_line = string.format("__Model:__ %s/%s\n\n", configuration.provider, current_model)
+      result_text = model_line .. result_text
+
       chatgpt_viewer = ChatGPTViewer:new {
           ui = ui,
           title = _("Dictionary"),

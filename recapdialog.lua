@@ -48,6 +48,11 @@ local function showRecapDialog(ui, title, author, progress_percent, message_hist
         local result_text = 
           TextBoxWidget.PTF_HEADER ..
           TextBoxWidget.PTF_BOLD_START .. title .. TextBoxWidget.PTF_BOLD_END .. " by " .. author .. " is " .. formatted_progress_percent .. "% complete.\n\n" ..  answer
+
+        local current_model = configuration.provider_settings[configuration.provider].model
+        local model_line = string.format("__Model:__ %s/%s\n\n", configuration.provider, current_model)
+        result_text = model_line .. result_text
+
         return result_text
       end
 
