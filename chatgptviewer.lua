@@ -763,6 +763,7 @@ end
 
 function ChatGPTViewer:update(new_text)
   local first_time = not self.text
+  local last_page_num = nil
 
   -- Check if the new text is substantially different from the current text
   if not self.text or #new_text > #self.text then
@@ -770,6 +771,10 @@ function ChatGPTViewer:update(new_text)
     self.text = new_text
 
     if self.render_markdown then
+
+      -- remenber the last page number
+      last_page_num = self.scroll_text_w.htmlbox_widget.page_count
+
       -- Convert Markdown to HTML and recreate the ScrollHtmlWidget with the new text
       local html_body, err = MD(self.text, {})
       if err then
@@ -810,9 +815,13 @@ function ChatGPTViewer:update(new_text)
     -- Always scroll to the new text except first time
     if not first_time then
       if self.render_markdown then
-        -- HTMLWidget only supports scroll by page
-        -- scroll to bottom would be weired mostly. keep it to top here
-        self.scroll_text_w:resetScroll()
+        -- ScrollHtmlWidget only supports scroll by ratio
+        -- Scroll to the last page if it exists
+        local current_page_num = self.scroll_text_w.htmlbox_widget.page_count
+        if last_page_num and current_page_num > 0 then
+          -- Ratio is last_page_num / current_page_num
+          self.scroll_text_w:scrollToRatio(last_page_num / current_page_num)
+        end
       else
         self.scroll_text_w:scrollToBottom()
       end
