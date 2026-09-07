@@ -56,6 +56,7 @@ local ModelPickerDialog = InputDialog:extend{
     search_query = "",
     page = 1,
     on_select = nil,  -- optional callback(model_id) to intercept selection (skips saveModelSelection)
+    provider_label = nil,  -- optional title prefix; falls back to the active provider's label
 }
 
 function ModelPickerDialog:init()
@@ -71,10 +72,19 @@ function ModelPickerDialog:init()
     local total_pages = math.max(1, math.ceil(model_count / MODELS_PER_PAGE))
     if self.page > total_pages then self.page = total_pages end
 
-    -- Title with page info
+    -- Title with page info, prefixed by the provider label so it is clear
+    -- whose models are listed. Callers pass an explicit label when picking
+    -- for a provider that is being edited rather than the active one.
+    local provider_label = self.provider_label
+    if (not provider_label or provider_label == "") and self.assistant.querier then
+        provider_label = self.assistant.querier:getProviderLabel()
+    end
     local title_parts = {}
+    if provider_label and provider_label ~= "" then
+        table.insert(title_parts, provider_label .. " ")
+    end
     if self.search_query ~= "" then
-        table.insert(title_parts, T(_("Models: %1 (filtered)"), model_count))
+        table.insert(title_parts, T(_("Models: %1 (matched)"), model_count))
     else
         table.insert(title_parts, T(_("Models: %1"), model_count))
     end
@@ -252,7 +262,8 @@ end
 function ModelPickerDialog:changePage(new_page)
     UIManager:close(self)
     showPickerDialog(self.assistant, self.all_models,
-        self.close_callback, self.search_query, new_page, self.on_select)
+        self.close_callback, self.search_query, new_page, self.on_select,
+        self.provider_label)
 end
 
 function ModelPickerDialog:onSearch()
@@ -269,7 +280,8 @@ function ModelPickerDialog:onSearch()
                 callback = function()
                     UIManager:close(search_dialog)
                     showPickerDialog(self.assistant, self.all_models,
-                        self.close_callback, self.search_query, self.page)
+                        self.close_callback, self.search_query, self.page,
+                        self.on_select, self.provider_label)
                 end,
             },
             {
@@ -279,7 +291,8 @@ function ModelPickerDialog:onSearch()
                     local query = search_dialog:getInputText()
                     UIManager:close(search_dialog)
                     showPickerDialog(self.assistant, self.all_models,
-                        self.close_callback, query)
+                        self.close_callback, query, 1,
+                        self.on_select, self.provider_label)
                 end,
             },
         }},
@@ -306,7 +319,7 @@ function ModelPickerDialog:onCloseWidget()
 end
 
 --- Show the model picker dialog with optional search filter and page
-showPickerDialog = function(assistant, all_models, close_callback, search_query, page, on_select)
+showPickerDialog = function(assistant, all_models, close_callback, search_query, page, on_select, provider_label)
     search_query = search_query or ""
     page = page or 1
     local models = all_models
@@ -330,7 +343,7 @@ showPickerDialog = function(assistant, all_models, close_callback, search_query,
             text = T(_("No models matching \"%1\"."), search_query),
         })
         -- Reopen without filter
-        showPickerDialog(assistant, all_models, close_callback, "", 1, on_select)
+        showPickerDialog(assistant, all_models, close_callback, "", 1, on_select, provider_label)
         return
     end
 
@@ -342,6 +355,7 @@ showPickerDialog = function(assistant, all_models, close_callback, search_query,
         search_query = search_query,
         page = page,
         on_select = on_select,
+        provider_label = provider_label,
     })
 end
 

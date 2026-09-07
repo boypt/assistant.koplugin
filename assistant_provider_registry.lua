@@ -15,7 +15,6 @@ local koutil = require("util")
 local _ = require("assistant_gettext")
 local UIManager = require("ui/uimanager")
 local InfoMessage = require("ui/widget/infomessage")
-local Notification = require("ui/widget/notification")
 local ConfirmBox = require("ui/widget/confirmbox")
 local Blitbuffer = require("ffi/blitbuffer")
 local ButtonTable = require("ui/widget/buttontable")
@@ -882,7 +881,11 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
                                     dialog.input_fields[4]:setText(model_id)
                                     dialog.input_fields[4]:moveCursorToCharPos(#model_id + 1)
                                 end
-                            end
+                            end,
+                            -- Title shows the provider being edited (fields[1]
+                            -- is its display_name); falls back to the active
+                            -- provider's label when still empty.
+                            fields[1] ~= "" and fields[1] or nil
                         )
                     end)
                 end)
@@ -932,10 +935,18 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
                         end
                         local ok_status = report.status >= 200 and report.status < 300
                         if ok_status then
-                            -- Success: just a transient confirmation line
-                            -- (repo convention: Notification for success,
-                            -- InfoMessage only for errors).
-                            Notification:notify(_("Connection test successful."), Notification.SOURCE_ALWAYS_SHOW)
+                            -- Success: blocking InfoMessage instead of a
+                            -- transient Notification. Deliberate exception
+                            -- to the Notification-for-success convention:
+                            -- the user explicitly ran a test and is waiting
+                            -- on its result, so it must stay on screen until
+                            -- acknowledged instead of fading away like a
+                            -- toast. Reuses the existing msgid, so no new
+                            -- strings need translating.
+                            UIManager:show(InfoMessage:new{
+                                face = Font:getFace("xx_smallinfofont"),
+                                text = _("Connection test successful."),
+                            })
                         else
                             -- Failure: full dump (parameters, request, raw
                             -- API error body) in a dismissable InfoMessage.
