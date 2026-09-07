@@ -56,7 +56,7 @@ function QuickNote:createNoteInputDialog(callback, highlighted_text)
         end
       },
       {
-        text = _("Save"),
+        text = _("OK"),
         is_enter_default = true,
         callback = function()
           local note_text = self.input_dialog:getInputText()

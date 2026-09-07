@@ -640,7 +640,7 @@ function Registry.showParametersDialog(assistant, provider_id)
     -- Checkbox widgets are kept in this local (not on the shared
     -- PARAM_CATALOG entries): storing them on the catalog would pin the
     -- whole widget tree in memory after close and leak state across dialogs.
-    -- NOTE: must be declared before the buttons table below — the Save
+    -- NOTE: must be declared before the buttons table below — the OK
     -- callback closes over it, and a later local would instead resolve
     -- as a nil global inside the callback.
     local checkboxes = {}
@@ -650,8 +650,8 @@ function Registry.showParametersDialog(assistant, provider_id)
             callback = function() UIManager:close(dialog) end,
         },
         {
-                id = "save",
-                text = _("Save"),
+                id = "ok",
+                text = _("OK"),
                 callback = function()
                     -- Runtime overlay only: never touches ui_providers or
                     -- configuration.lua. Only selected catalog entries are
@@ -953,8 +953,7 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
             end,
         },
         {
-            id = "save",
-            text = _("Save"),
+            text = _("OK"),
             is_enter_default = true,
             callback = function()
                 local fields = dialog:getFields()

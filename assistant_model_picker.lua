@@ -373,7 +373,7 @@ showManualInput = function(assistant, close_callback, on_select)
                 callback = function() UIManager:close(dialog) end,
             },
             {
-                text = _("Save"),
+                text = _("OK"),
                 is_enter_default = true,
                 callback = function()
                     local model_id = dialog:getInputText()

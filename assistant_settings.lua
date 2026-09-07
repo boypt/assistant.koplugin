@@ -119,8 +119,7 @@ local function LanguageSetting(assistant, close_callback)
                     end
                 },
                 {
-                    id = "save",
-                    text = _("Save"),
+                    text = _("OK"),
                     callback = function()
                         local fields = langsetting:getFields()
                         for i, key in ipairs({"response_language", "dict_language"}) do

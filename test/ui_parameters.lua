@@ -41,19 +41,19 @@ local mock_assistant = {
 
 local dialog = Registry.showParametersDialog(mock_assistant, "custom:1")
 
--- Exercise the Save callback programmatically (regression: it once indexed
--- a nil global after a refactor). Nothing is checked, so the record's
--- additional_parameters must stay an empty table after saving.
+-- Exercise the OK (apply) callback programmatically (regression: it once
+-- indexed a nil global after a refactor). Nothing is checked, so the
+-- record's additional_parameters must stay an empty table after applying.
 UIManager:scheduleIn(1, function()
     local vgroup = dialog[1][1][1][1] -- CenterContainer > Movable > Frame > VerticalGroup
     local button_table = vgroup[#vgroup][1]
-    button_table:getButtonById("save").callback()
+    button_table:getButtonById("ok").callback()
     local params = mock_record.additional_parameters or {}
     assert(type(params) == "table", "additional_parameters should stay a table")
     for k in pairs(params) do
         error("unexpected param saved without checkboxes: " .. k)
     end
-    print("ui_parameters: Save callback OK, record unchanged")
+    print("ui_parameters: OK callback ran, record unchanged")
 end)
 
 -- Auto-quit: first paint reproduces any layout crash; 2s gives time to eyeball it.

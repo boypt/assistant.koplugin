@@ -544,8 +544,7 @@ function Assistant:_showAddWebSearchDialog(tool_key)
                 callback = function() UIManager:close(dialog) end,
             },
             {
-                id = "save",
-                text = _("Save"),
+                text = _("OK"),
                 is_enter_default = true,
                 callback = function()
                     local input_fields = dialog:getFields()
