@@ -176,7 +176,7 @@ function ModelPickerDialog:init()
             else
                 saveModelSelection(self.assistant, btn.model_id)
                 UIManager:close(self)
-                Notification:notify(T(_("Model: %1"), btn.model_id))
+                Notification:notify(T(_("Model: %1"), btn.model_id), Notification.SOURCE_ALWAYS_SHOW)
                 if self.close_callback then self.close_callback() end
             end
         end,
@@ -297,7 +297,7 @@ function ModelPickerDialog:onReset()
     UIManager:close(self)
     local _p = self.assistant.config:getProvider(self.assistant.querier.provider_name)
     local config_model = (_p and _p.model) or "?"
-    Notification:notify(T(_("Model reset: %1"), config_model))
+    Notification:notify(T(_("Model reset: %1"), config_model), Notification.SOURCE_ALWAYS_SHOW)
     if self.close_callback then self.close_callback() end
 end
 
@@ -373,7 +373,7 @@ showManualInput = function(assistant, close_callback, on_select)
                         else
                             saveModelSelection(assistant, model_id)
                             UIManager:close(dialog)
-                            Notification:notify(T(_("Model: %1"), model_id))
+                            Notification:notify(T(_("Model: %1"), model_id), Notification.SOURCE_ALWAYS_SHOW)
                             if close_callback then close_callback() end
                         end
                     end
