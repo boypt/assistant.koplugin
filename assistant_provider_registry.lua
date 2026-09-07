@@ -55,17 +55,17 @@ Registry.HANDLERS = {
 -- segment (see configuration.sample.lua and api_handlers/gemini.lua).
 Registry.DEFAULT_BASE_URLS = {
     openai    = "https://api.openai.com/v1",
+    responses = "https://api.openai.com/v1",
     anthropic = "https://api.anthropic.com/v1",
     gemini    = "https://generativelanguage.googleapis.com/v1beta/models",
-    responses = "https://api.openai.com/v1",
 }
 
 -- Per-handler guidance shown as the Base URL field description in the
 -- add/edit provider dialog (falls back to a generic hint for other handlers).
 local BASE_URL_DESCRIPTIONS = {
-    openai    = _("OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"),
-    responses = _("OpenAI Responses API - Include built-in web search"),
-    gemini    = _("Gemini API. must include the /models segment, e.g. .../v1beta/models"),
+    openai    = _("OpenAI-compatible Chat Completions API"),
+    responses = _("OpenAI Responses API"),
+    gemini    = _("Gemini API"),
     anthropic = _("Anthropic Messages API"),
 }
 
@@ -798,7 +798,7 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
     -- Handler-aware guidance for the Base URL field (handler is resolved from
     -- the record in edit mode, so compute it after the branch above).
     local base_url_desc = BASE_URL_DESCRIPTIONS[handler]
-        or _("Base URL of the API endpoint, e.g. https://example.com/v1")
+        or _("Base URL, e.g. https://example.com/v1")
 
     local dialog_ref = {}  -- forward ref for enabled_func closure in buttons
     local dialog
@@ -950,15 +950,16 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
     dialog = MultiInputDialog:new{
         title = dialog_title,
         fields = {
-            { description = _("Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"),
+            { description = _("Provider Name"),
               hint = _("Display name"), text = default_name },
             { description = base_url_desc,
-              hint = _("https://..."),   text = base_url },
-            { description = _("API Key - enter your key, then tap Browse Models to list available models"),
+              hint = _("Base URL"),   text = base_url },
+            { description = _("API Key"),
               hint = _("Your API key"),  text = default_api_key },
-            { description = _("Model - tap Browse Models to pick an available model"),
+            { description = _("Model"),
               hint = _("Pick one via Browse Models"), text = default_model },
         },
+        input_face = Font:getFace("xx_smallinfofont"),
         buttons = dialog_buttons,
     }
     dialog_ref[1] = dialog
