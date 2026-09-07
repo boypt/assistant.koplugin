@@ -15,6 +15,7 @@ local koutil = require("util")
 local _ = require("assistant_gettext")
 local UIManager = require("ui/uimanager")
 local InfoMessage = require("ui/widget/infomessage")
+local Notification = require("ui/widget/notification")
 local ConfirmBox = require("ui/widget/confirmbox")
 local Blitbuffer = require("ffi/blitbuffer")
 local ButtonTable = require("ui/widget/buttontable")
@@ -68,6 +69,40 @@ local BASE_URL_DESCRIPTIONS = {
     gemini    = _("Gemini API"),
     anthropic = _("Anthropic Messages API"),
 }
+
+-- Response body cap shown in the connection-test report (keeps the
+-- InfoMessage readable when an API returns a large error page).
+local MAX_TEST_BODY_DISPLAY = 700
+
+--- Compose the connection-test report for the provider dialog: the user's
+--- parameters, the exact request that was sent, and the response — the
+--- model's reply text on success, the raw API error body on failure. Long
+--- bodies are truncated. Pure data formatting; the caller decides the
+--- InfoMessage icon. The API key is deliberately not shown at all.
+local function formatTestReport(handler_name, base_url, model, report)
+    local ok_status = report.status >= 200 and report.status < 300
+    local response_text
+    if ok_status and report.content then
+        response_text = T(_("Model replied: %1"), report.content)
+    else
+        response_text = ASUtils.truncateToHeadUtf8Safe(report.raw, MAX_TEST_BODY_DISPLAY)
+        if response_text == "" then
+            response_text = _("(empty response body)")
+        end
+    end
+    return table.concat({
+        ASUtils.bold_format(_("<b>Parameters</b>")),
+        T(_("Handler: %1"), handler_name),
+        T(_("Base URL: %1"), base_url),
+        T(_("Model: %1"), model),
+        "",
+        ASUtils.bold_format(T(_("<b>Request</b> - POST %1"), report.url)),
+        report.body,
+        "",
+        ASUtils.bold_format(T(_("<b>Response</b> - HTTP %1"), report.status)),
+        response_text,
+    }, "\n")
+end
 
 -- Preset platforms offered in the "Provider API" sub-menu.
 -- Selecting one only asks for the API key (name/base_url come from here).
@@ -849,6 +884,67 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
                                 end
                             end
                         )
+                    end)
+                end)
+            end,
+        },
+        {
+            id = "test",
+            text = _("Test"),
+            enabled_func = function()
+                local d = dialog_ref[1]
+                if not d then return false end
+                local f = d:getFields()
+                return f[1] ~= "" and f[2] ~= "" and f[3] ~= "" and f[4] ~= ""
+            end,
+            callback = function()
+                local fields = dialog:getFields()
+                local url, api_key, model = fields[2], fields[3], fields[4]
+                -- Fire the test through the handler's own Test() on a
+                -- throwaway instance (same pattern as model_picker.fetchModels)
+                -- so the live provider singleton is never mutated. The request
+                -- runs in a dismissable subprocess behind an InfoMessage;
+                -- whatever comes back only opens a report dialog — the provider
+                -- form itself is left untouched, success or failure.
+                ASUtils.runWhenOnlineFast(function()
+                    Trapper:wrap(function()
+                        local handler_module = require("api_handlers." .. handler)
+                        local tester = handler_module:new{
+                            base_url = url,
+                            api_key  = api_key,
+                            model    = model,
+                        }
+                        tester:normalizeBaseUrl()
+                        -- testRequest() owns the dismissable "Testing
+                        -- connection..." InfoMessage (shows the exact POST
+                        -- endpoint, tap to cancel).
+                        local report, err = tester:Test()
+                        if err == ASUtils.HANDLERCODE.CODE_CANCELLED then
+                            return  -- user dismissed the InfoMessage
+                        end
+                        if not report then
+                            UIManager:show(InfoMessage:new{
+                                icon = "notice-warning",
+                                face = Font:getFace("xx_smallinfofont"),
+                                text = T(_("Request failed: %1"), tostring(err)),
+                            })
+                            return
+                        end
+                        local ok_status = report.status >= 200 and report.status < 300
+                        if ok_status then
+                            -- Success: just a transient confirmation line
+                            -- (repo convention: Notification for success,
+                            -- InfoMessage only for errors).
+                            Notification:notify(_("Connection test successful."), Notification.SOURCE_ALWAYS_SHOW)
+                        else
+                            -- Failure: full dump (parameters, request, raw
+                            -- API error body) in a dismissable InfoMessage.
+                            UIManager:show(InfoMessage:new{
+                                icon = "notice-warning",
+                                face = Font:getFace("xx_smallinfofont"),
+                                text = formatTestReport(handler, url, model, report),
+                            })
+                        end
                     end)
                 end)
             end,

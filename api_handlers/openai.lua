@@ -86,6 +86,23 @@ function OpenAIHandler:FetchModels()
     return nil, _("Failed to fetch models")
 end
 
+--- Connection test: minimal non-stream chat request with the static echo
+--- instruction. Inherited by the OpenAI-compatible aliases (deepseek,
+--- ollama, openrouter, mistral, groq, gigachat).
+function OpenAIHandler:Test()
+    local body = {
+        model    = self.model,
+        messages = { { role = "user", content = self.TEST_PROMPT } },
+    }
+    local headers = {
+        ["Content-Type"]  = "application/json",
+        ["Authorization"] = "Bearer " .. self.api_key,
+    }
+    return self:testRequest(self:getApiUrl(), headers, body, function(data)
+        return koutil.tableGetValue(data, "choices", 1, "message", "content")
+    end)
+end
+
 --- Build a JSON request body for the OpenAI-compatible API.
 --- @param messages  table   message history
 --- @param tools     table|nil  tool definitions (nil → no tool_calls)

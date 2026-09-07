@@ -63,6 +63,22 @@ function ResponsesHandler:SyncOptions(querier)
     self.responses_url = self.base_url .. "/responses"
 end
 
+--- Connection test: minimal Responses API request with the static echo
+--- instruction (plain string input, no tools/streaming).
+function ResponsesHandler:Test()
+    local body = {
+        model = self.model,
+        input = self.TEST_PROMPT,
+    }
+    local headers = {
+        ["Content-Type"]  = "application/json",
+        ["Authorization"] = "Bearer " .. self.api_key,
+    }
+    return self:testRequest(self.base_url .. "/responses", headers, body, function(data)
+        return data.output_text
+    end)
+end
+
 function ResponsesHandler:FetchModels()
     -- Use the standard /v1/models endpoint (same as Chat Completions)
     local model_url = self.base_url .. "/models"

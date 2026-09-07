@@ -4,6 +4,9 @@ local ltn12 = require("ltn12")
 local socket = require("socket")
 local https = require("ssl.https")
 local Trapper = require("ui/trapper")
+local UIManager = require("ui/uimanager")
+local InfoMessage = require("ui/widget/infomessage")
+local Font = require("ui/font")
 local json = require("rapidjson")
 local ffi = require("ffi")
 local ffiutil = require("ffi/util")
@@ -386,6 +389,66 @@ function BaseHandler:normalizeBaseUrl()
         :gsub("/responses$", "")                    -- strip Responses API path
         :gsub("/models/[^/]+:generateContent$", "") -- strip Gemini model:action suffix
         :gsub("/+$", "")                            -- strip trailing slashes again
+end
+
+--- Static instruction for the provider connection test: the model must echo
+--- it back verbatim, so one 2xx reply proves endpoint, key and model name at
+--- once. Sent to the API as-is — deliberately not a gettext string.
+BaseHandler.TEST_PROMPT = "Reply with exactly one word: OK"
+
+--- Connection test entry point; each wire-compatible handler overrides it
+--- with its own minimal request shape and calls self:testRequest().
+function BaseHandler:Test()
+    return nil, T(_("%1 handler does not support connection testing"), tostring(self.name))
+end
+
+--- Shared Test plumbing for handler Test() implementations: POST the minimal
+--- request and package the whole exchange into a displayable report for the
+--- provider dialog. HTTP error statuses are NOT turned into nil, err — the
+--- error body is exactly what a failed test must show, so it rides along in
+--- the report (status/raw). Only transport failures (timeout, offline,
+--- unsupported protocol) and user cancellation return nil, err.
+--- @param url string       full endpoint URL
+--- @param headers table    auth/content headers (the API key stays out of url/body)
+--- @param body table       Lua request body (JSON-encoded here)
+--- @param extract function decoded response table -> assistant text, or nil
+--- @return table|nil report { url, body, status, raw, content } @return string|nil err
+function BaseHandler:testRequest(url, headers, body, extract)
+    local json_body = json.encode(body)
+    -- Dismissable wait indicator showing the exact endpoint being dialed
+    -- (same pattern as FetchModels); tapping it cancels the request.
+    local infomsg = InfoMessage:new{
+        face = Font:getFace("xx_smallinfofont"),
+        text = ASUtils.bold_format(_("<b>Testing connection...</b>")) .. "\nPOST " .. url,
+    }
+    UIManager:show(infomsg)
+    self:setTrapWidget(infomsg)
+    local success, code, raw = self:makeRequest(url, headers, json_body)
+    self:resetTrapWidget()
+    UIManager:close(infomsg)
+    if not success then
+        if code == self.CODE_CANCELLED then
+            return nil, self.CODE_CANCELLED
+        end
+        local status = tonumber(code)
+        if not status then
+            -- transport-level failure: raw holds a readable reason
+            return nil, tostring(raw or code)
+        end
+        -- HTTP error: keep status + body so the dialog can surface the API error
+        return { url = url, body = json_body, status = status, raw = raw or "" }
+    end
+    local report = {
+        url    = url,
+        body   = json_body,
+        status = tonumber(code) or 0,
+        raw    = raw or "",
+    }
+    local ok, decoded = pcall(json.decode, report.raw)
+    if ok and type(decoded) == "table" then
+        report.content = extract(decoded)
+    end
+    return report
 end
 
 --- Query method to be implemented by specific handlers.

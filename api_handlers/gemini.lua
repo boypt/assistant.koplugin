@@ -168,6 +168,24 @@ function GeminiHandler:buildRequestBody(messages, tool_def)
     return body
 end
 
+--- Connection test: minimal generateContent request with the static echo
+--- instruction. base_url must keep the /models segment (same rule as query).
+function GeminiHandler:Test()
+    local base_url = (self.base_url or "https://generativelanguage.googleapis.com/v1beta/models")
+                       :gsub("/+$", "")
+    local url = string.format("%s/%s:generateContent", base_url, self.model)
+    local headers = {
+        ["Content-Type"]   = "application/json",
+        ["x-goog-api-key"] = self.api_key,
+    }
+    local body = {
+        contents = { { role = "user", parts = { { text = self.TEST_PROMPT } } } },
+    }
+    return self:testRequest(url, headers, body, function(data)
+        return koutil.tableGetValue(data, "candidates", 1, "content", "parts", 1, "text")
+    end)
+end
+
 function GeminiHandler:query(message_history, query_option)
 
     local model    = self.model

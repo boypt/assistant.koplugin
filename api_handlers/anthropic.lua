@@ -23,6 +23,25 @@ function AnthropicHandler:getApiUrl()
     return self.base_url .. "/messages"
 end
 
+--- Connection test: minimal non-stream messages request with the static echo
+--- instruction (max_tokens is a required Anthropic field).
+function AnthropicHandler:Test()
+    local body = {
+        model      = self.model,
+        max_tokens = 64,
+        messages   = { { role = "user", content = self.TEST_PROMPT } },
+    }
+    local headers = {
+        ["Content-Type"]       = "application/json",
+        ["x-api-key"]          = self.api_key,
+        ["anthropic-version"]  = (self.additional_parameters and self.additional_parameters.anthropic_version)
+                                 or "2023-06-01",
+    }
+    return self:testRequest(self:getApiUrl(), headers, body, function(data)
+        return koutil.tableGetValue(data, "content", 1, "text")
+    end)
+end
+
 function AnthropicHandler:FetchModels()
 
     local model_url = self.base_url .. "/models"
