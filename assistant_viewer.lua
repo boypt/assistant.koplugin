@@ -764,6 +764,7 @@ function ChatGPTViewer:askAnotherQuestion(simple_mode)
     enabled = web_search_available,
     callback = function()
       self.assistant.settings:saveSetting("ask_use_websearch", use_web_search_checkbox.checked)
+      self.assistant.updated = true
     end,
   }
   local vgroup = self.input_dialog.dialog_frame[1]

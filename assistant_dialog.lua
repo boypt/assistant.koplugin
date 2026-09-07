@@ -748,6 +748,9 @@ function AssistantDialog:show(highlightedText)
     enabled = web_search_available,
     callback = function()
       self.assistant.settings:saveSetting("ask_use_websearch", use_web_search_checkbox.checked)
+      -- flush() only runs on reader exit when this flag is set; without it the
+      -- checkbox state lives in memory and is lost after a restart.
+      self.assistant.updated = true
     end,
   }
   local use_copy_clipboard_checkbox
@@ -759,6 +762,7 @@ function AssistantDialog:show(highlightedText)
     checked = self.assistant.settings:readSetting("auto_copy_asked_question", true),
     callback = function()
       self.assistant.settings:saveSetting("auto_copy_asked_question", use_copy_clipboard_checkbox.checked)
+      self.assistant.updated = true
     end,
   }
   table.insert(vgroup, checkbox_pos, HorizontalGroup:new{
