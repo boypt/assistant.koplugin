@@ -9,7 +9,21 @@ MSGATTRIB_BIN = msgattrib
 MSGCAT_BIN    = msgcat
 XGETTEXT_BIN  = xgettext
 
-LANGS      := zh_CN zh_TW af_ZA ar be bg_BG bn ca cs cy da de el eo es et eu fa fi fr ga gl he hi hr hu ia id ie it_IT ja ka kab kn ko_KR lt_LT lv mk ms nb_NO nl_NL nn or pl pt_BR pt_PT ro ro_MD ru si sk sl sr sv th tr uk ur uz vi
+# Ordered cheap -> expensive for the AI translator. Primary key is nplurals
+# (1 -> 6): the prompt demands msgstr_plural arrays of exactly nplurals
+# non-empty forms, and a mismatch fails the whole 20-entry chunk (up to 3
+# retries); high-nplurals languages also overflow AI_MAX_TOKENS sooner and
+# fall into the bisect/boosted-token path. That is why ga (5) / ar, cy (6) /
+# ka stall in practice -- they sit at the tail now. Secondary key inside each
+# tier is script token efficiency + model resource level. ai-translate builds
+# its job queue in this order, so workers finish the cheap languages before
+# grinding through the stall-prone tail. check-langs sorts both sides, so
+# this order never affects drift checks.
+LANGS      := zh_CN zh_TW ja id ms ko_KR vi th \
+         es pt_BR pt_PT ca gl fr it_IT nl_NL de sv da nb_NO nn af_ZA eo ia fi et hu eu tr uz bg_BG mk el fa hi ur bn ie kab si kn or ka \
+         cs hr sr ro ro_MD lv be \
+         pl sk sl ru uk lt_LT he \
+         ga cy ar
 MO_FILES   := $(LANGS:%=%/$(DOMAIN).mo)
 PO_FILES   := $(wildcard */$(DOMAIN).po)
 
@@ -207,7 +221,9 @@ ai-translate:
 			echo "All languages are up to date. Nothing to translate."; \
 		else \
 			TO_TRANSLATE_TARGETS=$$(for lang in $$TO_TRANSLATE; do echo "ai-translate-$$lang"; done); \
-			echo "Starting parallel translation for targets: $$TO_TRANSLATE_TARGETS"; \
+			TOTAL_LANGS=$$(echo $$TO_TRANSLATE | wc -w); \
+			echo "Starting parallel translation for $$TOTAL_LANGS language(s), cheapest first:" $$TO_TRANSLATE; \
+			L10N_TO_LIST="$$TO_TRANSLATE"; export L10N_TO_LIST; \
 			if ! $(MAKE) -k -j $(JOBS) $$TO_TRANSLATE_TARGETS; then \
 				FAILED=$$(for lang in $$TO_TRANSLATE; do \
 					if [ -s "$$lang/untranslated.po" ] && [ ! -f "$$lang/updated_translated.po" ] && [ ! -f "$$lang/$(DOMAIN).po.new" ]; then \
@@ -234,6 +250,17 @@ ai-translate-%:
 			fi; \
 		elif [ -s "$$lang/untranslated.po" ] && [ ! -f "$$lang/updated_translated.po" ]; then \
 			echo "\033[0;31mError: AI translation for '$$lang' failed. File '$$lang/updated_translated.po' not created.\033[0m"; exit 1; \
+		fi; \
+		if [ -n "$${L10N_TO_LIST:-}" ]; then \
+			done_n=0; total_n=0; \
+			for l in $${L10N_TO_LIST}; do \
+				total_n=$$((total_n+1)); \
+				if [ ! -s "$$l/untranslated.po" ] || [ -f "$$l/updated_translated.po" ] || \
+				   { [ -f "$$l/$(DOMAIN).po" ] && [ "$$l/$(DOMAIN).po" -nt "$$l/untranslated.po" ]; }; then \
+					done_n=$$((done_n+1)); \
+				fi; \
+			done; \
+			echo "\033[0;32m[$$lang] done. Progress: $$done_n/$$total_n languages translated, $$((total_n - done_n)) remaining.\033[0m"; \
 		fi; \
 	} || exit 1
 
