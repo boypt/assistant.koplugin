@@ -88,6 +88,12 @@ Force a single-language run from the command line:
 
     L10N_LANG=de make ai-translate
 
+Retranslate one exact msgid everywhere (e.g. after a terminology fix —
+empties it in all `.po` files, then runs it back through the pipeline):
+
+    make retranslate-msgid MSGID="OpenAI-compatible Chat Completions API"
+    L10N_LANG=ja make retranslate-msgid MSGID="OpenAI-compatible Chat Completions API"
+
 ## Updating Translations
 
 When the source code changes, new strings might be added or modified. To update all language files:

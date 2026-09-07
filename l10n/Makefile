@@ -42,7 +42,7 @@ endif
 
 .DEFAULT_GOAL := all
 
-.PHONY: help all translate template update extract-untranslated ai-translate check-ai-results import-translation check check-langs check-api clean init-dirs mo retranslate-fuzzy
+.PHONY: help all translate template update extract-untranslated ai-translate check-ai-results import-translation check check-langs check-api clean init-dirs mo retranslate-fuzzy retranslate-msgid
 
 help:
 	@echo "Usage: make [target]"
@@ -57,6 +57,7 @@ help:
 	@echo "  clean           Remove intermediate files"
 	@echo "  ai-translate    Run AI translation (all or L10N_LANG=xx)"
 	@echo "  retranslate-fuzzy  Re-extract and re-translate fuzzy entries (all or L10N_LANG=xx)"
+	@echo "  retranslate-msgid  Empty one MSGID everywhere and re-translate it: make retranslate-msgid MSGID=\"...\" [L10N_LANG=xx]"
 	@echo "  init-dirs       Create missing language directories"
 
 # Default target: full pipeline + MO compilation (virtual)
@@ -275,6 +276,33 @@ retranslate-fuzzy:
 	@$(MAKE) import-translation
 	@echo "Fuzzy re-translation imported; running 'make check'..."
 	@$(MAKE) check || true
+
+# Empty one exact MSGID in every (or one L10N_LANG) .po file and run it back
+# through the pipeline, so a terminology fix is retranslated by the script
+# instead of hand-edited in 60 files. Needs .env (ai-translate step).
+retranslate-msgid:
+	@if [ -z "$(MSGID)" ]; then \
+		echo "Usage: make retranslate-msgid MSGID=\"<exact msgid>\" [L10N_LANG=xx]"; \
+		exit 1; \
+	fi
+	@echo "Emptying msgid for retranslation: $(MSGID)"
+	@for lang in $(LANGS); do \
+		if [ -n "$(L10N_LANG)" ] && [ "$$lang" != "$(L10N_LANG)" ]; then continue; fi; \
+		./retranslate_msgid.py "$$lang" "$(MSGID)" || exit 1; \
+	done
+	@for lang in $(LANGS); do \
+		if [ -n "$(L10N_LANG)" ] && [ "$$lang" != "$(L10N_LANG)" ]; then continue; fi; \
+		rm -f $$lang/untranslated.po $$lang/_untranslated.po $$lang/_fuzzy.po $$lang/updated_translated.po; \
+	done
+	@$(MAKE) extract-untranslated
+	@$(MAKE) ai-translate
+	@$(MAKE) import-translation
+	@echo "Retranslation imported; running 'make check'..."
+	@$(MAKE) check || true
+	@echo "Cleaning up intermediate files..."
+	@$(MAKE) clean
+	@echo "Compiling .mo files..."
+	@$(MAKE) mo
 
 template:
 	mkdir -p $(TEMPLATE_DIR)

@@ -202,6 +202,7 @@ Translate software/AI terminology using the established conventions of the targe
   - "web search" means internet/online search; "tool calling" means the AI invoking external tools.
   - E-reader terms: "annotation" = a reader's margin note, "highlight" = selected/emphasized text, "notebook" = the note collection.
   - Feature names ("X-Ray", "Recap", "Term X-Ray") may stay in English or be translated consistently across the file.
+  - API/product names ("Chat Completions API", "Responses API", "Messages API", "Gemini API", model names) always stay in English; translate only surrounding descriptors (e.g. "compatible" / "OpenAI-compatible").
 
 You will receive a JSON object describing the target language and a list of items to translate. Each item has:
   - id: the index of the item (use this id verbatim in your response)
