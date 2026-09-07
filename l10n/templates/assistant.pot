@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.17\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:18+0800\n"
+"POT-Creation-Date: 2026-09-07 11:22+0800\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -31,8 +31,17 @@ msgid "Failed to fetch models"
 msgstr ""
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
+msgstr ""
+
+msgid "<b>Detail:</b>"
+msgstr ""
+
+msgid "%1 handler does not support connection testing"
+msgstr ""
+
+msgid "<b>Testing connection...</b>"
 msgstr ""
 
 msgid "### %1 Question\n"
@@ -200,10 +209,14 @@ msgstr ""
 msgid " - p. %1/%2"
 msgstr ""
 
-msgid "Manual"
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
 msgstr ""
 
 msgid "Reset"
+msgstr ""
+
+msgid "OK"
 msgstr ""
 
 msgid "Model: %1"
@@ -575,16 +588,37 @@ msgstr ""
 msgid "Word Origin"
 msgstr ""
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
 msgstr ""
 
-msgid "OpenAI Responses API - Include built-in web search"
+msgid "OpenAI Responses API"
 msgstr ""
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
+msgid "Gemini API"
 msgstr ""
 
 msgid "Anthropic Messages API"
+msgstr ""
+
+msgid "Model replied: %1"
+msgstr ""
+
+msgid "(empty response body)"
+msgstr ""
+
+msgid "<b>Parameters</b>"
+msgstr ""
+
+msgid "Handler: %1"
+msgstr ""
+
+msgid "Base URL: %1"
+msgstr ""
+
+msgid "<b>Request</b> - POST %1"
+msgstr ""
+
+msgid "<b>Response</b> - HTTP %1"
 msgstr ""
 
 msgid "Provider record must be a table."
@@ -632,10 +666,19 @@ msgstr ""
 msgid "Add %1 Provider"
 msgstr ""
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
 msgstr ""
 
 msgid "Browse Models"
+msgstr ""
+
+msgid "Test"
+msgstr ""
+
+msgid "Request failed: %1"
+msgstr ""
+
+msgid "Connection test successful."
 msgstr ""
 
 msgid "Delete"
@@ -647,22 +690,22 @@ msgstr ""
 msgid "Clear"
 msgstr ""
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
+msgid "Provider Name"
 msgstr ""
 
 msgid "Display name"
 msgstr ""
 
-msgid "https://..."
+msgid "Base URL"
 msgstr ""
 
-msgid "API Key - enter your key, then tap Browse Models to list available models"
+msgid "API Key"
 msgstr ""
 
 msgid "Your API key"
 msgstr ""
 
-msgid "Model - tap Browse Models to pick an available model"
+msgid "Model"
 msgstr ""
 
 msgid "Pick one via Browse Models"
@@ -1186,10 +1229,7 @@ msgid ""
 "%1 -> AI Assistant -> Settings -> Provider API"
 msgstr ""
 
-msgid "API Key"
-msgstr ""
-
-msgid "Base URL"
+msgid "https://..."
 msgstr ""
 
 msgid "Failed to save search tool."
@@ -1198,9 +1238,6 @@ msgstr ""
 msgid ""
 "<b>No provider set up yet.</b>\n"
 "Please add a provider in Settings or configuration.lua."
-msgstr ""
-
-msgid "OK"
 msgstr ""
 
 msgid "configuration.lua: model providers are invalid."

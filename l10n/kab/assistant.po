@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 04:13+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: Taqbaylit (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### Ahat ad tafed isental-agi d iɛejben:"
 msgid "%1 - choose an action"
 msgstr "%1 - fren tigawt"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 ur yezmir ara ad yesserwes af tujjya n tuqqna"
+
 msgid "(No response)"
 msgstr "(Ulac tiririt)"
+
+msgid "(empty response body)"
+msgstr "(tiririt tarujigt)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Ad d-nernu aqeffar-agi ɣer Umuɣ n Usnen?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API Yettwacɣaṛ (Addad: 429)</b>\n"
-"Tirmilin %1/%2 - aɛawed deg"
+"<b>API yedhel</b>\n"
+"Tikawin %1/%2 ... Aɛawed deg"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Ur yezmir ara ad yekcem ɣer ukaram amiran n yilog: %1</b>\n"
 "La nseqdac adeg n taneẓẓi."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Talqayt:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Isefra</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Tettwakkes</b> [%1 (AI)] seg umuɣ n usefreq."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Tuttrut</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Tiririt</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Asqerred n tuqqna yedda."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Anaw n tmahilt ur yettwassen:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI la yettirir."
 
 msgid "API Key"
 msgstr "Tasarut n API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Tasarut n API - sekcem tasarut-ik, syin sit ɣef Browse Models i wakken ad d-banen yimudlen yellan"
 
 msgid "API key is required for %1."
 msgstr "Tasarut n API teḥwaǧ i %1."
@@ -321,8 +339,11 @@ msgstr "URL agejdan yettwaḥwaǧ."
 msgid "Base URL must start with http:// or https://"
 msgstr "URL agejdan yessefk ad yebdu s http:// neɣ https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL n tɣuri n unekcam n API, amedya https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Base URL, amedya: https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Base URL: %1"
 
 msgid "Book Analysis"
 msgstr "Taseftit n udlis."
@@ -388,6 +409,9 @@ msgstr "Sweṭṭeḍ tutlayt n tririt n LLM n AI. S lexṣas, d tutlayt n ugdil
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Akaram n tadbeltin yettwasebded ur yettwasekcem ara: %1"
+
+msgid "Connection test successful."
+msgstr "Asqerred n tuqqna yedda."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Azal aḍelsan"
 
 msgid "Current Chapter Only"
 msgstr "Agzul amiran kan"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Yudsen"
 
 msgid "Custom Prompt"
 msgstr "Asuter i d-yettwaseknen"
@@ -593,8 +621,8 @@ msgstr "I wugar n telqayt, ẓer asebtar 'Configuration' wiki deg github."
 msgid "Fun Analogy"
 msgstr "Amday aḥlawan"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "API n Gemini. ilaq ad tesɛuḍ aḥric /models, amedya .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Ameslay amatu."
@@ -619,6 +647,9 @@ msgstr "Handler %1 ur yelli ara i umseddar: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Handler ur yettwaf i: %1. Ma ulac aɣilif, senqed afaylu configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Aseqdac: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Asenqed n Usnen d Tizmilin"
@@ -715,20 +746,20 @@ msgstr "Senqed"
 msgid "Main Themes"
 msgstr "Isental tigejdanin"
 
-msgid "Manual"
-msgstr "Amanual"
-
 msgid "Markdown Engine"
 msgstr "Amasi n Markdown"
 
 msgid "Meaning"
 msgstr "Anamek"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Amuddel - sit ɣef Browse Models i wakken ad tferneḍ amuddel yellan"
+msgid "Model"
+msgstr "Aneggaf"
 
 msgid "Model Built-In"
 msgstr "Amudel i yebnan"
+
+msgid "Model replied: %1"
+msgstr "Aneggaf yerra: %1"
 
 msgid "Model reset: %1"
 msgstr "Amaḍel yettwales: %1"
@@ -885,11 +916,11 @@ msgstr "Yettwaseqdec kan s yisuturen i yeqeblen amagrad n wedlis (s lexṣas: Ex
 msgid "Open conflict or mystery:"
 msgstr "Amennuɣ neɣ tabṛṛist yeldin:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "API n Tiririyin n OpenAI - Yesɛa anadi n web yettwaselɣen"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Endpoint chat/completions i kompatiblen akked OpenAI, amedya https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "API n Chat Completions amṣad akked OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "Isteqsiyen ur nettwajben:"
@@ -933,8 +964,8 @@ msgstr "Amsudd %1 UR YETTWASEBDED ARA"
 msgid "Provider API"
 msgstr "API n umseddar"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Isem n umsudd - yettwaskan deg yimuɣen; eǧǧ-it d ilem i wakken ad tesqedceḍ isem n upṛuṭukul n API (amedya \"openai\")"
+msgid "Provider Name"
+msgstr "Isem n ufaydi"
 
 msgid "Provider data not initialized."
 msgstr "Isefka n umseddar ur ttwabdan."
@@ -1002,6 +1033,9 @@ msgstr "Asuter yettwaḥbes sɣur useqdac."
 
 msgid "Request cancelled by user."
 msgstr "Asuter yettwaḥbes sɣur useqdac."
+
+msgid "Request failed: %1"
+msgstr "Tuffɣa ur tewwi ara: %1"
 
 msgid "Reset"
 msgstr "Ales"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Iwalen d timsal"
+
+msgid "Test"
+msgstr "Ajeṛṛeb"
 
 msgid "Text Size: %1"
 msgstr "Teɣzi n uḍris: %1"

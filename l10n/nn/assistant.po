@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Du kan finne desse emna interessante:"
 msgid "%1 - choose an action"
 msgstr "%1 - vel ein handling"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1-handterar støttar ikkje tilkoblingstesting"
+
 msgid "(No response)"
 msgstr "(Ingen svar)"
+
+msgid "(empty response body)"
+msgstr "(tom svar-kropp)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Legg til denne knappen i markeringsmenyen?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API oppteke (Status: 429)</b>\n"
-"Forsøk %1/%2 - prøv igjen om"
+"<b>API oppteken</b>\n"
+"Forsøk %1/%2 ... Prøv igjen om"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Kan ikkje få tilgang til standardmappa for loggar: %1</b>\n"
 "Brukar den opphavlege plasseringa."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Detalj:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametrar</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Fjerna</b> [%1 (AI)] frå merkemenyen."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Førespurnad</b> – POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Svar</b> – HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Testing av tilkopling"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Ukjend funksjonstype:</b> %1"
@@ -211,9 +232,6 @@ msgstr "KI svarar"
 
 msgid "API Key"
 msgstr "API-nøkkel"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API-nøkkel – skriv inn nøkkelen din, og trykk Bla gjennom modellar for å lista tilgjengelege modellar."
 
 msgid "API key is required for %1."
 msgstr "API-nøkkel er påkravd for %1."
@@ -321,8 +339,11 @@ msgstr "Base-URL er påkravd."
 msgid "Base URL must start with http:// or https://"
 msgstr "Base-URL må byrje med http:// eller https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Base-URL for API-endepunktet, t.d. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Base-URL"
+
+msgid "Base URL: %1"
+msgstr "Base-URL: %1"
 
 msgid "Book Analysis"
 msgstr "Bokanalyse"
@@ -388,6 +409,9 @@ msgstr "Konfigurer responsspråket til AI-LLM-en. Standard er grensesnittspråke
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Konfigurert notatbokmappe er ikkje tilgjengeleg: %1"
+
+msgid "Connection test successful."
+msgstr "Tilkoplingstesten lukkast."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Kulturell tyding"
 
 msgid "Current Chapter Only"
 msgstr "Berre noverande kapittel"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Tilpassa"
 
 msgid "Custom Prompt"
 msgstr "Tilpassa prompt"
@@ -593,8 +621,8 @@ msgstr "For detaljar, sjå 'Configuration'-wikisida på GitHub."
 msgid "Fun Analogy"
 msgstr "Kjekk analogi"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. må inkludere /models-segmentet, t.d. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Generell samtale"
@@ -619,6 +647,9 @@ msgstr "Handterar %1 er ikkje tilgjengeleg for leverandør: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Fann ikkje handterar for: %1. Kontroller configuration.lua-fila di."
+
+msgid "Handler: %1"
+msgstr "Handterar: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Analyse av markeringar og notat"
@@ -715,20 +746,20 @@ msgstr "Slå opp"
 msgid "Main Themes"
 msgstr "Hovudtema"
 
-msgid "Manual"
-msgstr "Handbok"
-
 msgid "Markdown Engine"
 msgstr "Markdown-motor"
 
 msgid "Meaning"
 msgstr "Tyding"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Modell - trykk på Bla gjennom modellar for å velje ein tilgjengeleg modell"
+msgid "Model"
+msgstr "Modell"
 
 msgid "Model Built-In"
 msgstr "Innebygd modell"
+
+msgid "Model replied: %1"
+msgstr "Modellen svara: %1"
 
 msgid "Model reset: %1"
 msgstr "Modell tilbakestilt: %1"
@@ -885,11 +916,11 @@ msgstr "Berre brukt av ledetekstar som vel å inkludere bokkontekst (som standar
 msgid "Open conflict or mystery:"
 msgstr "Open konflikt eller gåte:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Inkluder innebygd nettsøk"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-kompatibelt chat/completions-endepunkt, t.d. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-kompatibel Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Uavklarte spørsmål:"
@@ -933,8 +964,8 @@ msgstr "Tilbydar %1 IKKJE KONFIGURERT"
 msgid "Provider API"
 msgstr "Leverandør-API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Namn på tilbydar - vist i menyar; la stå tom for å bruke API-protokollnamnet (t.d. \"openai\")"
+msgid "Provider Name"
+msgstr "Namn på tenesteleverandør"
 
 msgid "Provider data not initialized."
 msgstr "Leverandørdata er ikkje initialisert."
@@ -1002,6 +1033,9 @@ msgstr "Førespurnaden vart avbroten av brukaren."
 
 msgid "Request cancelled by user."
 msgstr "Førespurnaden vart avbroten av brukaren."
+
+msgid "Request failed: %1"
+msgstr "Førespurnaden mislukkast: %1"
 
 msgid "Reset"
 msgstr "Tilbakestill"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Omgrep og konsept"
+
+msgid "Test"
+msgstr "Test"
 
 msgid "Text Size: %1"
 msgstr "Skriftstorleik: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 04:11+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: Bahasa Melayu (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### Anda mungkin mendapati topik-topik ini menarik:"
 msgid "%1 - choose an action"
 msgstr "%1 - pilih tindakan"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Pengendali %1 tidak menyokong ujian sambungan"
+
 msgid "(No response)"
 msgstr "(Tiada respons)"
+
+msgid "(empty response body)"
+msgstr "(badan respons kosong)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Tambahkan butang ini ke Menu Sorotan?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API Sibuk (Status: 429)</b>\n"
-"Cubaan %1/%2 - cuba semula dalam"
+"<b>API Sibuk</b>\n"
+"Cubaan %1/%2 ... Cuba semula dalam"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Tidak dapat mengakses folder lalai untuk log: %1</b>\n"
 "Menggunakan lokasi asal."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Butiran:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parameter</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Dibuang</b> [%1 (AI)] daripada Menu Serlahan."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Permintaan</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Respons</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Menguji sambungan...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Jenis ciri tidak diketahui:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI sedang memberi respons"
 
 msgid "API Key"
 msgstr "Kunci API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Kunci API - masukkan kunci anda, kemudian ketik Layari Model untuk menyenaraikan model yang tersedia"
 
 msgid "API key is required for %1."
 msgstr "Kunci API diperlukan untuk %1."
@@ -321,8 +339,11 @@ msgstr "URL asas diperlukan."
 msgid "Base URL must start with http:// or https://"
 msgstr "URL asas mesti bermula dengan http:// atau https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL asas titik akhir API, cth. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "URL Asas, cth. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "URL Asas: %1"
 
 msgid "Book Analysis"
 msgstr "Analisis Buku"
@@ -388,6 +409,9 @@ msgstr "Konfigurasikan bahasa respons AI LLM. Lalai kepada bahasa antara muka KO
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Folder buku nota yang dikonfigurasi tidak boleh diakses: %1"
+
+msgid "Connection test successful."
+msgstr "Ujian sambungan berjaya."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Kepentingan Budaya"
 
 msgid "Current Chapter Only"
 msgstr "Hanya Bab Semasa"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Tersuai"
 
 msgid "Custom Prompt"
 msgstr "Prompt Tersuai"
@@ -593,8 +621,8 @@ msgstr "Untuk butiran, lawati halaman wiki 'Configuration' di github."
 msgid "Fun Analogy"
 msgstr "Analogi Menarik"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "API Gemini. mesti mengandungi segmen /models, contohnya .../v1beta/models"
+msgid "Gemini API"
+msgstr "API Gemini"
 
 msgid "General Conversation"
 msgstr "Perbualan Umum"
@@ -619,6 +647,9 @@ msgstr "Pengendali %1 tidak tersedia untuk pembekal: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Pengendali tidak ditemui untuk: %1. Sila semak fail configuration.lua anda."
+
+msgid "Handler: %1"
+msgstr "Pengendali: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Analisis Sorotan & Nota"
@@ -714,20 +745,20 @@ msgstr "Cari"
 msgid "Main Themes"
 msgstr "Tema Utama"
 
-msgid "Manual"
-msgstr "Panduan"
-
 msgid "Markdown Engine"
 msgstr "Enjin Markdown"
 
 msgid "Meaning"
 msgstr "Makna"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Model - ketik Layari Model untuk memilih model yang tersedia"
+msgid "Model"
+msgstr "Model"
 
 msgid "Model Built-In"
 msgstr "Model Terbina Dalam"
+
+msgid "Model replied: %1"
+msgstr "Model membalas: %1"
 
 msgid "Model reset: %1"
 msgstr "Model diset semula: %1"
@@ -884,11 +915,11 @@ msgstr "Hanya digunakan oleh prompt yang memilih untuk menggunakan konteks buku 
 msgid "Open conflict or mystery:"
 msgstr "Konflik atau misteri terbuka:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "API Respons OpenAI - Sertakan carian web terbina dalam"
+msgid "OpenAI Responses API"
+msgstr "API Respons OpenAI"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Titik akhir chat/completions yang serasi dengan OpenAI, cth. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "API Chat Completions yang serasi dengan OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "Soalan yang belum terjawab:"
@@ -932,8 +963,8 @@ msgstr "Pembekal %1 TIDAK DIKONFIGURASI"
 msgid "Provider API"
 msgstr "API Pembekal"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Nama Pembekal - dipaparkan dalam menu; biarkan kosong untuk menggunakan nama protokol API (contohnya \"openai\")"
+msgid "Provider Name"
+msgstr "Nama Pembekal"
 
 msgid "Provider data not initialized."
 msgstr "Data pembekal tidak diinisialisasi."
@@ -1001,6 +1032,9 @@ msgstr "Permintaan dibatalkan oleh pengguna."
 
 msgid "Request cancelled by user."
 msgstr "Permintaan dibatalkan oleh pengguna."
+
+msgid "Request failed: %1"
+msgstr "Permintaan gagal: %1"
 
 msgid "Reset"
 msgstr "Set Semula"
@@ -1164,6 +1198,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Istilah & Konsep"
+
+msgid "Test"
+msgstr "Uji"
 
 msgid "Text Size: %1"
 msgstr "Saiz Teks: %1"

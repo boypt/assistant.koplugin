@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 02:53+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: বাংলা (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### এই বিষয়গুলো আপনার আগ্রহ
 msgid "%1 - choose an action"
 msgstr "%1 - একটি কর্ম নির্বাচন করুন"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 হ্যান্ডলার সংযোগ পরীক্ষা সমর্থন করে না"
+
 msgid "(No response)"
 msgstr "(কোনো প্রতিক্রিয়া নেই)"
+
+msgid "(empty response body)"
+msgstr "(খালি প্রতিক্রিয়া বডি)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "এই বোতামটি কি হাইলাইট মেনুতে যোগ করবেন?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API ব্যস্ত (স্থিতি: 429)</b>\n"
-"প্রচেষ্টা %1/%2 - পুনরায় চেষ্টা করুন"
+"<b>API ব্যস্ত</b>\n"
+"প্রচেষ্টা %1/%2 ... পুনরায় চেষ্টা করুন"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>লগের জন্য ডিফল্ট ফোল্ডার অ্যাক্সেস করা যাচ্ছে না: %1</b>\n"
 "মূল অবস্থান ব্যবহার করা হচ্ছে।"
+
+msgid "<b>Detail:</b>"
+msgstr "<b>বিস্তারিত:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>প্যারামিটার</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>সরানো হয়েছে</b> [%1 (AI)] হাইলাইট মেনু থেকে।"
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>অনুরোধ</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>প্রতিক্রিয়া</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>সংযোগ পরীক্ষা করা হচ্ছে...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>অজানা ফিচার ধরন:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI সাড়া দিচ্ছে"
 
 msgid "API Key"
 msgstr "API কী"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API কী - আপনার কী লিখুন, তারপর উপলব্ধ মডেল তালিকাভুক্ত করতে Browse Models এ ট্যাপ করুন"
 
 msgid "API key is required for %1."
 msgstr "%1-এর জন্য API কী প্রয়োজন।"
@@ -321,8 +339,11 @@ msgstr "বেস URL প্রয়োজন।"
 msgid "Base URL must start with http:// or https://"
 msgstr "বেস URL অবশ্যই http:// বা https:// দিয়ে শুরু হতে হবে।"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API এন্ডপয়েন্টের বেস URL, যেমন https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "বেস URL, যেমন https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "বেস URL: %1"
 
 msgid "Book Analysis"
 msgstr "বই বিশ্লেষণ"
@@ -388,6 +409,9 @@ msgstr "AI LLM-এর প্রতিক্রিয়া ভাষা কন�
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "কনফিগার করা নোটবুক ফোল্ডারটি অ্যাক্সেসযোগ্য নয়: %1"
+
+msgid "Connection test successful."
+msgstr "সংযোগ পরীক্ষা সফল হয়েছে।"
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "সাংস্কৃতিক তাৎপর্য"
 
 msgid "Current Chapter Only"
 msgstr "শুধুমাত্র বর্তমান অধ্যায়"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "কাস্টম"
 
 msgid "Custom Prompt"
 msgstr "কাস্টম প্রম্পট"
@@ -593,8 +621,8 @@ msgstr "বিস্তারিত জানতে, github-এ 'Configuration' 
 msgid "Fun Analogy"
 msgstr "মজার উপমা"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API। /models সেগমেন্ট অন্তর্ভুক্ত করতে হবে, যেমন .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "সাধারণ কথোপকথন"
@@ -619,6 +647,9 @@ msgstr "প্রোভাইডার %2-এর জন্য হ্যান্
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "হ্যান্ডলার পাওয়া যায়নি: %1। অনুগ্রহ করে আপনার configuration.lua ফাইলটি পরীক্ষা করুন।"
+
+msgid "Handler: %1"
+msgstr "হ্যান্ডলার: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "হাইলাইট ও নোট বিশ্লেষণ"
@@ -715,20 +746,20 @@ msgstr "খুঁজুন"
 msgid "Main Themes"
 msgstr "মূল থিম"
 
-msgid "Manual"
-msgstr "ম্যানুয়াল"
-
 msgid "Markdown Engine"
 msgstr "মার্কডাউন ইঞ্জিন"
 
 msgid "Meaning"
 msgstr "অর্থ"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "মডেল - একটি উপলব্ধ মডেল নির্বাচন করতে Browse Models এ ট্যাপ করুন"
+msgid "Model"
+msgstr "মডেল"
 
 msgid "Model Built-In"
 msgstr "মডেলের অন্তর্নির্মিত"
+
+msgid "Model replied: %1"
+msgstr "মডেল উত্তর দিয়েছে: %1"
 
 msgid "Model reset: %1"
 msgstr "মডেল রিসেট হয়েছে: %1"
@@ -885,11 +916,11 @@ msgstr "শুধুমাত্র সেই প্রম্পটগুলি�
 msgid "Open conflict or mystery:"
 msgstr "অমীমাংসিত দ্বন্দ্ব বা রহস্য:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - অন্তর্নির্মিত ওয়েব অনুসন্ধান অন্তর্ভুক্ত করুন"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-সামঞ্জস্যপূর্ণ chat/completions এন্ডপয়েন্ট, যেমন https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-সামঞ্জস্যপূর্ণ Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "অমীমাংসিত প্রশ্ন:"
@@ -933,8 +964,8 @@ msgstr "প্রদানকারী %1 কনফিগার করা হয
 msgid "Provider API"
 msgstr "প্রোভাইডার API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "প্রদানকারী নাম - মেনুতে দেখানো হয়; API প্রোটোকল নাম ব্যবহার করতে ফাঁকা রাখুন (যেমন \"openai\")"
+msgid "Provider Name"
+msgstr "প্রোভাইডারের নাম"
 
 msgid "Provider data not initialized."
 msgstr "প্রোভাইডার ডেটা আরম্ভ করা হয়নি।"
@@ -1002,6 +1033,9 @@ msgstr "ব্যবহারকারীর দ্বারা অনুরো�
 
 msgid "Request cancelled by user."
 msgstr "ব্যবহারকারীর দ্বারা অনুরোধ বাতিল করা হয়েছে।"
+
+msgid "Request failed: %1"
+msgstr "অনুরোধ ব্যর্থ হয়েছে: %1"
 
 msgid "Reset"
 msgstr "রিসেট"
@@ -1164,6 +1198,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "শব্দ ও ধারণা"
+
+msgid "Test"
+msgstr "পরীক্ষা"
 
 msgid "Text Size: %1"
 msgstr "পাঠ্যের আকার: %1"

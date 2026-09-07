@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 03:15+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: Euskara (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### Baliteke gai hauek interesgarriak iruditzea:"
 msgid "%1 - choose an action"
 msgstr "%1 - aukeratu ekintza bat"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 kudeatzaileak ez du konexio-proba onartzen"
+
 msgid "(No response)"
 msgstr "(Erantzunik ez)"
+
+msgid "(empty response body)"
+msgstr "(erantzun-gorputz hutsa)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Gehitu botoi hau Nabarmenduen Menuari?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API Lanpetuta (Egoera: 429)</b>\n"
-"Saiakera %1/%2 - berriro saiatu barruan"
+"<b>API lanpetua</b>\n"
+"Saiakerak %1/%2 ... Berriro saiatu hemen"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Ezin da sartu erregistroetarako karpeta lehenetsian: %1</b>\n"
 "Jatorrizko kokapena erabiltzen."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Xehetasuna:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametroak</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Kenduta</b> [%1 (AI)] azpimarra-menutik."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Eskaera</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Erantzuna</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Konexioa probatzen...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Funtzio mota ezezaguna:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI erantzuten ari da"
 
 msgid "API Key"
 msgstr "API gakoa"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API gakoa - sartu zure gakoa, ondoren sakatu Arakatu Ereduak erabilgarri dauden ereduak zerrendatzeko"
 
 msgid "API key is required for %1."
 msgstr "API gakoa beharrezkoa da %1rentzat."
@@ -321,8 +339,11 @@ msgstr "Oinarrizko URLa beharrezkoa da."
 msgid "Base URL must start with http:// or https://"
 msgstr "Oinarrizko URLak http:// edo https:// hasiera izan behar du."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API puntuaren oinarrizko URLa, adibidez https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Oinarrizko URLa, adibidez https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Oinarrizko URLa: %1"
 
 msgid "Book Analysis"
 msgstr "Liburuaren analisia"
@@ -388,6 +409,9 @@ msgstr "Konfiguratu AI LLMaren erantzun-hizkuntza. Lehenetsita, KOReader interfa
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Konfiguratutako koaderno-karpeta ez da eskuragarria: %1"
+
+msgid "Connection test successful."
+msgstr "Konexio-proba arrakastatsua izan da."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Garrantzi kulturala"
 
 msgid "Current Chapter Only"
 msgstr "Uneko kapitulua soilik"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Pertsonalizatua"
 
 msgid "Custom Prompt"
 msgstr "Prompt pertsonalizatua"
@@ -593,8 +621,8 @@ msgstr "Xehetasunetarako, bisitatu github-eko 'Configuration' wiki orria."
 msgid "Fun Analogy"
 msgstr "Analogia dibertigarria"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. /models segmentua izan behar du, adibidez .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Elkarrizketa orokorra"
@@ -619,6 +647,9 @@ msgstr "%1 handlerra ez dago erabilgarri %2 hornitzailearentzat."
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Ez da aurkitu %1-rentzako handlerra. Egiaztatu zure configuration.lua fitxategia."
+
+msgid "Handler: %1"
+msgstr "Kudeatzailea: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Nabarmenduen eta Oharren Azterketa"
@@ -715,20 +746,20 @@ msgstr "Bilatu"
 msgid "Main Themes"
 msgstr "Gai nagusiak"
 
-msgid "Manual"
-msgstr "Eskuliburua"
-
 msgid "Markdown Engine"
 msgstr "Markdown motorra"
 
 msgid "Meaning"
 msgstr "Esanahia"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Eredua - sakatu Arakatu Ereduak eskuragarri dagoen eredu bat aukeratzeko"
+msgid "Model"
+msgstr "Eredua"
 
 msgid "Model Built-In"
 msgstr "Modelo Integratua"
+
+msgid "Model replied: %1"
+msgstr "Ereduak erantzun du: %1"
 
 msgid "Model reset: %1"
 msgstr "Eredua berrezarri da: %1"
@@ -885,11 +916,11 @@ msgstr "Liburuaren testuingurua aukeratzen duten promptek bakarrik erabiltzen du
 msgid "Open conflict or mystery:"
 msgstr "Konpondu gabeko gatazka edo misterioa:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Sartu barneko web bilaketa"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-rekin bateragarria den chat/completions puntua, adibidez https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAIrekin bateragarria den Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Erantzun gabeko galderak:"
@@ -933,8 +964,8 @@ msgstr "Hornitzailea %1 KONFIGURATU GABE"
 msgid "Provider API"
 msgstr "Hornitzailearen APIa"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Hornitzailearen izena - menuetan erakusten da; utzi hutsik APIaren protokolo-izena erabiltzeko (adibidez, \"openai\")"
+msgid "Provider Name"
+msgstr "Hornitzailearen izena"
 
 msgid "Provider data not initialized."
 msgstr "Hornitzailearen datuak ez dira hasieratu."
@@ -1002,6 +1033,9 @@ msgstr "Erabiltzaileak eskaera ezeztatu du."
 
 msgid "Request cancelled by user."
 msgstr "Erabiltzaileak eskaera ezeztatu du."
+
+msgid "Request failed: %1"
+msgstr "Eskaerak huts egin du: %1"
 
 msgid "Reset"
 msgstr "Berrezarri"
@@ -1163,6 +1197,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Terminoak eta kontzeptuak"
+
+msgid "Test"
+msgstr "Proba"
 
 msgid "Text Size: %1"
 msgstr "Testu-tamaina: %1"

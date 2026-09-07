@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Nämä aiheet saattavat kiinnostaa sinua:"
 msgid "%1 - choose an action"
 msgstr "%1 - valitse toiminto"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1-käsittelijä ei tue yhteyden testausta"
+
 msgid "(No response)"
 msgstr "(Ei vastausta)"
+
+msgid "(empty response body)"
+msgstr "(tyhjä vastausteksti)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Lisätäänkö tämä painike korostusvalikkoon?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API varattu (Tila: 429)</b>\n"
-"Yritykset %1/%2 - uudelleenyritys"
+"<b>API varattu</b>\n"
+"Yritykset %1/%2 ... Yritetään uudelleen"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Lokien oletuskansioon ei päästä: %1</b>\n"
 "Käytetään alkuperäistä sijaintia."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Tiedot:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametrit</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Poistettu</b> [%1 (AI)] korostusvalikosta."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Pyyntö</b> – POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Vastaus</b> – HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Testataan yhteyttä...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Tuntematon toimintotyyppi:</b> %1"
@@ -211,9 +232,6 @@ msgstr "Tekoäly vastaa"
 
 msgid "API Key"
 msgstr "API-avain"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API-avain - syötä avaimesi, napauta sitten Selaa malleja nähdäksesi käytettävissä olevat mallit"
 
 msgid "API key is required for %1."
 msgstr "API-avain vaaditaan palvelulle %1."
@@ -321,8 +339,11 @@ msgstr "Perus-URL on pakollinen."
 msgid "Base URL must start with http:// or https://"
 msgstr "Perus-URL-osoitteen on alettava http:// tai https://."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API-päätepisteen perus-URL, esim. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Perus-URL, esim. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Perus-URL: %1"
 
 msgid "Book Analysis"
 msgstr "Kirja-analyysi"
@@ -388,6 +409,9 @@ msgstr "Määritä tekoäly-LLM:n vastauskieli. Oletuksena KOReaderin käyttöli
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Määritetty muistikirjojen kansio ei ole käytettävissä: %1"
+
+msgid "Connection test successful."
+msgstr "Yhteyden testaus onnistui."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Kulttuurinen merkitys"
 
 msgid "Current Chapter Only"
 msgstr "Vain nykyinen luku"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Mukautettu"
 
 msgid "Custom Prompt"
 msgstr "Mukautettu kehote"
@@ -593,8 +621,8 @@ msgstr "Lisätietoja saat GitHubin 'Configuration'-wiki-sivulta."
 msgid "Fun Analogy"
 msgstr "Hauska vertaus"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API:n on sisällettävä /models-osa, esim. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Yleinen keskustelu"
@@ -619,6 +647,9 @@ msgstr "Käsittelijä %1 ei ole käytettävissä palveluntarjoajalle: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Käsittelijää ei löytynyt kohteelle: %1. Tarkista configuration.lua-tiedostosi."
+
+msgid "Handler: %1"
+msgstr "Käsittelijä: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Korostusten ja muistiinpanojen analyysi"
@@ -715,20 +746,20 @@ msgstr "Hae"
 msgid "Main Themes"
 msgstr "Pääteemat"
 
-msgid "Manual"
-msgstr "Käsikirja"
-
 msgid "Markdown Engine"
 msgstr "Markdown-moottori"
 
 msgid "Meaning"
 msgstr "Merkitys"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Malli - napauta Selaa malleja valitaksesi käytettävissä olevan mallin"
+msgid "Model"
+msgstr "Malli"
 
 msgid "Model Built-In"
 msgstr "Mallin sisäänrakennettu"
+
+msgid "Model replied: %1"
+msgstr "Malli vastasi: %1"
 
 msgid "Model reset: %1"
 msgstr "Malli nollattu: %1"
@@ -885,11 +916,11 @@ msgstr "Käyttävät vain kehotteet, jotka ottavat kirjakontekstin käyttöön (
 msgid "Open conflict or mystery:"
 msgstr "Avoin konflikti tai mysteeri:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Sisällytä sisäänrakennettu verkkohaku"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-yhteensopiva chat/completions-päätepiste, esim. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-yhteensopiva Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Avoimet kysymykset:"
@@ -933,8 +964,8 @@ msgstr "Palveluntarjoaja %1 EI MÄÄRITETTY"
 msgid "Provider API"
 msgstr "Palveluntarjoajan API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Palveluntarjoajan nimi - näytetään valikoissa; jätä tyhjäksi käyttääksesi API-protokollan nimeä (esim. \"openai\")"
+msgid "Provider Name"
+msgstr "Palveluntarjoajan nimi"
 
 msgid "Provider data not initialized."
 msgstr "Palveluntarjoajan tietoja ei ole alustettu."
@@ -1002,6 +1033,9 @@ msgstr "Pyyntö peruutettu käyttäjän toimesta."
 
 msgid "Request cancelled by user."
 msgstr "Pyyntö peruutettu käyttäjän toimesta."
+
+msgid "Request failed: %1"
+msgstr "Pyyntö epäonnistui: %1"
 
 msgid "Reset"
 msgstr "Nollaa"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Termit ja käsitteet"
+
+msgid "Test"
+msgstr "Testaa"
 
 msgid "Text Size: %1"
 msgstr "Tekstikoko: %1"

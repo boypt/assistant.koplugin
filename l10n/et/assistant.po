@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Järgmised teemad võivad sulle huvi pakkuda:"
 msgid "%1 - choose an action"
 msgstr "%1 - vali toiming"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 käsitleja ei toeta ühenduse testimist"
+
 msgid "(No response)"
 msgstr "(Vastus puudub)"
+
+msgid "(empty response body)"
+msgstr "(tühi vastuse keha)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Kas lisada see nupp esiletõstmise menüüsse?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API hõivatud (staatus: 429)</b>\n"
-"Katsed %1/%2 - proovi uuesti"
+"<b>API on hõivatud</b>\n"
+"Katsed %1/%2 ... Uuesti proovimine"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Logide vaikimisi kaustale ei pääse ligi: %1</b>\n"
 "Kasutatakse algset asukohta."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Üksikasjad:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parameetrid</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Eemaldatud</b> [%1 (AI)] esiletõstmise menüüst."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Päring</b> – POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Vastus</b> – HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Ühenduse testimine...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Tundmatu funktsiooni tüüp:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI vastab"
 
 msgid "API Key"
 msgstr "API-võti"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API võti – sisesta oma võti, seejärel puuduta Sirvi mudeleid, et loetleda saadaolevad mudelid"
 
 msgid "API key is required for %1."
 msgstr "API-võti on vajalik %1 jaoks."
@@ -321,8 +339,11 @@ msgstr "Baas-URL on kohustuslik."
 msgid "Base URL must start with http:// or https://"
 msgstr "Baas-URL peab algama http:// või https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API lõpp-punkti baas-URL, nt https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Baas-URL, nt https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Baas-URL: %1"
 
 msgid "Book Analysis"
 msgstr "Raamatu analüüs"
@@ -388,6 +409,9 @@ msgstr "Seadista AI LLM-i vastuste keel. Vaikimisi on KOReaderi liidese keel."
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Konfigureeritud märkmike kaust pole kättesaadav: %1"
+
+msgid "Connection test successful."
+msgstr "Ühenduse test õnnestus."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Kultuuriline tähtsus"
 
 msgid "Current Chapter Only"
 msgstr "Ainult praegune peatükk"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Kohandatud"
 
 msgid "Custom Prompt"
 msgstr "Kohandatud prompt"
@@ -593,8 +621,8 @@ msgstr "Üksikasjadeks külasta GitHubi viki-lehte 'Configuration'."
 msgid "Fun Analogy"
 msgstr "Lõbus analoogia"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. peab sisaldama /models segmenti, nt .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Üldine vestlus"
@@ -619,6 +647,9 @@ msgstr "Töötleja %1 ei ole pakkuja %2 jaoks saadaval."
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Töötlejat ei leitud: %1. Palun kontrollige oma configuration.lua faili."
+
+msgid "Handler: %1"
+msgstr "Töötleja: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Esiletõstmiste ja märkmete analüüs"
@@ -715,20 +746,20 @@ msgstr "Otsi üles"
 msgid "Main Themes"
 msgstr "Peamised teemad"
 
-msgid "Manual"
-msgstr "Käsiraamat"
-
 msgid "Markdown Engine"
 msgstr "Markdowni mootor"
 
 msgid "Meaning"
 msgstr "Tähendus"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Mudel – puudutage „Sirvi mudeleid”, et valida saadaolev mudel"
+msgid "Model"
+msgstr "Mudel"
 
 msgid "Model Built-In"
 msgstr "Mudeli sisseehitatud"
+
+msgid "Model replied: %1"
+msgstr "Mudel vastas: %1"
 
 msgid "Model reset: %1"
 msgstr "Mudel lähtestatud: %1"
@@ -885,11 +916,11 @@ msgstr "Kasutavad ainult need päringud, mis lubavad raamatu konteksti (vaikimis
 msgid "Open conflict or mystery:"
 msgstr "Avatud konflikt või mõistatus:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API – lisa sisseehitatud veebiotsing"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-ga ühilduv chat/completions lõpp-punkt, nt https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-ühilduv Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Lahtised küsimused:"
@@ -933,8 +964,8 @@ msgstr "Teenusepakkuja %1 POLE KONFIGUREERITUD"
 msgid "Provider API"
 msgstr "Pakkuja API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Teenusepakkuja nimi – kuvatakse menüüdes; jätke tühjaks, et kasutada API protokolli nime (nt \"openai\")"
+msgid "Provider Name"
+msgstr "Teenusepakkuja nimi"
 
 msgid "Provider data not initialized."
 msgstr "Pakkuja andmed on lähtestamata."
@@ -1002,6 +1033,9 @@ msgstr "Kasutaja tühistas päringu."
 
 msgid "Request cancelled by user."
 msgstr "Kasutaja tühistas päringu."
+
+msgid "Request failed: %1"
+msgstr "Päring ebaõnnestus: %1"
 
 msgid "Reset"
 msgstr "Lähtesta"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Terminid ja mõisted"
+
+msgid "Test"
+msgstr "Testi"
 
 msgid "Text Size: %1"
 msgstr "Teksti suurus: %1"

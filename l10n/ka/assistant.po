@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 03:58+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: ქართული (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### შესაძლოა დაგაინტერესოთ �
 msgid "%1 - choose an action"
 msgstr "%1 - აირჩიეთ მოქმედება"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 დამმუშავებელი არ უჭერს მხარს კავშირის ტესტირებას"
+
 msgid "(No response)"
 msgstr "(პასუხი არ არის)"
+
+msgid "(empty response body)"
+msgstr "(ცარიელი პასუხის სხეული)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "დავამატოთ ეს ღილაკი მონიშვნის მენიუში?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API დაკავებულია (სტატუსი: 429)</b>\n"
-"მცდელობები %1/%2 - ხელახლა ცდა"
+"<b>API დაკავებულია</b>\n"
+"მცდელობა %1/%2 ... ხელახლა ცდა"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>ლოგების ნაგულისხმევ საქაღალდეზე წვდომა შეუძლებელია: %1</b>\n"
 "გამოიყენება თავდაპირველი მდებარეობა."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>დეტალები:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>პარამეტრები</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>ამოღებულია</b> [%1 (AI)] მონიშვნის მენიუდან."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>მოთხოვნა</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>პასუხი</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>კავშირის ტესტირება...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>უცნობი ფუნქციის ტიპი:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI პასუხობს"
 
 msgid "API Key"
 msgstr "API გასაღები"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API Key - შეიყვანეთ თქვენი გასაღები, შემდეგ შეეხეთ Browse Models ხელმისაწვდომი მოდელების სიის სანახავად"
 
 msgid "API key is required for %1."
 msgstr "API გასაღები სავალდებულოა %1-ისთვის."
@@ -321,8 +339,11 @@ msgstr "საბაზო URL სავალდებულოა."
 msgid "Base URL must start with http:// or https://"
 msgstr "საბაზო URL უნდა იწყებოდეს http:// ან https://-ით"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API endpoint-ის საბაზო URL, მაგალითად: https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "საბაზო URL, მაგ. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "საბაზო URL: %1"
 
 msgid "Book Analysis"
 msgstr "წიგნის ანალიზი"
@@ -388,6 +409,9 @@ msgstr "დააკონფიგურირეთ AI LLM-ის პასუ
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "კონფიგურირებული რვეულების საქაღალდე მიუწვდომელია: %1"
+
+msgid "Connection test successful."
+msgstr "კავშირის ტესტი წარმატებულია."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "კულტურული მნიშვნელობა"
 
 msgid "Current Chapter Only"
 msgstr "მხოლოდ მიმდინარე თავი"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "მორგებული"
 
 msgid "Custom Prompt"
 msgstr "მორგებული პრომპტი"
@@ -593,8 +621,8 @@ msgstr "დეტალებისთვის ეწვიეთ 'Configuratio
 msgid "Fun Analogy"
 msgstr "სახალისო ანალოგია"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. უნდა მოიცავდეს /models სეგმენტს, მაგ. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "ზოგადი საუბარი"
@@ -619,6 +647,9 @@ msgstr "დამმუშავებელი %1 მიუწვდომე�
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "დამმუშავებელი ვერ მოიძებნა: %1. გთხოვთ, შეამოწმოთ თქვენი configuration.lua ფაილი."
+
+msgid "Handler: %1"
+msgstr "დამმუშავებელი: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "მონიშვნებისა და შენიშვნების ანალიზი"
@@ -715,20 +746,20 @@ msgstr "მოძებნა"
 msgid "Main Themes"
 msgstr "მთავარი თემები"
 
-msgid "Manual"
-msgstr "სახელმძღვანელო"
-
 msgid "Markdown Engine"
 msgstr "Markdown ძრავა"
 
 msgid "Meaning"
 msgstr "მნიშვნელობა"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "მოდელი - შეეხეთ მოდელების დათვალიერებას ხელმისაწვდომი მოდელის ასარჩევად"
+msgid "Model"
+msgstr "მოდელი"
 
 msgid "Model Built-In"
 msgstr "მოდელის ჩაშენებული"
+
+msgid "Model replied: %1"
+msgstr "მოდელმა უპასუხა: %1"
 
 msgid "Model reset: %1"
 msgstr "მოდელის გადატვირთვა: %1"
@@ -885,11 +916,11 @@ msgstr "გამოიყენება მხოლოდ იმ პრომ
 msgid "Open conflict or mystery:"
 msgstr "ღია კონფლიქტი ან საიდუმლო:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - ჩართეთ ჩაშენებული ვებ-ძებნა"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-თან თავსებადი chat/completions მისამართი, მაგ. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-თან თავსებადი Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "გადაუჭრელი კითხვები:"
@@ -933,8 +964,8 @@ msgstr "პროვაიდერი %1 არ არის კონფიგ
 msgid "Provider API"
 msgstr "პროვაიდერის API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "პროვაიდერის სახელი - ნაჩვენებია მენიუში; დატოვეთ ცარიელი API პროტოკოლის სახელის გამოსაყენებლად (მაგ., \\\"openai\\\")"
+msgid "Provider Name"
+msgstr "პროვაიდერის სახელი"
 
 msgid "Provider data not initialized."
 msgstr "პროვაიდერის მონაცემები არ არის ინიციალიზებული."
@@ -1002,6 +1033,9 @@ msgstr "მოთხოვნა გაუქმდა მომხმარე�
 
 msgid "Request cancelled by user."
 msgstr "მოთხოვნა გაუქმდა მომხმარებლის მიერ."
+
+msgid "Request failed: %1"
+msgstr "მოთხოვნა ვერ შესრულდა: %1"
 
 msgid "Reset"
 msgstr "გადატვირთვა"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "ტერმინები და ცნებები"
+
+msgid "Test"
+msgstr "ტესტი"
 
 msgid "Text Size: %1"
 msgstr "ტექსტის ზომა: %1"

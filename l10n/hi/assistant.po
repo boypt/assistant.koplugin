@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 03:34+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: हिन्दी (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### आपको ये विषय रोचक लग सकते 
 msgid "%1 - choose an action"
 msgstr "%1 - एक कार्रवाई चुनें"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 हैंडलर कनेक्शन परीक्षण का समर्थन नहीं करता"
+
 msgid "(No response)"
 msgstr "(कोई प्रतिक्रिया नहीं)"
+
+msgid "(empty response body)"
+msgstr "(खाली प्रतिक्रिया निकाय)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "इस बटन को हाइलाइट मेनू में जोड़ें?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API व्यस्त (स्थिति: 429)</b>\n"
-"प्रयास %1/%2 - पुनः प्रयास में"
+"<b>API व्यस्त</b>\n"
+"प्रयास %1/%2 ... पुनः प्रयास में"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>लॉग के लिए डिफ़ॉल्ट फ़ोल्डर तक पहुँच नहीं सकते: %1</b>\n"
 "मूल स्थान का उपयोग किया जा रहा है।"
+
+msgid "<b>Detail:</b>"
+msgstr "<b>विवरण:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>पैरामीटर</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>हटाया गया</b> [%1 (AI)] हाइलाइट मेनू से।"
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>अनुरोध</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>प्रतिक्रिया</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "आधार URL"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>अज्ञात फीचर प्रकार:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI उत्तर दे रहा है"
 
 msgid "API Key"
 msgstr "API कुंजी"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API कुंजी - अपनी कुंजी दर्ज करें, फिर उपलब्ध मॉडल सूचीबद्ध करने के लिए Browse Models पर टैप करें"
 
 msgid "API key is required for %1."
 msgstr "%1 के लिए API कुंजी आवश्यक है।"
@@ -321,8 +339,11 @@ msgstr "बेस URL आवश्यक है।"
 msgid "Base URL must start with http:// or https://"
 msgstr "बेस URL http:// या https:// से शुरू होना चाहिए।"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "एपीआई एंडपॉइंट का आधार URL, उदा. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "आधार URL: %1"
+
+msgid "Base URL: %1"
+msgstr "आधार URL: %1"
 
 msgid "Book Analysis"
 msgstr "पुस्तक विश्लेषण"
@@ -388,6 +409,9 @@ msgstr "AI LLM की प्रतिक्रिया भाषा कॉन�
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "कॉन्फ़िगर की गई नोटबुक फ़ोल्डर तक पहुँच संभव नहीं है: %1"
+
+msgid "Connection test successful."
+msgstr "कनेक्शन परीक्षण सफल।"
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "सांस्कृतिक महत्व"
 
 msgid "Current Chapter Only"
 msgstr "केवल वर्तमान अध्याय"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "कस्टम"
 
 msgid "Custom Prompt"
 msgstr "कस्टम प्रॉम्प्ट"
@@ -593,8 +621,8 @@ msgstr "विवरण के लिए, GitHub पर 'Configuration' वि�
 msgid "Fun Analogy"
 msgstr "मज़ेदार उपमा"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. इसमें /models खंड शामिल होना चाहिए, जैसे .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "सामान्य बातचीत"
@@ -619,6 +647,9 @@ msgstr "हैंडलर %1 प्रदाता %2 के लिए उप�
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "हैंडलर %1 के लिए नहीं मिला। कृपया अपनी configuration.lua फ़ाइल जाँचें।"
+
+msgid "Handler: %1"
+msgstr "हैंडलर: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "हाइलाइट और नोट विश्लेषण"
@@ -715,20 +746,20 @@ msgstr "खोजें"
 msgid "Main Themes"
 msgstr "मुख्य विषय"
 
-msgid "Manual"
-msgstr "मैनुअल"
-
 msgid "Markdown Engine"
 msgstr "मार्कडाउन इंजन"
 
 msgid "Meaning"
 msgstr "अर्थ"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "मॉडल - उपलब्ध मॉडल चुनने के लिए ब्राउज़ मॉडल पर टैप करें"
+msgid "Model"
+msgstr "मॉडल"
 
 msgid "Model Built-In"
 msgstr "मॉडल में निर्मित"
+
+msgid "Model replied: %1"
+msgstr "मॉडल ने उत्तर दिया: %1"
 
 msgid "Model reset: %1"
 msgstr "मॉडल रीसेट: %1"
@@ -885,11 +916,11 @@ msgstr "केवल उन प्रॉम्प्ट्स द्वारा
 msgid "Open conflict or mystery:"
 msgstr "अनसुलझा संघर्ष या रहस्य:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - अंतर्निहित वेब खोज शामिल करें"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-संगत चैट/कम्प्लीशन एंडपॉइंट, जैसे https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-संगत Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "अनुत्तरित प्रश्न:"
@@ -933,8 +964,8 @@ msgstr "प्रदाता %1 कॉन्फ़िगर नहीं है
 msgid "Provider API"
 msgstr "प्रदाता API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "प्रदाता नाम - मेनू में दिखाया जाता है; API प्रोटोकॉल नाम उपयोग करने के लिए खाली छोड़ें (जैसे \"openai\")"
+msgid "Provider Name"
+msgstr "प्रदाता का नाम"
 
 msgid "Provider data not initialized."
 msgstr "प्रदाता डेटा आरंभीकृत नहीं है।"
@@ -1002,6 +1033,9 @@ msgstr "अनुरोध उपयोगकर्ता द्वारा र
 
 msgid "Request cancelled by user."
 msgstr "अनुरोध उपयोगकर्ता द्वारा रद्द किया गया।"
+
+msgid "Request failed: %1"
+msgstr "अनुरोध विफल: %1"
 
 msgid "Reset"
 msgstr "रीसेट"
@@ -1165,6 +1199,9 @@ msgstr "टर्म एक्स-रे"
 
 msgid "Terms & Concepts"
 msgstr "शब्द और अवधारणाएँ"
+
+msgid "Test"
+msgstr "परीक्षण"
 
 msgid "Text Size: %1"
 msgstr "पाठ आकार: %1"

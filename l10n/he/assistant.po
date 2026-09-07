@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### ייתכן שתמצאו נושאים אלה מעניינים:"
 msgid "%1 - choose an action"
 msgstr "%1 - בחר פעולה"
 
+msgid "%1 handler does not support connection testing"
+msgstr "המטפל %1 אינו תומך בבדיקת חיבור"
+
 msgid "(No response)"
 msgstr "(אין תשובה)"
+
+msgid "(empty response body)"
+msgstr "(גוף תגובה ריק)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "להוסיף כפתור זה לתפריט ההדגשות?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>ה-API עמוס (סטטוס 429)</b>\n"
-"ניסיונות %1/%2 - נסה שוב בעוד"
+"<b>ה-API עמוס</b>\n"
+"ניסיונות %1/%2 ... ניסיון חוזר בעוד"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>לא ניתן לגשת לתיקיית ברירת המחדל ליומנים: %1</b>\n"
 "משתמש במיקום המקורי."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>פרטים:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>פרמטרים</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>הוסר</b> [%1 (AI)] מתפריט ההדגשות."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>בקשה</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>תגובה</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "בודק חיבור..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>סוג תכונה לא ידוע:</b> %1"
@@ -211,9 +232,6 @@ msgstr "ה-AI מגיב"
 
 msgid "API Key"
 msgstr "מפתח API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "מפתח API - הזן את המפתח שלך, ולאחר מכן הקש על 'עיון בדגמים' כדי להציג את הדגמים הזמינים"
 
 msgid "API key is required for %1."
 msgstr "מפתח API נדרש עבור %1."
@@ -321,8 +339,11 @@ msgstr "נדרשת כתובת בסיס."
 msgid "Base URL must start with http:// or https://"
 msgstr "כתובת הבסיס חייבת להתחיל ב-http:// או https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "כתובת ה-URL הבסיסית של נקודת הקצה של ה-API, למשל https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "כתובת בסיס, למשל https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "כתובת בסיס: %1"
 
 msgid "Book Analysis"
 msgstr "ניתוח ספר"
@@ -388,6 +409,9 @@ msgstr "הגדר את שפת התגובה של מודל ה-AI (LLM). ברירת 
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "תיקיית המחברות המוגדרת אינה נגישה: %1"
+
+msgid "Connection test successful."
+msgstr "בדיקת החיבור עברה בהצלחה."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "משמעות תרבותית"
 
 msgid "Current Chapter Only"
 msgstr "רק הפרק הנוכחי"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "מותאם אישית"
 
 msgid "Custom Prompt"
 msgstr "הנחיה מותאמת אישית"
@@ -593,8 +621,8 @@ msgstr "לפרטים, בקר בדף הוויקי 'Configuration' ב-github."
 msgid "Fun Analogy"
 msgstr "אנלוגיה משעשעת"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. יש לכלול את הקטע /models, לדוגמה .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "שיחה כללית"
@@ -619,6 +647,9 @@ msgstr "המטפל %1 אינו זמין עבור הספק: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "המטפל (Handler) לא נמצא עבור: %1. אנא בדוק את קובץ configuration.lua שלך."
+
+msgid "Handler: %1"
+msgstr "מטפל: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "ניתוח הדגשות והערות"
@@ -717,20 +748,20 @@ msgstr "חפש"
 msgid "Main Themes"
 msgstr "נושאים מרכזיים"
 
-msgid "Manual"
-msgstr "מדריך"
-
 msgid "Markdown Engine"
 msgstr "מנוע Markdown"
 
 msgid "Meaning"
 msgstr "משמעות"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "מודל - הקש על עיון בדגמים כדי לבחור דגם זמין"
+msgid "Model"
+msgstr "דגם"
 
 msgid "Model Built-In"
 msgstr "מובנה במודל"
+
+msgid "Model replied: %1"
+msgstr "הדגם השיב: %1"
 
 msgid "Model reset: %1"
 msgstr "איפוס מודל: %1"
@@ -887,11 +918,11 @@ msgstr "משמש רק להנחיות שבוחרות להשתמש בהקשר הס
 msgid "Open conflict or mystery:"
 msgstr "קונפליקט או תעלומה פתוחים:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - כולל חיפוש אינטרנט מובנה"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "נקודת קצה תואמת OpenAI ל-chat/completions, למשל https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "API של Chat Completions תואם OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "שאלות פתוחות:"
@@ -935,8 +966,8 @@ msgstr "ספק %1 לא מוגדר"
 msgid "Provider API"
 msgstr "API של הספק"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "שם ספק - מוצג בתפריטים; השאר ריק כדי להשתמש בשם פרוטוקול ה-API (לדוגמה \"openai\")"
+msgid "Provider Name"
+msgstr "שם הספק"
 
 msgid "Provider data not initialized."
 msgstr "נתוני הספק לא אותחלו."
@@ -1004,6 +1035,9 @@ msgstr "הבקשה בוטלה על ידי המשתמש."
 
 msgid "Request cancelled by user."
 msgstr "הבקשה בוטלה על ידי המשתמש."
+
+msgid "Request failed: %1"
+msgstr "הבקשה נכשלה: %1"
 
 msgid "Reset"
 msgstr "איפוס"
@@ -1166,6 +1200,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "מונחים ומושגים"
+
+msgid "Test"
+msgstr "בדיקה"
 
 msgid "Text Size: %1"
 msgstr "גודל טקסט: %1"

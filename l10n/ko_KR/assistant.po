@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### 다음 주제가 흥미로울 수 있습니다:"
 msgid "%1 - choose an action"
 msgstr "%1 - 동작 선택"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 핸들러는 연결 테스트를 지원하지 않습니다"
+
 msgid "(No response)"
 msgstr "(응답 없음)"
+
+msgid "(empty response body)"
+msgstr "(빈 응답 본문)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "이 버튼을 하이라이트 메뉴에 추가할까요?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API 사용 중 (상태: 429)</b>\n"
-"시도 %1/%2 - 재시도까지"
+"<b>API 사용 중</b>\n"
+"시도 %1/%2 ... 재시도까지"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>로그 기본 폴더에 접근할 수 없습니다: %1</b>\n"
 "원래 위치를 사용합니다."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>세부 정보:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>매개변수</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>제거됨</b>: [%1 (AI)]을(를) 하이라이트 메뉴에서 제거했습니다."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>요청</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>응답</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "연결 테스트 중..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>알 수 없는 기능 유형:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI가 응답 중입니다"
 
 msgid "API Key"
 msgstr "API 키"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API 키 - 키를 입력한 후 모델 찾아보기를 눌러 사용 가능한 모델을 나열하세요."
 
 msgid "API key is required for %1."
 msgstr "%1에 API 키가 필요합니다."
@@ -321,8 +339,11 @@ msgstr "기본 URL은 필수입니다."
 msgid "Base URL must start with http:// or https://"
 msgstr "기본 URL은 http:// 또는 https://로 시작해야 합니다."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API 엔드포인트의 기본 URL(예: https://example.com/v1)"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "기본 URL (예: https://example.com)"
+
+msgid "Base URL: %1"
+msgstr "기본 URL: %1"
 
 msgid "Book Analysis"
 msgstr "책 분석"
@@ -388,6 +409,9 @@ msgstr "AI LLM의 응답 언어를 설정합니다. 기본값은 KOReader 인터
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "설정된 노트북 폴더에 접근할 수 없습니다: %1"
+
+msgid "Connection test successful."
+msgstr "연결 테스트 성공."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "문화적 중요성"
 
 msgid "Current Chapter Only"
 msgstr "현재 챕터만"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "사용자 지정"
 
 msgid "Custom Prompt"
 msgstr "사용자 지정 프롬프트"
@@ -593,8 +621,8 @@ msgstr "자세한 내용은 GitHub의 'Configuration' 위키 페이지를 방문
 msgid "Fun Analogy"
 msgstr "재미있는 비유"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. /models 세그먼트를 포함해야 합니다(예: .../v1beta/models)"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "일반 대화"
@@ -619,6 +647,9 @@ msgstr "핸들러 %1은(는) 공급자 %2에서 사용할 수 없습니다."
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "%1에 대한 핸들러를 찾을 수 없습니다. configuration.lua 파일을 확인하세요."
+
+msgid "Handler: %1"
+msgstr "핸들러: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "하이라이트 및 메모 분석"
@@ -714,20 +745,20 @@ msgstr "찾기"
 msgid "Main Themes"
 msgstr "주요 주제"
 
-msgid "Manual"
-msgstr "설명서"
-
 msgid "Markdown Engine"
 msgstr "마크다운 엔진"
 
 msgid "Meaning"
 msgstr "의미"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "모델 - 사용 가능한 모델을 선택하려면 모델 찾아보기를 탭하세요"
+msgid "Model"
+msgstr "모델"
 
 msgid "Model Built-In"
 msgstr "모델 내장"
+
+msgid "Model replied: %1"
+msgstr "모델 응답: %1"
 
 msgid "Model reset: %1"
 msgstr "모델 초기화: %1"
@@ -884,11 +915,11 @@ msgstr "책 컨텍스트를 선택한 프롬프트에서만 사용됩니다(기�
 msgid "Open conflict or mystery:"
 msgstr "해결되지 않은 갈등 또는 미스터리:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - 내장 웹 검색 포함"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI 호환 chat/completions 엔드포인트(예: https://api.openai.com/v1)"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI 호환 Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "남아 있는 질문:"
@@ -932,8 +963,8 @@ msgstr "제공자 %1 구성되지 않음"
 msgid "Provider API"
 msgstr "공급자 API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "제공자 이름 - 메뉴에 표시됩니다. 비워 두면 API 프로토콜 이름(예: \"openai\")을 사용합니다."
+msgid "Provider Name"
+msgstr "공급자 이름"
 
 msgid "Provider data not initialized."
 msgstr "공급자 데이터가 초기화되지 않았습니다."
@@ -1001,6 +1032,9 @@ msgstr "사용자가 요청을 취소했습니다."
 
 msgid "Request cancelled by user."
 msgstr "사용자가 요청을 취소했습니다."
+
+msgid "Request failed: %1"
+msgstr "요청 실패: %1"
 
 msgid "Reset"
 msgstr "초기화"
@@ -1163,6 +1197,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "용어 및 개념"
+
+msgid "Test"
+msgstr "테스트"
 
 msgid "Text Size: %1"
 msgstr "글꼴 크기: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 02:46+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: Afrikaans (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### Jy mag hierdie onderwerpe interessant vind:"
 msgid "%1 - choose an action"
 msgstr "%1 - kies 'n aksie"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 hanteerder ondersteun nie verbindingstoetsing nie"
+
 msgid "(No response)"
 msgstr "(Geen antwoord)"
+
+msgid "(empty response body)"
+msgstr "(leë reaksieliggaam)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Voeg hierdie knoppie by die Merker-kieslys?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API Besig (Status: 429)</b>\n"
-"Pogings %1/%2 - probeer weer oor"
+"<b>API Besig</b>\n"
+"Pogings %1/%2 ... Herprobeer oor"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Kan nie toegang kry tot die standaardmap vir logs nie: %1</b>\n"
 "Gebruik oorspronklike ligging."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Besonderhede:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -162,8 +171,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parameters</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Verwyder</b> [%1 (AI)] uit die beklemtoningskieslys."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Versoek</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Reaksie</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Toets verbinding"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Onbekende kenmerktipe:</b> %1"
@@ -206,9 +227,6 @@ msgstr "AI is besig om te antwoord"
 
 msgid "API Key"
 msgstr "API-sleutel"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API-sleutel - voer jou sleutel in, tik dan Blaai deur modelle om beskikbare modelle te lys"
 
 msgid "API key is required for %1."
 msgstr "API-sleutel word vir %1 vereis."
@@ -316,8 +334,11 @@ msgstr "Basis-URL is verpligtend."
 msgid "Base URL must start with http:// or https://"
 msgstr "Basis-URL moet met http:// of https:// begin."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Basis-URL van die API-eindpunt, bv. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Basis-URL"
+
+msgid "Base URL: %1"
+msgstr "Basis-URL: %1"
 
 msgid "Book Analysis"
 msgstr "Boekanalise"
@@ -383,6 +404,9 @@ msgstr "Stel die antwoordtaal van die AI-LLM in. Die verstek is die KOReader-kop
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Gekonfigureerde notaboekmap is nie toeganklik nie: %1"
+
+msgid "Connection test successful."
+msgstr "Verbindingstoets suksesvol."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -462,6 +486,10 @@ msgstr "Kulturele betekenis"
 
 msgid "Current Chapter Only"
 msgstr "Slegs Huidige Hoofstuk"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Pasgemaak"
 
 msgid "Custom Prompt"
 msgstr "Aangepaste opdrag"
@@ -588,8 +616,8 @@ msgstr "Vir besonderhede, besoek die 'Configuration'-wiki-bladsy op github."
 msgid "Fun Analogy"
 msgstr "Pret-analogie"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. moet die /models-segment insluit, bv. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Algemene gesprek"
@@ -614,6 +642,9 @@ msgstr "Hanteerder %1 is nie beskikbaar vir verskaffer: %2 nie."
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Hanteerder nie gevind vir: %1. Gaan asseblief jou configuration.lua-lêer na."
+
+msgid "Handler: %1"
+msgstr "Hanteerder: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Merker- en nota-analise"
@@ -710,20 +741,20 @@ msgstr "Soek op"
 msgid "Main Themes"
 msgstr "Hoof-temas"
 
-msgid "Manual"
-msgstr "Handleiding"
-
 msgid "Markdown Engine"
 msgstr "Markdown-enjin"
 
 msgid "Meaning"
 msgstr "Betekenis"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Model - tik Blaai deur modelle om 'n beskikbare model te kies"
+msgid "Model"
+msgstr "Model"
 
 msgid "Model Built-In"
 msgstr "Model ingebou"
+
+msgid "Model replied: %1"
+msgstr "Model het geantwoord: %1"
 
 msgid "Model reset: %1"
 msgstr "Model teruggestel: %1"
@@ -880,11 +911,11 @@ msgstr "Word slegs gebruik deur prompts wat inteken op boekkonteks (by verstek: 
 msgid "Open conflict or mystery:"
 msgstr "Oop konflik of raaisel:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Sluit ingeboude websoektog in"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-versoenbare klets-/voltooiingseindpunt, bv. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-versoenbare Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Oop vrae:"
@@ -928,8 +959,8 @@ msgstr "Verskaffer %1 NIE GEKONFIGUREER NIE"
 msgid "Provider API"
 msgstr "Verskaffer-API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Verskaffernaam - word in kieslyste gewys; los leeg om die API-protokolnaam te gebruik (bv. \"openai\")"
+msgid "Provider Name"
+msgstr "Verskaffernaam"
 
 msgid "Provider data not initialized."
 msgstr "Verskafferdata nie geïnisialiseer nie."
@@ -997,6 +1028,9 @@ msgstr "Versoek deur gebruiker gekanselleer."
 
 msgid "Request cancelled by user."
 msgstr "Versoek deur gebruiker gekanselleer."
+
+msgid "Request failed: %1"
+msgstr "Versoek misluk: %1"
 
 msgid "Reset"
 msgstr "Terugstel"
@@ -1160,6 +1194,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Terme en konsepte"
+
+msgid "Test"
+msgstr "Toets"
 
 msgid "Text Size: %1"
 msgstr "Teksgrootte: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Vi eble trovos ĉi tiujn temojn interesaj:"
 msgid "%1 - choose an action"
 msgstr "%1 - elektu agon"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 pritraktilo ne subtenas testadon de konekto"
+
 msgid "(No response)"
 msgstr "(Neniu respondo)"
+
+msgid "(empty response body)"
+msgstr "(malplena responda korpo)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Ĉu aldoni ĉi tiun butonon al la Marka Menuo?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API Okupita (Stato: 429)</b>\n"
-"Provoj %1/%2 - reprovo post"
+"<b>API Okupata</b>\n"
+"Provoj %1/%2 ... Reprovu post"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Ne eblas aliri la defaŭltan dosierujon por protokoloj: %1</b>\n"
 "Uzante la originalan lokon."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Detaloj:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -168,8 +177,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametroj</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Forigita</b> [%1 (AI)] el la Marka Menuo."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Petro</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Respondo</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Testante konekton...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Nekonata speco de funkcio:</b> %1"
@@ -212,9 +233,6 @@ msgstr "AI respondas"
 
 msgid "API Key"
 msgstr "API-ŝlosilo"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API-Ŝlosilo - enigu vian ŝlosilon, poste frapetu Browse Models por listigi disponeblajn modelojn"
 
 msgid "API key is required for %1."
 msgstr "API-ŝlosilo estas postulata por %1."
@@ -322,8 +340,11 @@ msgstr "Baza URL estas deviga."
 msgid "Base URL must start with http:// or https://"
 msgstr "Baza URL devas komenciĝi per http:// aŭ https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Baza URL de la API-finpunkto, ekz. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Baza URL, ekz. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Baza URL: %1"
 
 msgid "Book Analysis"
 msgstr "Libro-analizo"
@@ -389,6 +410,9 @@ msgstr "Agordi la respondlingvon de la AI-LLM. Defaŭlte ĝi uzas la interfaclin
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "La agordita dosierujo de kajeroj ne estas alirebla: %1"
+
+msgid "Connection test successful."
+msgstr "Konekta testo sukcesis."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -468,6 +492,10 @@ msgstr "Kultura Signifo"
 
 msgid "Current Chapter Only"
 msgstr "Nur la nuna ĉapitro"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Propra"
 
 msgid "Custom Prompt"
 msgstr "Propra Prompto"
@@ -594,8 +622,8 @@ msgstr "Por detaloj, vizitu la vikipaĝon 'Configuration' en github."
 msgid "Fun Analogy"
 msgstr "Amuza Analogio"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. devas inkluzivi la segmenton /models, ekz. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Ĝenerala konversacio"
@@ -620,6 +648,9 @@ msgstr "Traktilo %1 ne disponeblas por provizanto: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Traktilo ne trovita por: %1. Bonvolu kontroli vian dosieron configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Traktilo: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Analizo de Markoj kaj Notoj"
@@ -716,20 +747,20 @@ msgstr "Konsulti"
 msgid "Main Themes"
 msgstr "Ĉefaj temoj"
 
-msgid "Manual"
-msgstr "Manlibro"
-
 msgid "Markdown Engine"
 msgstr "Markdown-Motoro"
 
 msgid "Meaning"
 msgstr "Signifo"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Modelo - frapetu Foliumi Modelojn por elekti haveblan modelon"
+msgid "Model"
+msgstr "Modelo"
 
 msgid "Model Built-In"
 msgstr "Enkonstruita Modelo"
+
+msgid "Model replied: %1"
+msgstr "Modelo respondis: %1"
 
 msgid "Model reset: %1"
 msgstr "Modelo restarigita: %1"
@@ -886,11 +917,11 @@ msgstr "Uzata nur de promptoj, kiuj elektas librokuntekston (defaŭlte: Explain,
 msgid "Open conflict or mystery:"
 msgstr "Malferma konflikto aŭ mistero:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Inkluzivi enkonstruitan retserĉon"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-kongrua chat/completions finpunkto, ekz. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-kongruebla Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Neresponditaj demandoj:"
@@ -934,8 +965,8 @@ msgstr "Provizanto %1 NE AGORDITA"
 msgid "Provider API"
 msgstr "API de provizanto"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Nomo de provizanto - montrata en menuoj; lasu malplena por uzi la nomon de la API-protokolo (ekz. \"openai\")"
+msgid "Provider Name"
+msgstr "Nomo de provizanto"
 
 msgid "Provider data not initialized."
 msgstr "Datumoj de provizanto ne estas inicializitaj."
@@ -1003,6 +1034,9 @@ msgstr "Peto nuligita de uzanto."
 
 msgid "Request cancelled by user."
 msgstr "Peto nuligita de uzanto."
+
+msgid "Request failed: %1"
+msgstr "Petro malsukcesis: %1"
 
 msgid "Reset"
 msgstr "Restarigi"
@@ -1164,6 +1198,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Terminoj kaj konceptoj"
+
+msgid "Test"
+msgstr "Testi"
 
 msgid "Text Size: %1"
 msgstr "Grandeco de Teksto: %1"

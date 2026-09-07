@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Érdekesnek találhatja ezeket a témákat:"
 msgid "%1 - choose an action"
 msgstr "%1 - válasszon műveletet"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 kezelő nem támogatja a kapcsolat tesztelését"
+
 msgid "(No response)"
 msgstr "(Nincs válasz)"
+
+msgid "(empty response body)"
+msgstr "(üres választörzs)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Hozzáadjuk ezt a gombot a Kiemelés menühöz?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API foglalt (Státusz: 429)</b>\n"
-"Próbálkozások: %1/%2 - újrapróbálás:"
+"<b>API foglalt</b>\n"
+"Próbálkozások %1/%2 ... Újrapróbálás:"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>A naplók alapértelmezett mappája nem érhető el: %1</b>\n"
 "Az eredeti hely használata."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Részletek:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Paraméterek</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Eltávolítva</b>: [%1 (AI)] a kiemelés menüből."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Kérés</b> – POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Válasz</b> – HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Kapcsolat tesztelése...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Ismeretlen funkciótípus:</b> %1"
@@ -211,9 +232,6 @@ msgstr "Az AI válaszol"
 
 msgid "API Key"
 msgstr "API-kulcs"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API-kulcs - adja meg a kulcsát, majd koppintson a Modellek tallózása elemre az elérhető modellek listázásához."
 
 msgid "API key is required for %1."
 msgstr "API-kulcs szükséges a(z) %1 számára."
@@ -321,8 +339,11 @@ msgstr "Az alap URL megadása kötelező."
 msgid "Base URL must start with http:// or https://"
 msgstr "Az alap URL-nek http:// vagy https:// előtaggal kell kezdődnie."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Az API-végpont alap URL-je, pl. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Alap URL, pl. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Alap URL: %1"
 
 msgid "Book Analysis"
 msgstr "Könyv elemzése"
@@ -388,6 +409,9 @@ msgstr "Az AI LLM válasznyelvének beállítása. Alapértelmezés szerint a KO
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "A beállított jegyzetfüzet-mappa nem érhető el: %1"
+
+msgid "Connection test successful."
+msgstr "A kapcsolati teszt sikeres."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Kulturális jelentőség"
 
 msgid "Current Chapter Only"
 msgstr "Csak az aktuális fejezet"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Egyéni"
 
 msgid "Custom Prompt"
 msgstr "Egyéni prompt"
@@ -593,8 +621,8 @@ msgstr "A részletekért látogassa meg a „Configuration” wiki oldalt a GitH
 msgid "Fun Analogy"
 msgstr "Szórakoztató hasonlat"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. tartalmaznia kell a /models szegmenst, pl. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Általános beszélgetés"
@@ -619,6 +647,9 @@ msgstr "A(z) %1 kezelő nem érhető el a(z) %2 szolgáltatóhoz."
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "A(z) %1 kezelő nem található. Ellenőrizze a configuration.lua fájlt."
+
+msgid "Handler: %1"
+msgstr "Kezelő: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Kiemelések és jegyzetek elemzése"
@@ -715,20 +746,20 @@ msgstr "Keresés"
 msgid "Main Themes"
 msgstr "Fő témák"
 
-msgid "Manual"
-msgstr "Kézikönyv"
-
 msgid "Markdown Engine"
 msgstr "Markdown motor"
 
 msgid "Meaning"
 msgstr "Jelentés"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Modell – koppintson a Modellek tallózása elemre az elérhető modell kiválasztásához"
+msgid "Model"
+msgstr "Modell"
 
 msgid "Model Built-In"
 msgstr "Beépített modell"
+
+msgid "Model replied: %1"
+msgstr "A modell válasza: %1"
 
 msgid "Model reset: %1"
 msgstr "Modell visszaállítva: %1"
@@ -885,11 +916,11 @@ msgstr "Csak azok a promptok használják, amelyek kifejezetten kérik a könyvk
 msgid "Open conflict or mystery:"
 msgstr "Nyitott konfliktus vagy rejtély:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Beépített webes keresés használata"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-kompatibilis chat/completions végpont, pl. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-kompatibilis Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Nyitott kérdések:"
@@ -933,8 +964,8 @@ msgstr "Szolgáltató %1 NINCS KONFIGURÁLVA"
 msgid "Provider API"
 msgstr "Szolgáltató API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Szolgáltató neve – a menükben jelenik meg; hagyja üresen az API protokoll nevének használatához (pl. \"openai\")"
+msgid "Provider Name"
+msgstr "Szolgáltató neve"
 
 msgid "Provider data not initialized."
 msgstr "A szolgáltató adatai nincsenek inicializálva."
@@ -1002,6 +1033,9 @@ msgstr "A kérést a felhasználó megszakította."
 
 msgid "Request cancelled by user."
 msgstr "A kérést a felhasználó megszakította."
+
+msgid "Request failed: %1"
+msgstr "A kérés sikertelen: %1"
 
 msgid "Reset"
 msgstr "Visszaállítás"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Kifejezések és fogalmak"
+
+msgid "Test"
+msgstr "Teszt"
 
 msgid "Text Size: %1"
 msgstr "Betűméret: %1"

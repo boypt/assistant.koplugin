@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Магчыма, вам будуць цікавыя гэтыя тэ
 msgid "%1 - choose an action"
 msgstr "%1 - выберыце дзеянне"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Апрацоўшчык %1 не падтрымлівае праверку злучэння"
+
 msgid "(No response)"
 msgstr "(Няма адказу)"
+
+msgid "(empty response body)"
+msgstr "(пустое цела адказу)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Дадаць гэтую кнопку ў меню вылучэнняў?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API заняты (Статус: 429)</b>\n"
-"Спробы %1/%2 - паўтор праз"
+"<b>API заняты</b>\n"
+"Спробы %1/%2 ... Паўтор праз"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Немагчыма атрымаць доступ да тэчкі па змаўчанні для логаў: %1</b>\n"
 "Выкарыстоўваецца зыходнае размяшчэнне."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Падрабязнасці:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Параметры</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Выдалена</b> [%1 (AI)] з меню вылучэння."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Запыт</b> — POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Адказ</b> — HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Праверка злучэння..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Невядомы тып функцыі:</b> %1"
@@ -211,9 +232,6 @@ msgstr "ШІ адказвае"
 
 msgid "API Key"
 msgstr "API-ключ"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API-ключ: увядзіце свой ключ, потым націсніце «Агляд мадэляў», каб паглядзець даступныя мадэлі"
 
 msgid "API key is required for %1."
 msgstr "Для %1 патрабуецца API-ключ."
@@ -321,8 +339,11 @@ msgstr "Базавы URL абавязковы."
 msgid "Base URL must start with http:// or https://"
 msgstr "Базавы URL павінен пачынацца з http:// або https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Базавы URL API-канцапункта, напр. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Базавы URL, напр. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Базавы URL: %1"
 
 msgid "Book Analysis"
 msgstr "Аналіз кнігі"
@@ -388,6 +409,9 @@ msgstr "Наладзіць мову адказаў ШІ-мадэлі. Па зм�
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Настроеная тэчка сшыткаў недаступная: %1"
+
+msgid "Connection test successful."
+msgstr "Праверка злучэння паспяховая."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Культурная значнасць"
 
 msgid "Current Chapter Only"
 msgstr "Толькі бягучы раздзел"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Уласны"
 
 msgid "Custom Prompt"
 msgstr "Уласны промпт"
@@ -593,8 +621,8 @@ msgstr "Падрабязней глядзіце на wiki-старонцы 'Conf
 msgid "Fun Analogy"
 msgstr "Цікавая аналогія"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. павінен уключаць сегмент /models, напр. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Агульная размова"
@@ -619,6 +647,9 @@ msgstr "Апрацоўшчык %1 недаступны для правайдэр
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Апрацоўшчык не знойдзены для: %1. Калі ласка, праверце ваш файл configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Апрацоўшчык: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Аналіз вылучэнняў і нататак"
@@ -716,20 +747,20 @@ msgstr "Знайсці"
 msgid "Main Themes"
 msgstr "Асноўныя тэмы"
 
-msgid "Manual"
-msgstr "Інструкцыя"
-
 msgid "Markdown Engine"
 msgstr "Рухавік Markdown"
 
 msgid "Meaning"
 msgstr "Значэнне"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Мадэль - націсніце «Агляд мадэляў», каб выбраць даступную мадэль"
+msgid "Model"
+msgstr "Мадэль"
 
 msgid "Model Built-In"
 msgstr "Убудаваны ў мадэль"
+
+msgid "Model replied: %1"
+msgstr "Мадэль адказала: %1"
 
 msgid "Model reset: %1"
 msgstr "Мадэль скінута: %1"
@@ -886,11 +917,11 @@ msgstr "Выкарыстоўваецца толькі запытамі, якія
 msgid "Open conflict or mystery:"
 msgstr "Адкрыты канфлікт ці загадка:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - уключыць убудаваны вэб-пошук"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-сумяшчальны канчатковы пункт chat/completions, напр. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-сумяшчальны Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Адкрытыя пытанні:"
@@ -934,8 +965,8 @@ msgstr "Правайдар %1 НЕ НАСТРОЕНЫ"
 msgid "Provider API"
 msgstr "API правайдэра"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Назва правайдара - паказваецца ў меню; пакіньце пустым, каб выкарыстоўваць назву API-пратакола (напр., \"openai\")"
+msgid "Provider Name"
+msgstr "Назва пастаўшчыка"
 
 msgid "Provider data not initialized."
 msgstr "Дадзеныя правайдэра не ініцыялізаваны."
@@ -1003,6 +1034,9 @@ msgstr "Запыт адменены карыстальнікам."
 
 msgid "Request cancelled by user."
 msgstr "Запыт адменены карыстальнікам."
+
+msgid "Request failed: %1"
+msgstr "Запыт не ўдаўся: %1"
 
 msgid "Reset"
 msgstr "Скінуць"
@@ -1166,6 +1200,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Тэрміны і паняцці"
+
+msgid "Test"
+msgstr "Тэст"
 
 msgid "Text Size: %1"
 msgstr "Памер тэксту: %1"

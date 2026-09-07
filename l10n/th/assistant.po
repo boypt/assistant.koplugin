@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 04:38+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: ภาษาไทย (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### คุณอาจสนใจหัวข้อเหล่าน
 msgid "%1 - choose an action"
 msgstr "%1 - เลือกการดำเนินการ"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 ตัวจัดการไม่รองรับการทดสอบการเชื่อมต่อ"
+
 msgid "(No response)"
 msgstr "(ไม่มีคำตอบ)"
+
+msgid "(empty response body)"
+msgstr "(เนื้อหาการตอบกลับว่างเปล่า)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "เพิ่มปุ่มนี้ไปยังเมนูไฮไลต์หรือไม่?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API ไม่ว่าง (สถานะ: 429)</b>\n"
-"ความพยายาม %1/%2 - ลองใหม่ใน"
+"<b>API ไม่ว่าง</b>\n"
+"ความพยายาม %1/%2 ... ลองใหม่ใน"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>ไม่สามารถเข้าถึงโฟลเดอร์เริ่มต้นสำหรับบันทึก: %1</b>\n"
 "กำลังใช้ตำแหน่งเดิม"
+
+msgid "<b>Detail:</b>"
+msgstr "<b>รายละเอียด:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>พารามิเตอร์</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>ลบแล้ว</b> [%1 (AI)] ออกจากเมนูไฮไลต์"
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>คำขอ</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>การตอบกลับ</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "กำลังทดสอบการเชื่อมต่อ..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>ประเภทฟีเจอร์ไม่รู้จัก:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI กำลังตอบกลับ"
 
 msgid "API Key"
 msgstr "คีย์ API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API Key - ป้อนคีย์ของคุณ จากนั้นแตะเรียกดูโมเดลเพื่อแสดงรายการโมเดลที่มี"
 
 msgid "API key is required for %1."
 msgstr "ต้องใช้คีย์ API สำหรับ %1"
@@ -321,8 +339,11 @@ msgstr "ต้องระบุ Base URL"
 msgid "Base URL must start with http:// or https://"
 msgstr "Base URL ต้องขึ้นต้นด้วย http:// หรือ https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL ฐานของปลายทาง API เช่น https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "URL ฐาน เช่น https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "URL ฐาน: %1"
 
 msgid "Book Analysis"
 msgstr "วิเคราะห์หนังสือ"
@@ -388,6 +409,9 @@ msgstr "กำหนดภาษาสำหรับการตอบกลั
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "ไม่สามารถเข้าถึงโฟลเดอร์สมุดบันทึกที่กำหนดค่าไว้: %1"
+
+msgid "Connection test successful."
+msgstr "การทดสอบการเชื่อมต่อสำเร็จ"
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "ความสำคัญทางวัฒนธรรม"
 
 msgid "Current Chapter Only"
 msgstr "เฉพาะบทปัจจุบัน"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "กำหนดเอง"
 
 msgid "Custom Prompt"
 msgstr "พรอมป์ต์ที่กำหนดเอง"
@@ -593,8 +621,8 @@ msgstr "สำหรับรายละเอียด โปรดดูห�
 msgid "Fun Analogy"
 msgstr "อุปมาอุปไมยสนุก ๆ"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API ต้องมีส่วน /models เช่น .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "สนทนาทั่วไป"
@@ -619,6 +647,9 @@ msgstr "Handler %1 ไม่พร้อมใช้งานสำหรับ�
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "ไม่พบ Handler สำหรับ: %1 กรุณาตรวจสอบไฟล์ configuration.lua ของคุณ"
+
+msgid "Handler: %1"
+msgstr "ตัวจัดการ: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "การวิเคราะห์ไฮไลต์และบันทึก"
@@ -714,20 +745,20 @@ msgstr "ค้นหา"
 msgid "Main Themes"
 msgstr "แก่นเรื่องหลัก"
 
-msgid "Manual"
-msgstr "คู่มือ"
-
 msgid "Markdown Engine"
 msgstr "เอนจิน Markdown"
 
 msgid "Meaning"
 msgstr "ความหมาย"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "โมเดล - แตะเรียกดูโมเดลเพื่อเลือกโมเดลที่มี"
+msgid "Model"
+msgstr "โมเดล"
 
 msgid "Model Built-In"
 msgstr "โมเดลในตัว"
+
+msgid "Model replied: %1"
+msgstr "โมเดลตอบกลับ: %1"
 
 msgid "Model reset: %1"
 msgstr "รีเซ็ตโมเดลแล้ว: %1"
@@ -884,11 +915,11 @@ msgstr "ใช้เฉพาะกับพรอมต์ที่เลือ
 msgid "Open conflict or mystery:"
 msgstr "ปมขัดแย้งหรือปริศนาที่ยังไม่คลี่คลาย:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - รวมการค้นหาเว็บในตัว"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "ปลายทาง chat/completions ที่รองรับ OpenAI เช่น https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "Chat Completions API ที่เข้ากันได้กับ OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "คำถามที่ยังค้างคา:"
@@ -932,8 +963,8 @@ msgstr "ผู้ให้บริการ %1 ยังไม่ได้ก�
 msgid "Provider API"
 msgstr "API ของผู้ให้บริการ"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "ชื่อผู้ให้บริการ - แสดงในเมนู; เว้นว่างไว้เพื่อใช้ชื่อโปรโตคอล API (เช่น \"openai\")"
+msgid "Provider Name"
+msgstr "ชื่อผู้ให้บริการ"
 
 msgid "Provider data not initialized."
 msgstr "ข้อมูลผู้ให้บริการยังไม่ได้เริ่มต้น"
@@ -1001,6 +1032,9 @@ msgstr "คำขอถูกยกเลิกโดยผู้ใช้"
 
 msgid "Request cancelled by user."
 msgstr "คำขอถูกยกเลิกโดยผู้ใช้"
+
+msgid "Request failed: %1"
+msgstr "คำขอล้มเหลว: %1"
 
 msgid "Reset"
 msgstr "รีเซ็ต"
@@ -1164,6 +1198,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "คำศัพท์และแนวคิด"
+
+msgid "Test"
+msgstr "ทดสอบ"
 
 msgid "Text Size: %1"
 msgstr "ขนาดตัวอักษร: %1"

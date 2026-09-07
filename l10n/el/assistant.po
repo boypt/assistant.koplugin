@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Μπορεί να βρείτε αυτά τα θέματα ενδι
 msgid "%1 - choose an action"
 msgstr "%1 - επιλέξτε μια ενέργεια"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Ο χειριστής %1 δεν υποστηρίζει δοκιμή σύνδεσης"
+
 msgid "(No response)"
 msgstr "(Καμία απάντηση)"
+
+msgid "(empty response body)"
+msgstr "(κενό σώμα απόκρισης)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Να προστεθεί αυτό το κουμπί στο Μενού Επισήμανσης;"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>Το API είναι απασχολημένο (Κατάσταση: 429)</b>\n"
-"Προσπάθειες %1/%2 - επανάληψη σε"
+"<b>Απασχολημένο API</b>\n"
+"Προσπάθειες %1/%2 ... Επανάληψη σε"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Δεν είναι δυνατή η πρόσβαση στον προεπιλεγμένο φάκελο για τα αρχεία καταγραφής: %1</b>\n"
 "Χρησιμοποιείται η αρχική τοποθεσία."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Λεπτομέρεια:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Παράμετροι</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Αφαιρέθηκε</b> το [%1 (AI)] από το Μενού Επισήμανσης."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Αίτημα</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Απόκριση</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Δοκιμή σύνδεσης"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Άγνωστος τύπος δυνατότητας:</b> %1"
@@ -211,9 +232,6 @@ msgstr "Το AI απαντά"
 
 msgid "API Key"
 msgstr "Κλειδί API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API Key - εισάγετε το κλειδί σας και πατήστε Περιήγηση Μοντέλων για να δείτε τα διαθέσιμα μοντέλα"
 
 msgid "API key is required for %1."
 msgstr "Το κλειδί API απαιτείται για %1."
@@ -321,8 +339,11 @@ msgstr "Το βασικό URL είναι υποχρεωτικό."
 msgid "Base URL must start with http:// or https://"
 msgstr "Το βασικό URL πρέπει να ξεκινά με http:// ή https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Βασική διεύθυνση URL του τελικού σημείου API, π.χ. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Δοκιμή σύνδεσης…"
+
+msgid "Base URL: %1"
+msgstr "Βάση URL: %1"
 
 msgid "Book Analysis"
 msgstr "Ανάλυση Βιβλίου"
@@ -388,6 +409,9 @@ msgstr "Διαμόρφωση της γλώσσας απόκρισης του AI 
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Ο φάκελος σημειωματαρίων που έχει ρυθμιστεί δεν είναι προσβάσιμος: %1"
+
+msgid "Connection test successful."
+msgstr "Η δοκιμή σύνδεσης ήταν επιτυχής."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Πολιτιστική σημασία"
 
 msgid "Current Chapter Only"
 msgstr "Μόνο το τρέχον κεφάλαιο"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Προσαρμοσμένο"
 
 msgid "Custom Prompt"
 msgstr "Προσαρμοσμένη Προτροπή"
@@ -593,8 +621,8 @@ msgstr "Για λεπτομέρειες, επισκεφθείτε τη σελί�
 msgid "Fun Analogy"
 msgstr "Διασκεδαστική αναλογία"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. πρέπει να περιλαμβάνει το τμήμα /models, π.χ. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Γενική Συνομιλία"
@@ -619,6 +647,9 @@ msgstr "Ο χειριστής %1 δεν είναι διαθέσιμος για �
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Δεν βρέθηκε χειριστής για: %1. Ελέγξτε το αρχείο configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Χειριστής: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Ανάλυση Επισημάνσεων & Σημειώσεων"
@@ -715,20 +746,20 @@ msgstr "Αναζήτηση"
 msgid "Main Themes"
 msgstr "Κύρια Θέματα"
 
-msgid "Manual"
-msgstr "Εγχειρίδιο"
-
 msgid "Markdown Engine"
 msgstr "Μηχανή Markdown"
 
 msgid "Meaning"
 msgstr "Σημασία"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Μοντέλο - πατήστε Αναζήτηση Μοντέλων για να επιλέξετε ένα διαθέσιμο μοντέλο"
+msgid "Model"
+msgstr "Μοντέλο"
 
 msgid "Model Built-In"
 msgstr "Ενσωματωμένο Μοντέλο"
+
+msgid "Model replied: %1"
+msgstr "Το μοντέλο απάντησε: %1"
 
 msgid "Model reset: %1"
 msgstr "Επαναφορά μοντέλου: %1"
@@ -885,11 +916,11 @@ msgstr "Χρησιμοποιείται μόνο από προτροπές που
 msgid "Open conflict or mystery:"
 msgstr "Ανοιχτή σύγκρουση ή μυστήριο:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Συμπερίληψη ενσωματωμένης αναζήτησης ιστού"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Συμβατό με OpenAI τελικό σημείο chat/completions, π.χ. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "Chat Completions API συμβατό με OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "Εκκρεμή ερωτήματα:"
@@ -933,8 +964,8 @@ msgstr "Πάροχος %1 ΔΕΝ ΕΧΕΙ ΡΥΘΜΙΣΤΕΙ"
 msgid "Provider API"
 msgstr "API Παρόχου"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Όνομα Παρόχου - εμφανίζεται στα μενού· αφήστε το κενό για να χρησιμοποιηθεί το όνομα του πρωτοκόλλου API (π.χ. \"openai\")"
+msgid "Provider Name"
+msgstr "Όνομα παρόχου"
 
 msgid "Provider data not initialized."
 msgstr "Τα δεδομένα παρόχου δεν έχουν αρχικοποιηθεί."
@@ -1002,6 +1033,9 @@ msgstr "Η αίτηση ακυρώθηκε από τον χρήστη."
 
 msgid "Request cancelled by user."
 msgstr "Η αίτηση ακυρώθηκε από τον χρήστη."
+
+msgid "Request failed: %1"
+msgstr "Η αίτηση απέτυχε: %1"
 
 msgid "Reset"
 msgstr "Επαναφορά"
@@ -1164,6 +1198,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Όροι & Έννοιες"
+
+msgid "Test"
+msgstr "Δοκιμή"
 
 msgid "Text Size: %1"
 msgstr "Μέγεθος κειμένου: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 04:37+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: සිංහල (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### මෙම මාතෘකා ඔබට සිත්ගන්නා
 msgid "%1 - choose an action"
 msgstr "%1 - ක්‍රියාවක් තෝරන්න"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 හසුරුවන්නා සම්බන්ධතා පරීක්ෂාවට සහාය නොදක්වයි"
+
 msgid "(No response)"
 msgstr "(ප්රතිචාරයක් නැත)"
+
+msgid "(empty response body)"
+msgstr "(හිස් ප්‍රතිචාර ශරීරය)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "මෙම බොත්තම උද්දීපන මෙනුවට එක් කරන්නද?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API කාර්යබහුලයි (තත්ත්වය: 429)</b>\n"
-"උත්සාහයන් %1/%2 - නැවත උත්සාහ කිරීමට"
+"<b>API කාර්යබහුලයි</b>\n"
+"උත්සාහයන් %1/%2 ... නැවත උත්සාහ කරන්නේ"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>ලොග් සඳහා පෙරනිමි ෆෝල්ඩරයට ප්‍රවේශ විය නොහැක: %1</b>\n"
 "මුල් ස්ථානය භාවිතා කරමින්."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>විස්තර:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>පරාමිති</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>ඉවත් කරන ලදී</b> [%1 (AI)] උද්දීපන මෙනුවෙන්."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>ඉල්ලීම</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>ප්‍රතිචාරය</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "සේවා සපයන්නා"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>නොදන්නා විශේෂාංග වර්ගය:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI ප්‍රතිචාර දක්වමින් ඇත"
 
 msgid "API Key"
 msgstr "API යතුර"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API යතුර - ඔබගේ යතුර ඇතුළත් කරන්න, ඉන්පසු පවතින මාදිලි ලැයිස්තුගත කිරීමට මාදිලි පිරික්සන්න තට්ටු කරන්න"
 
 msgid "API key is required for %1."
 msgstr "%1 සඳහා API යතුර අවශ්‍ය වේ."
@@ -321,8 +339,11 @@ msgstr "මූලික URL අවශ්ය වේ."
 msgid "Base URL must start with http:// or https://"
 msgstr "මූලික URL http:// හෝ https:// වලින් ආරම්භ විය යුතුය."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API අන්ත ලක්ෂ්යයේ මූලික URL, උදා. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "මාදිලිය"
+
+msgid "Base URL: %1"
+msgstr "මූලික URL: %1"
 
 msgid "Book Analysis"
 msgstr "පොත් විශ්ලේෂණය"
@@ -388,6 +409,9 @@ msgstr "AI LLM හි ප්රතිචාර භාෂාව වින්ය�
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "වින්යාස කළ සටහන් පොත් ෆෝල්ඩරයට ප්රවේශ විය නොහැක: %1"
+
+msgid "Connection test successful."
+msgstr "සම්බන්ධතා පරීක්ෂණය සාර්ථකයි."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "සංස්කෘතික වැදගත්කම"
 
 msgid "Current Chapter Only"
 msgstr "වත්මන් පරිච්ඡේදය පමණක්"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "අභිරුචි"
 
 msgid "Custom Prompt"
 msgstr "අභිරුචි ප්රොම්ප්ටය"
@@ -593,8 +621,8 @@ msgstr "විස්තර සඳහා, github හි 'Configuration' වික
 msgid "Fun Analogy"
 msgstr "විනෝදජනක ප්රතිසමය"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. /models කොටස ඇතුළත් විය යුතුය, උදා. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "සාමාන්‍ය සංවාදය"
@@ -619,6 +647,9 @@ msgstr "%2 සැපයුම්කරු සඳහා %1 හැන්ඩ්ල�
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "%1 සඳහා හැන්ඩ්ලරය හමු නොවීය. කරුණාකර ඔබගේ configuration.lua ගොනුව පරීක්ෂා කරන්න."
+
+msgid "Handler: %1"
+msgstr "හැන්ඩ්ලරය: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "උද්දීපන සහ සටහන් විශ්ලේෂණය"
@@ -715,20 +746,20 @@ msgstr "සොයා බලන්න"
 msgid "Main Themes"
 msgstr "ප්රධාන තේමා"
 
-msgid "Manual"
-msgstr "අත්පොත"
-
 msgid "Markdown Engine"
 msgstr "Markdown එන්ජිම"
 
 msgid "Meaning"
 msgstr "අර්ථය"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "මාදිලිය - පවතින මාදිලියක් තෝරා ගැනීමට මාදිලි පිරික්සන්න තට්ටු කරන්න"
+msgid "Model"
+msgstr "මාදිලිය"
 
 msgid "Model Built-In"
 msgstr "මාදිලියේ අන්තර්ගත"
+
+msgid "Model replied: %1"
+msgstr "ප්‍රතිචාර API"
 
 msgid "Model reset: %1"
 msgstr "ආකෘතිය යළි සකසන ලදී: %1"
@@ -885,11 +916,11 @@ msgstr "පොත් සන්දර්භයට ඇතුළත් වන ප�
 msgid "Open conflict or mystery:"
 msgstr "විවෘත ගැටුම හෝ අභිරහස:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - ගොඩනඟන ලද වෙබ් සෙවීම ඇතුළත් කරන්න"
+msgid "OpenAI Responses API"
+msgstr "OpenAI ප්‍රතිචාර API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-අනුකූල chat/completions අන්ත ලක්ෂ්යය, උදා. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-අනුකූල Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "ඉතිරිව ඇති ප්රශ්න:"
@@ -933,8 +964,8 @@ msgstr "සේවා සපයන්නා %1 වින්‍යාස කර �
 msgid "Provider API"
 msgstr "සැපයුම්කරු API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "සේවා සපයන්නාගේ නම - මෙනු වල පෙන්වයි; API ප්‍රොටෝකෝල නම භාවිතා කිරීමට හිස්ව තබන්න (උදා. \"openai\")"
+msgid "Provider Name"
+msgstr "සේවා සපයන්නාගේ නම"
 
 msgid "Provider data not initialized."
 msgstr "සැපයුම්කරු දත්ත ආරම්භ කර නොමැත."
@@ -1002,6 +1033,9 @@ msgstr "ඉල්ලීම පරිශීලකයා විසින් අව
 
 msgid "Request cancelled by user."
 msgstr "ඉල්ලීම පරිශීලකයා විසින් අවලංගු කරන ලදී."
+
+msgid "Request failed: %1"
+msgstr "ඉල්ලීම අසාර්ථක විය: %1"
 
 msgid "Reset"
 msgstr "යළි සකසන්න"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "පද සහ සංකල්ප"
+
+msgid "Test"
+msgstr "පරීක්ෂාව"
 
 msgid "Text Size: %1"
 msgstr "අකුරු ප්‍රමාණය: %1"

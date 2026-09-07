@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 03:19+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: فارسی (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### ممکن است این موضوعات برایتان جالب با
 msgid "%1 - choose an action"
 msgstr "%1 - انتخاب یک اقدام"
 
+msgid "%1 handler does not support connection testing"
+msgstr "مدیر %1 از آزمایش اتصال پشتیبانی نمیکند"
+
 msgid "(No response)"
 msgstr "(پاسخی دریافت نشد)"
+
+msgid "(empty response body)"
+msgstr "(بدنه پاسخ خالی)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "این دکمه به منوی هایلایت اضافه شود؟"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API مشغول است (وضعیت: 429)</b>\n"
-"تلاش %1/%2 - تلاش مجدد در"
+"<b>API مشغول است</b>\n"
+"تلاش %1/%2 ... تلاش مجدد در"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>دسترسی به پوشه پیش‌فرض برای گزارش‌ها ممکن نیست: %1</b>\n"
 "استفاده از مکان اصلی."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>جزئیات:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>پارامترها</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>حذف شد</b> [%1 (AI)] از منوی هایلایت."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>درخواست</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>پاسخ</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>در حال آزمایش اتصال...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>نوع ویژگی ناشناخته:</b> %1"
@@ -211,9 +232,6 @@ msgstr "هوش مصنوعی در حال پاسخگویی است"
 
 msgid "API Key"
 msgstr "کلید API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "کلید API - کلید خود را وارد کنید، سپس روی «مرور مدلها» ضربه بزنید تا مدلهای موجود فهرست شوند."
 
 msgid "API key is required for %1."
 msgstr "کلید API برای %1 الزامی است."
@@ -321,8 +339,11 @@ msgstr "آدرس پایه الزامی است."
 msgid "Base URL must start with http:// or https://"
 msgstr "آدرس پایه باید با http:// یا https:// شروع شود."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL پایه نقطه پایانی API، مثلاً https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "نشانی پایه، مثلاً https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "نشانی پایه: %1"
 
 msgid "Book Analysis"
 msgstr "تحلیل کتاب"
@@ -388,6 +409,9 @@ msgstr "زبان پاسخ LLM هوش مصنوعی را پیکربندی کنید
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "پوشهٔ نوتپدهای پیکربندیشده در دسترس نیست: %1"
+
+msgid "Connection test successful."
+msgstr "آزمایش اتصال موفق بود."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "اهمیت فرهنگی"
 
 msgid "Current Chapter Only"
 msgstr "فقط فصل جاری"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "سفارشی"
 
 msgid "Custom Prompt"
 msgstr "پرامپت سفارشی"
@@ -593,8 +621,8 @@ msgstr "برای جزئیات، به صفحه ویکی «پیکربندی» در
 msgid "Fun Analogy"
 msgstr "قیاس جالب"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "API جمینای. باید بخش /models را شامل شود، مثلاً .../v1beta/models"
+msgid "Gemini API"
+msgstr "API جمینای"
 
 msgid "General Conversation"
 msgstr "گفتگوی عمومی"
@@ -619,6 +647,9 @@ msgstr "هندلر %1 برای ارائه‌دهنده %2 در دسترس نیس
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "هندلر برای %1 یافت نشد. لطفاً فایل configuration.lua خود را بررسی کنید."
+
+msgid "Handler: %1"
+msgstr "پردازنده: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "تحلیل هایلایت‌ها و یادداشت‌ها"
@@ -715,20 +746,20 @@ msgstr "جستجو"
 msgid "Main Themes"
 msgstr "تم‌های اصلی"
 
-msgid "Manual"
-msgstr "راهنما"
-
 msgid "Markdown Engine"
 msgstr "موتور مارک‌داون"
 
 msgid "Meaning"
 msgstr "معنی"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "مدل - برای انتخاب یک مدل موجود، روی «مرور مدلها» ضربه بزنید"
+msgid "Model"
+msgstr "مدل"
 
 msgid "Model Built-In"
 msgstr "مدل داخلی"
+
+msgid "Model replied: %1"
+msgstr "پاسخ مدل: %1"
 
 msgid "Model reset: %1"
 msgstr "بازنشانی مدل: %1"
@@ -885,11 +916,11 @@ msgstr "فقط توسط درخواست‌هایی استفاده می‌شود �
 msgid "Open conflict or mystery:"
 msgstr "کشمکش یا راز حل‌نشده:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - شامل جستجوی وب داخلی"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "نقطهپایان (endpoint) سازگار با OpenAI برای چت/تکمیل، بهعنوان مثال https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "Chat Completions API سازگار با OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "پرسش‌های بی‌پاسخ:"
@@ -933,8 +964,8 @@ msgstr "ارائهدهنده %1 پیکربندی نشده است"
 msgid "Provider API"
 msgstr "API ارائه‌دهنده"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "نام ارائهدهنده - در منوها نمایش داده میشود؛ برای استفاده از نام پروتکل API، خالی بگذارید (مثلاً «openai»)"
+msgid "Provider Name"
+msgstr "نام ارائهدهنده"
 
 msgid "Provider data not initialized."
 msgstr "داده‌های ارائه‌دهنده مقداردهی نشده است."
@@ -1002,6 +1033,9 @@ msgstr "درخواست توسط کاربر لغو شد."
 
 msgid "Request cancelled by user."
 msgstr "درخواست توسط کاربر لغو شد."
+
+msgid "Request failed: %1"
+msgstr "درخواست ناموفق بود: %1"
 
 msgid "Reset"
 msgstr "بازنشانی"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "اصطلاحات و مفاهیم"
+
+msgid "Test"
+msgstr "آزمایش"
 
 msgid "Text Size: %1"
 msgstr "اندازه قلم: %1"

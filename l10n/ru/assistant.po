@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Возможно, вам будут интересны эти те
 msgid "%1 - choose an action"
 msgstr "%1 - выберите действие"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Обработчик %1 не поддерживает проверку соединения"
+
 msgid "(No response)"
 msgstr "(Нет ответа)"
+
+msgid "(empty response body)"
+msgstr "(пустое тело ответа)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Добавить эту кнопку в меню выделения?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API занят (Статус: 429)</b>\n"
-"Попытки %1/%2 - повторить через"
+"<b>API занят</b>\n"
+"Попытки %1/%2 ... Повтор через"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Нет доступа к папке по умолчанию для журналов: %1</b>\n"
 "Используется исходное расположение."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Подробности:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Параметры</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Удалено</b> [%1 (ИИ)] из меню выделения."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Запрос</b> — POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Ответ</b> — HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Проверка соединения...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Неизвестный тип функции:</b> %1"
@@ -211,9 +232,6 @@ msgstr "ИИ отвечает"
 
 msgid "API Key"
 msgstr "API-ключ"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API-ключ — введите ваш ключ, затем нажмите «Обзор моделей», чтобы получить список доступных моделей."
 
 msgid "API key is required for %1."
 msgstr "Для %1 требуется API-ключ."
@@ -321,8 +339,11 @@ msgstr "Требуется базовый URL."
 msgid "Base URL must start with http:// or https://"
 msgstr "Базовый URL должен начинаться с http:// или https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Базовый URL конечной точки API, например https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Базовый URL, например https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Базовый URL: %1"
 
 msgid "Book Analysis"
 msgstr "Анализ книги"
@@ -388,6 +409,9 @@ msgstr "Настройте язык ответов языковой модели
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Настроенная папка блокнотов недоступна: %1"
+
+msgid "Connection test successful."
+msgstr "Проверка соединения прошла успешно."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Культурная значимость"
 
 msgid "Current Chapter Only"
 msgstr "Только текущая глава"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Пользовательский"
 
 msgid "Custom Prompt"
 msgstr "Свой промпт"
@@ -593,8 +621,8 @@ msgstr "Подробнее см. на странице вики «Configuration�
 msgid "Fun Analogy"
 msgstr "Забавная аналогия"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. Должен включать сегмент /models, например .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Общий диалог"
@@ -619,6 +647,9 @@ msgstr "Обработчик %1 недоступен для провайдера
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Обработчик не найден для: %1. Проверьте файл configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Обработчик: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Анализ выделений и заметок"
@@ -717,20 +748,20 @@ msgstr "Найти"
 msgid "Main Themes"
 msgstr "Основные темы"
 
-msgid "Manual"
-msgstr "Руководство"
-
 msgid "Markdown Engine"
 msgstr "Движок Markdown"
 
 msgid "Meaning"
 msgstr "Значение"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Модель — нажмите «Обзор моделей», чтобы выбрать доступную модель"
+msgid "Model"
+msgstr "Модель"
 
 msgid "Model Built-In"
 msgstr "Встроено в модель"
+
+msgid "Model replied: %1"
+msgstr "Модель ответила: %1"
 
 msgid "Model reset: %1"
 msgstr "Модель сброшена: %1"
@@ -887,11 +918,11 @@ msgstr "Используется только в запросах, которы�
 msgid "Open conflict or mystery:"
 msgstr "Открытый конфликт или загадка:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API — включить встроенный веб-поиск"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Совместимый с OpenAI эндпоинт chat/completions, например https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-совместимый Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Открытые вопросы:"
@@ -935,8 +966,8 @@ msgstr "Провайдер %1 НЕ НАСТРОЕН"
 msgid "Provider API"
 msgstr "API провайдера"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Название провайдера — отображается в меню; оставьте пустым, чтобы использовать имя протокола API (например, \"openai\")"
+msgid "Provider Name"
+msgstr "Название провайдера"
 
 msgid "Provider data not initialized."
 msgstr "Данные провайдера не инициализированы."
@@ -1004,6 +1035,9 @@ msgstr "Запрос отменён пользователем."
 
 msgid "Request cancelled by user."
 msgstr "Запрос отменён пользователем."
+
+msgid "Request failed: %1"
+msgstr "Запрос не удался: %1"
 
 msgid "Reset"
 msgstr "Сброс"
@@ -1166,6 +1200,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Термины и понятия"
+
+msgid "Test"
+msgstr "Проверить"
 
 msgid "Text Size: %1"
 msgstr "Размер шрифта: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 04:21+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: ଓଡ଼ିଆ (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### ଆପଣ ଏହି ବିଷୟଗୁଡ଼ିକୁ ଆଗ୍ର
 msgid "%1 - choose an action"
 msgstr "%1 - ଏକ କାର୍ଯ୍ୟ ବାଛନ୍ତୁ"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 ହ୍ୟାଣ୍ଡଲର ସଂଯୋଗ ପରୀକ୍ଷଣ ସମର୍ଥନ କରେ ନାହିଁ"
+
 msgid "(No response)"
 msgstr "(କୌଣସି ଉତ୍ତର ନାହିଁ)"
+
+msgid "(empty response body)"
+msgstr "(ଖାଲି ପ୍ରତିକ୍ରିୟା ଶରୀର)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "ଏହି ବଟନ୍ କୁ ହାଇଲାଇଟ୍ ମେନୁରେ ଯୋଡ଼ିବେ?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API ବ୍ୟସ୍ତ (ସ୍ଥିତି: 429)</b>\n"
-"ପ୍ରୟାସ %1/%2 - ପୁନଃ ଚେଷ୍ଟା ପର୍ଯ୍ୟନ୍ତ"
+"<b>API ବ୍ୟସ୍ତ</b>\n"
+"ପ୍ରୟାସ %1/%2 ... ପୁନଃଚେଷ୍ଟା କର"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>ଲଗ୍ ପାଇଁ ଡିଫଲ୍ଟ ଫୋଲ୍ଡର୍ ଆକସେସ୍ କରାଯାଇପାରିଲା ନାହିଁ: %1</b>\n"
 "ମୂଳ ସ୍ଥାନ ବ୍ୟବହାର କରୁଛି।"
+
+msgid "<b>Detail:</b>"
+msgstr "<b>ବିବରଣୀ:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>ପାରାମିଟର</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>ହଟାଗଲା</b> [%1 (AI)] ହାଇଲାଇଟ୍ ମେନୁରୁ।"
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>ଅନୁରୋଧ</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>ପ୍ରତିକ୍ରିୟା</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>ସଂଯୋଗ ପରୀକ୍ଷା କରୁଛି...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>ଅଜଣା ଫିଚର ପ୍ରକାର:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI ଉତ୍ତର ଦେଉଛି"
 
 msgid "API Key"
 msgstr "API କୀ"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API କୀ - ଆପଣଙ୍କ କୀ ପ୍ରବେଶ କରନ୍ତୁ, ତା'ପରେ ଉପଲବ୍ଧ ମଡେଲଗୁଡ଼ିକୁ ତାଲିକାଭୁକ୍ତ କରିବା ପାଇଁ Browse Models ଟାପ୍ କରନ୍ତୁ"
 
 msgid "API key is required for %1."
 msgstr "%1 ପାଇଁ API କୀ ଆବଶ୍ୟକ।"
@@ -321,8 +339,11 @@ msgstr "ବେସ୍ URL ଆବଶ୍ୟକ।"
 msgid "Base URL must start with http:// or https://"
 msgstr "ବେସ୍ URL http:// କିମ୍ବା https:// ରୁ ଆରମ୍ଭ ହେବା ଆବଶ୍ୟକ।"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API ଏଣ୍ଡପଏଣ୍ଟର ବେସ୍ URL, ଉଦାହରଣ ସ୍ୱରୂପ https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "ମୂଳ URL, ଉଦାହରଣ ସ୍ୱରୂପ https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "ମୂଳ URL: %1"
 
 msgid "Book Analysis"
 msgstr "ପୁସ୍ତକ ବିଶ୍ଳେଷଣ"
@@ -388,6 +409,9 @@ msgstr "AI LLM ର ଉତ୍ତର ଭାଷା ନିର୍ଦ୍ଧାରଣ �
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "କନଫିଗର ହୋଇଥିବା ନୋଟବୁକ୍ ଫୋଲ୍ଡର୍ ଉପଲବ୍ଧ ନାହିଁ: %1"
+
+msgid "Connection test successful."
+msgstr "ସଂଯୋଗ ପରୀକ୍ଷା ସଫଳ ହେଲା।"
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "ସାଂସ୍କୃତିକ ମହତ୍ତ୍ୱ"
 
 msgid "Current Chapter Only"
 msgstr "କେବଳ ବର୍ତ୍ତମାନ ଅଧ୍ୟାୟ"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "କଷ୍ଟମ"
 
 msgid "Custom Prompt"
 msgstr "କଷ୍ଟମ୍ ପ୍ରମ୍ପ୍ଟ"
@@ -593,8 +621,8 @@ msgstr "ବିବରଣୀ ପାଇଁ, github ରେ 'Configuration' ୱିକ
 msgid "Fun Analogy"
 msgstr "ମଜାଦାର ସାଦୃଶ୍ୟ"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. /models ସେଗମେଣ୍ଟ ଅନ୍ତର୍ଭୁକ୍ତ କରିବା ଆବଶ୍ୟକ, ଯେପରି .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "ସାଧାରଣ ବାର୍ତ୍ତାଳାପ"
@@ -619,6 +647,9 @@ msgstr "ହ୍ୟାଣ୍ଡଲର %1 ସେବା ପ୍ରଦାନକାର�
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "ହ୍ୟାଣ୍ଡଲର %1 ପାଇଁ ମିଳିଲା ନାହିଁ। ଦୟାକରି ଆପଣଙ୍କ configuration.lua ଫାଇଲ ଯାଞ୍ଚ କରନ୍ତୁ।"
+
+msgid "Handler: %1"
+msgstr "ହ୍ୟାଣ୍ଡଲର: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "ହାଇଲାଇଟ୍ ଏବଂ ଟିପ୍ପଣୀ ବିଶ୍ଳେଷଣ"
@@ -715,20 +746,20 @@ msgstr "ଖୋଜନ୍ତୁ"
 msgid "Main Themes"
 msgstr "ମୁଖ୍ୟ ବିଷୟବସ୍ତୁ"
 
-msgid "Manual"
-msgstr "ମାନୁଆଲ୍"
-
 msgid "Markdown Engine"
 msgstr "ମାର୍କଡାଉନ୍ ଇଞ୍ଜିନ୍"
 
 msgid "Meaning"
 msgstr "ଅର୍ଥ"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "ମଡେଲ - ଉପଲବ୍ଧ ମଡେଲ ବାଛିବା ପାଇଁ Browse Models ଟାପ୍ କରନ୍ତୁ"
+msgid "Model"
+msgstr "ମଡେଲ"
 
 msgid "Model Built-In"
 msgstr "ଅନ୍ତର୍ନିହିତ ମଡେଲ୍"
+
+msgid "Model replied: %1"
+msgstr "ମଡେଲ ଉତ୍ତର ଦେଲା: %1"
 
 msgid "Model reset: %1"
 msgstr "ମଡେଲ୍ ରିସେଟ୍: %1"
@@ -885,11 +916,11 @@ msgstr "କେବଳ ସେହି ପ୍ରମ୍ପ୍ଟଗୁଡ଼ିକ ଦ
 msgid "Open conflict or mystery:"
 msgstr "ଅସମାଧାନ ଦ୍ୱନ୍ଦ୍ୱ କିମ୍ବା ରହସ୍ୟ:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - ବିଲ୍ଟ-ଇନ୍ ୱେବ୍ ସର୍ଚ୍ଚ ଅନ୍ତର୍ଭୁକ୍ତ କରନ୍ତୁ"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-ସୁସଙ୍ଗତ ଚାଟ/କମ୍ପ୍ଲିସନ୍ ଏଣ୍ଡପଏଣ୍ଟ, ଉଦାହରଣ ସ୍ୱରୂପ https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-ସୁସଙ୍ଗତ Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "ଅସମାଧାନ ପ୍ରଶ୍ନଗୁଡ଼ିକ:"
@@ -933,8 +964,8 @@ msgstr "ପ୍ରଦାନକାରୀ %1 ବିନ୍ୟାସ କରାଯା�
 msgid "Provider API"
 msgstr "ସେବା ପ୍ରଦାନକାରୀ API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "ପ୍ରଦାନକାରୀ ନାମ - ମେନୁରେ ଦେଖାଯିବ; API ପ୍ରୋଟୋକଲ ନାମ ବ୍ୟବହାର କରିବା ପାଇଁ ଖାଲି ଛାଡନ୍ତୁ (ଯେପରି \"openai\")"
+msgid "Provider Name"
+msgstr "ପ୍ରୋଭାଇଡର ନାମ"
 
 msgid "Provider data not initialized."
 msgstr "ସେବା ପ୍ରଦାନକାରୀ ଡାଟା ଆରମ୍ଭ ହୋଇନାହିଁ।"
@@ -1002,6 +1033,9 @@ msgstr "ବ୍ୟବହାରକାରୀଙ୍କ ଦ୍ୱାରା ଅନୁ�
 
 msgid "Request cancelled by user."
 msgstr "ବ୍ୟବହାରକାରୀଙ୍କ ଦ୍ୱାରା ଅନୁରୋଧ ବାତିଲ ହେଲା।"
+
+msgid "Request failed: %1"
+msgstr "ଅନୁରୋଧ ବିଫଳ ହେଲା: %1"
 
 msgid "Reset"
 msgstr "ରିସେଟ୍"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "ଶବ୍ଦ ଓ ଧାରଣା"
+
+msgid "Test"
+msgstr "ପରୀକ୍ଷା"
 
 msgid "Text Size: %1"
 msgstr "ପାଠ୍ୟ ସାଇଜ୍: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Може да намерите тези теми за интере
 msgid "%1 - choose an action"
 msgstr "%1 - изберете действие"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 обработчикът не поддържа тестване на връзката"
+
 msgid "(No response)"
 msgstr "(Няма отговор)"
+
+msgid "(empty response body)"
+msgstr "(празно тяло на отговора)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Да се добави ли този бутон към менюто за маркиране?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API-то е заето (Статус: 429)</b>\n"
-"Опити %1/%2 - повторен опит след"
+"<b>API е заето</b>\n"
+"Опити %1/%2 ... Повторен опит след"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Няма достъп до папката по подразбиране за логове: %1</b>\n"
 "Използва се оригиналното местоположение."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Подробности:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Параметри</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Премахнато</b> [%1 (AI)] от менюто за маркиране."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Заявка</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Отговор</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Базов URL"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Неизвестен тип функция:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI отговаря"
 
 msgid "API Key"
 msgstr "API ключ"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API ключ - въведете своя ключ, след това докоснете „Разглеждане на модели“, за да се покажат наличните модели"
 
 msgid "API key is required for %1."
 msgstr "За %1 е необходим API ключ."
@@ -321,8 +339,11 @@ msgstr "Базовият URL е задължителен."
 msgid "Base URL must start with http:// or https://"
 msgstr "Базовият URL трябва да започва с http:// или https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Базов URL на API крайната точка, напр. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Базов URL: %1"
+
+msgid "Base URL: %1"
+msgstr "Базов URL: %1"
 
 msgid "Book Analysis"
 msgstr "Анализ на книгата"
@@ -388,6 +409,9 @@ msgstr "Настройка на езика за отговор на AI LLM. По
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Конфигурираната папка за тетрадки не е достъпна: %1"
+
+msgid "Connection test successful."
+msgstr "Тестът за връзка е успешен."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Културна значимост"
 
 msgid "Current Chapter Only"
 msgstr "Само текущата глава"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Персонализиран"
 
 msgid "Custom Prompt"
 msgstr "Персонализиран промпт"
@@ -593,8 +621,8 @@ msgstr "За подробности посетете уики страницат
 msgid "Fun Analogy"
 msgstr "Забавна аналогия"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. трябва да включва сегмента /models, напр. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Общ разговор"
@@ -619,6 +647,9 @@ msgstr "Обработчикът %1 не е наличен за доставчи
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Обработчикът не е намерен за: %1. Моля, проверете файла си configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Обработчик: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Анализ на маркирани текстове и бележки"
@@ -715,20 +746,20 @@ msgstr "Търси"
 msgid "Main Themes"
 msgstr "Основни теми"
 
-msgid "Manual"
-msgstr "Ръководство"
-
 msgid "Markdown Engine"
 msgstr "Двигател за Markdown"
 
 msgid "Meaning"
 msgstr "Значение"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Модел - докоснете „Разглеждане на модели“, за да изберете наличен модел"
+msgid "Model"
+msgstr "Модел"
 
 msgid "Model Built-In"
 msgstr "Вграден в модела"
+
+msgid "Model replied: %1"
+msgstr "Моделът отговори: %1"
 
 msgid "Model reset: %1"
 msgstr "Моделът е нулиран: %1"
@@ -885,11 +916,11 @@ msgstr "Използва се само от подкани, които се вк
 msgid "Open conflict or mystery:"
 msgstr "Неразрешен конфликт или загадка:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Включване на вградено интернет търсене"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Крайна точка за чат/завършвания, съвместима с OpenAI, напр. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-съвместим Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Неизяснени въпроси:"
@@ -933,8 +964,8 @@ msgstr "Доставчик %1 НЕ Е КОНФИГУРИРАН"
 msgid "Provider API"
 msgstr "API на доставчика"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Име на доставчика - показва се в менютата; оставете празно, за да се използва името на API протокола (напр. \"openai\")"
+msgid "Provider Name"
+msgstr "Име на доставчика"
 
 msgid "Provider data not initialized."
 msgstr "Данните за доставчика не са инициализирани."
@@ -1002,6 +1033,9 @@ msgstr "Заявката е отменена от потребителя."
 
 msgid "Request cancelled by user."
 msgstr "Заявката е отменена от потребителя."
+
+msgid "Request failed: %1"
+msgstr "Заявката не бе успешна: %1"
 
 msgid "Reset"
 msgstr "Нулиране"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Термини и понятия"
+
+msgid "Test"
+msgstr "Тест"
 
 msgid "Text Size: %1"
 msgstr "Размер на текста: %1"

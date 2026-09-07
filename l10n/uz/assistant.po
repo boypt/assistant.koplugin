@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 04:44+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: Oʻzbekcha (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### Sizga quyidagi mavzular qiziq boʻlishi mumkin:"
 msgid "%1 - choose an action"
 msgstr "%1 - amalni tanlang"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 ishlovchisi ulanishni tekshirishni qo‘llab-quvvatlamaydi"
+
 msgid "(No response)"
 msgstr "(Javob yo'q)"
+
+msgid "(empty response body)"
+msgstr "(bo‘sh javob tanasi)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Bu tugmani Ajratish menyusiga qo'shilsinmi?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API band (Holat: 429)</b>\n"
-"Urinishlar %1/%2 - qayta urinishgacha"
+"<b>API band</b>\n"
+"Urinishlar %1/%2 ... Qayta urinish"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Jurnallar uchun standart papkaga kirish imkoni yoʻq: %1</b>\n"
 "Asl joylashuvdan foydalanilmoqda."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Tafsilot:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametrlar</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Olib tashlandi</b> [%1 (AI)] Belgilash menyusidan."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>So‘rov</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Javob</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Ulanish muvaffaqiyatli."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Noma'lum funksiya turi:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI javob bermoqda"
 
 msgid "API Key"
 msgstr "API kaliti"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API kaliti - kalitingizni kiriting, so'ng mavjud modellar ro'yxatini ko'rish uchun Modellarni ko'rib chiqish tugmasini bosing"
 
 msgid "API key is required for %1."
 msgstr "%1 uchun API kaliti talab qilinadi."
@@ -321,8 +339,11 @@ msgstr "Asosiy URL talab qilinadi."
 msgid "Base URL must start with http:// or https://"
 msgstr "Asosiy URL http:// yoki https:// bilan boshlanishi kerak."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API manzilining asosiy URL manzili, masalan: https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Ulanish muvaffaqiyatsiz tugadi: %1"
+
+msgid "Base URL: %1"
+msgstr "Asosiy URL: %1"
 
 msgid "Book Analysis"
 msgstr "Kitob tahlili"
@@ -388,6 +409,9 @@ msgstr "AI LLM ning javob tilini sozlang. Odatiy holatda KOReader interfeys tili
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Sozlangan daftarlar papkasiga kirish imkoni yoʻq: %1"
+
+msgid "Connection test successful."
+msgstr "Ulanish testi muvaffaqiyatli."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Madaniy ahamiyat"
 
 msgid "Current Chapter Only"
 msgstr "Faqat joriy bob"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Maxsus"
 
 msgid "Custom Prompt"
 msgstr "Maxsus prompt"
@@ -593,8 +621,8 @@ msgstr "Tafsilotlar uchun github'dagi 'Configuration' wiki sahifasiga tashrif bu
 msgid "Fun Analogy"
 msgstr "Qiziqarli oʻxshatish"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. /models segmentini o'z ichiga olishi kerak, masalan .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Umumiy suhbat"
@@ -619,6 +647,9 @@ msgstr "%1 handleri %2 provayderi uchun mavjud emas."
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "%1 uchun handler topilmadi. Iltimos, configuration.lua faylingizni tekshiring."
+
+msgid "Handler: %1"
+msgstr "Ishlovchi: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Ajratish va eslatma tahlili"
@@ -715,20 +746,20 @@ msgstr "Qidirish"
 msgid "Main Themes"
 msgstr "Asosiy mavzular"
 
-msgid "Manual"
-msgstr "Qoʻlda"
-
 msgid "Markdown Engine"
 msgstr "Markdown dvijogi"
 
 msgid "Meaning"
 msgstr "Maʼno"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Model - mavjud modelni tanlash uchun Modellarni ko'rib chiqish tugmasini bosing"
+msgid "Model"
+msgstr "Model"
 
 msgid "Model Built-In"
 msgstr "Modelga o'rnatilgan"
+
+msgid "Model replied: %1"
+msgstr "Model javob berdi: %1"
 
 msgid "Model reset: %1"
 msgstr "Model qayta tiklandi: %1"
@@ -885,11 +916,11 @@ msgstr "Faqat kitob kontekstini tanlagan soʻrovlar tomonidan ishlatiladi (odati
 msgid "Open conflict or mystery:"
 msgstr "Ochiq ziddiyat yoki sir:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - O'rnatilgan veb-qidiruvni o'z ichiga oladi"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI bilan mos keluvchi chat/completions manzili, masalan: https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-ga mos Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Ochiq savollar:"
@@ -933,8 +964,8 @@ msgstr "Provayder %1 SOZLANMAGAN"
 msgid "Provider API"
 msgstr "Provayder API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Provayder nomi - menyularda ko'rsatiladi; API protokoli nomidan foydalanish uchun bo'sh qoldiring (masalan, \"openai\")"
+msgid "Provider Name"
+msgstr "Provayder nomi"
 
 msgid "Provider data not initialized."
 msgstr "Provayder maʼlumotlari ishga tushirilmagan."
@@ -1002,6 +1033,9 @@ msgstr "Soʻrov foydalanuvchi tomonidan bekor qilindi."
 
 msgid "Request cancelled by user."
 msgstr "Soʻrov foydalanuvchi tomonidan bekor qilindi."
+
+msgid "Request failed: %1"
+msgstr "So‘rov muvaffaqiyatsiz tugadi: %1"
 
 msgid "Reset"
 msgstr "Qayta tiklash"
@@ -1164,6 +1198,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Atamalar va tushunchalar"
+
+msgid "Test"
+msgstr "Sinov"
 
 msgid "Text Size: %1"
 msgstr "Matn oʻlchami: %1"

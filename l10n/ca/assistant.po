@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Potser aquests temes us resulten interessants:"
 msgid "%1 - choose an action"
 msgstr "%1 - tria una acció"
 
+msgid "%1 handler does not support connection testing"
+msgstr "El gestor %1 no admet proves de connexió"
+
 msgid "(No response)"
 msgstr "(Sense resposta)"
+
+msgid "(empty response body)"
+msgstr "(cos de resposta buit)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Vols afegir aquest botó al menú de ressaltats?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API ocupada (Estat: 429)</b>\n"
-"Intents %1/%2 - reintenta en"
+"<b>API ocupada</b>\n"
+"Intents %1/%2 ... Reintent en"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>No es pot accedir a la carpeta predeterminada de registres: %1</b>\n"
 "S'utilitzarà la ubicació original."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Detall:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Paràmetres</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Eliminat</b> [%1 (AI)] del menú de subratllats."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Sol·licitud</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Resposta</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Provant la connexió...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Tipus de funció desconegut:</b> %1"
@@ -211,9 +232,6 @@ msgstr "La IA està responent"
 
 msgid "API Key"
 msgstr "Clau de l'API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Clau API - introdueix la teva clau, després toca a Explora models per llistar els models disponibles."
 
 msgid "API key is required for %1."
 msgstr "Es requereix una clau d'API per a %1."
@@ -321,8 +339,11 @@ msgstr "L'URL base és obligatori."
 msgid "Base URL must start with http:// or https://"
 msgstr "L'URL base ha de començar amb http:// o https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL base del punt final de l'API, p. ex. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "URL base, p. ex. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "URL base: %1"
 
 msgid "Book Analysis"
 msgstr "Anàlisi del llibre"
@@ -388,6 +409,9 @@ msgstr "Configura l'idioma de resposta del LLM d'IA. Per defecte, l'idioma de la
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "La carpeta de quaderns configurada no és accessible: %1"
+
+msgid "Connection test successful."
+msgstr "La prova de connexió ha estat correcta."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Importància cultural"
 
 msgid "Current Chapter Only"
 msgstr "Només el capítol actual"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Personalitzat"
 
 msgid "Custom Prompt"
 msgstr "Prompt personalitzat"
@@ -593,8 +621,8 @@ msgstr "Per a més detalls, visita la pàgina wiki «Configuration» a GitHub."
 msgid "Fun Analogy"
 msgstr "Analogia divertida"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "API de Gemini. Ha d'incloure el segment /models, per exemple .../v1beta/models"
+msgid "Gemini API"
+msgstr "API Gemini"
 
 msgid "General Conversation"
 msgstr "Conversa general"
@@ -619,6 +647,9 @@ msgstr "El gestor %1 no està disponible per al proveïdor: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "No s'ha trobat el gestor per a: %1. Comproveu el fitxer configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Gestor: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Anàlisi de ressaltats i notes"
@@ -715,20 +746,20 @@ msgstr "Consulta"
 msgid "Main Themes"
 msgstr "Temes principals"
 
-msgid "Manual"
-msgstr "Manual"
-
 msgid "Markdown Engine"
 msgstr "Motor de Markdown"
 
 msgid "Meaning"
 msgstr "Significat"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Model: toqueu Explora els models per triar un model disponible"
+msgid "Model"
+msgstr "Model"
 
 msgid "Model Built-In"
 msgstr "Model integrat"
+
+msgid "Model replied: %1"
+msgstr "El model ha respost: %1"
 
 msgid "Model reset: %1"
 msgstr "Model restablert: %1"
@@ -885,11 +916,11 @@ msgstr "Només s'utilitza per a indicacions (prompts) que accepten el context de
 msgid "Open conflict or mystery:"
 msgstr "Conflicte o misteri obert:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Inclou la cerca web integrada"
+msgid "OpenAI Responses API"
+msgstr "API de respostes d'OpenAI"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Punt final de xat/completions compatible amb OpenAI, p. ex. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "API Chat Completions compatible amb OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "Preguntes pendents:"
@@ -933,8 +964,8 @@ msgstr "Proveïdor %1 NO CONFIGURAT"
 msgid "Provider API"
 msgstr "API del proveïdor"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Nom del proveïdor: es mostra als menús; deixeu-lo buit per fer servir el nom del protocol de l'API (p. ex. \"openai\")"
+msgid "Provider Name"
+msgstr "Nom del proveïdor"
 
 msgid "Provider data not initialized."
 msgstr "Dades del proveïdor no inicialitzades."
@@ -1002,6 +1033,9 @@ msgstr "Sol·licitud cancel·lada per l'usuari."
 
 msgid "Request cancelled by user."
 msgstr "Sol·licitud cancel·lada per l'usuari."
+
+msgid "Request failed: %1"
+msgstr "La sol·licitud ha fallat: %1"
 
 msgid "Reset"
 msgstr "Restableix"
@@ -1163,6 +1197,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Termes i conceptes"
+
+msgid "Test"
+msgstr "Prova"
 
 msgid "Text Size: %1"
 msgstr "Mida del text: %1"

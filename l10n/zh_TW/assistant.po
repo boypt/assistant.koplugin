@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 02:44+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: 中文（台灣) (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### 您可能對這些主題感興趣："
 msgid "%1 - choose an action"
 msgstr "%1 - 選擇動作"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 處理器不支援連線測試"
+
 msgid "(No response)"
 msgstr "（無回應）"
+
+msgid "(empty response body)"
+msgstr "（空回應內容）"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "要將此按鈕新增到反白選單嗎？"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API 忙碌（狀態碼：429）</b>\n"
-"嘗試 %1/%2 - 重試等待"
+"<b>API 忙碌中</b>\n"
+"嘗試 %1/%2 ... 重試於"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>無法存取日誌的預設資料夾：%1</b>\n"
 "使用原始位置。"
+
+msgid "<b>Detail:</b>"
+msgstr "<b>詳細資訊：</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>參數</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>已移除</b> [%1 (AI)] 從反白選單。"
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>請求</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>回應</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "測試連線中..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>未知的功能類型：</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI 正在回應"
 
 msgid "API Key"
 msgstr "API 金鑰"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API 金鑰 - 輸入您的金鑰，然後點選「瀏覽模型」以列出可用模型"
 
 msgid "API key is required for %1."
 msgstr "%1 需要 API 金鑰。"
@@ -321,8 +339,11 @@ msgstr "必須填寫 Base URL。"
 msgid "Base URL must start with http:// or https://"
 msgstr "Base URL 必須以 http:// 或 https:// 開頭。"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API 端點的基礎 URL，例如 https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "基礎 URL，例如 https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "基礎 URL：%1"
 
 msgid "Book Analysis"
 msgstr "書籍分析"
@@ -388,6 +409,9 @@ msgstr "設定 AI 語言模型（LLM）的回應語言。預設為 KOReader 的�
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "設定的筆記本資料夾無法存取：%1"
+
+msgid "Connection test successful."
+msgstr "連線測試成功。"
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "文化意義"
 
 msgid "Current Chapter Only"
 msgstr "僅目前章節"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "自訂"
 
 msgid "Custom Prompt"
 msgstr "自訂提示"
@@ -593,8 +621,8 @@ msgstr "詳情請參閱 GitHub 上的「Configuration」Wiki 頁面。"
 msgid "Fun Analogy"
 msgstr "有趣的比喻"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API。必須包含 /models 區段，例如 .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "一般對話"
@@ -619,6 +647,9 @@ msgstr "處理常式 %1 不適用於提供者：%2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "找不到 %1 的處理常式。請檢查您的 configuration.lua 檔案。"
+
+msgid "Handler: %1"
+msgstr "處理器：%1"
 
 msgid "Highlight & Note Analysis"
 msgstr "反白與筆記分析"
@@ -714,20 +745,20 @@ msgstr "查詢"
 msgid "Main Themes"
 msgstr "主要主題"
 
-msgid "Manual"
-msgstr "手冊"
-
 msgid "Markdown Engine"
 msgstr "Markdown 引擎"
 
 msgid "Meaning"
 msgstr "意思"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "模型 - 點選「瀏覽模型」以選擇可用模型"
+msgid "Model"
+msgstr "模型"
 
 msgid "Model Built-In"
 msgstr "模型內建"
+
+msgid "Model replied: %1"
+msgstr "模型回覆：%1"
 
 msgid "Model reset: %1"
 msgstr "模型已重設：%1"
@@ -884,11 +915,11 @@ msgstr "僅用於選擇加入書籍上下文的提示（預設為：解釋、歷
 msgid "Open conflict or mystery:"
 msgstr "未解的衝突或謎團："
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - 包含內建網路搜尋"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "與 OpenAI 相容的聊天/補全端點，例如 https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI 相容的 Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "尚未解答的問題："
@@ -932,8 +963,8 @@ msgstr "服務提供者 %1 尚未設定"
 msgid "Provider API"
 msgstr "提供者 API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "服務提供者名稱 - 顯示於選單中；留空則使用 API 協定名稱（例如 \"openai\"）"
+msgid "Provider Name"
+msgstr "供應商名稱"
 
 msgid "Provider data not initialized."
 msgstr "提供者資料尚未初始化。"
@@ -1001,6 +1032,9 @@ msgstr "要求已由使用者取消。"
 
 msgid "Request cancelled by user."
 msgstr "要求已由使用者取消。"
+
+msgid "Request failed: %1"
+msgstr "請求失敗：%1"
 
 msgid "Reset"
 msgstr "重設"
@@ -1164,6 +1198,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "術語與概念"
+
+msgid "Test"
+msgstr "測試"
 
 msgid "Text Size: %1"
 msgstr "文字大小：%1"

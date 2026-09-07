@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### 以下のトピックに興味があるかもしれません:"
 msgid "%1 - choose an action"
 msgstr "%1 - アクションを選択してください"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 ハンドラーは接続テストに対応していません"
+
 msgid "(No response)"
 msgstr "（応答なし）"
+
+msgid "(empty response body)"
+msgstr "（空のレスポンス本文）"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "このボタンをハイライトメニューに追加しますか？"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>APIビジー（ステータス: 429）</b>\n"
-"試行 %1/%2 - 再試行まで"
+"<b>APIビジー</b>\n"
+"試行 %1/%2 ... 再試行まで"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>ログの既定フォルダーにアクセスできません: %1</b>\n"
 "元の場所を使用します。"
+
+msgid "<b>Detail:</b>"
+msgstr "<b>詳細：</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>パラメータ</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>削除しました</b> [%1 (AI)] をハイライトメニューから。"
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>リクエスト</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>レスポンス</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>接続テスト中...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>不明な機能タイプ:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AIが応答中"
 
 msgid "API Key"
 msgstr "APIキー"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "APIキー - キーを入力し、「モデルを参照」をタップすると利用可能なモデルが一覧表示されます"
 
 msgid "API key is required for %1."
 msgstr "%1にはAPIキーが必要です。"
@@ -321,8 +339,11 @@ msgstr "ベースURLは必須です。"
 msgid "Base URL must start with http:// or https://"
 msgstr "ベースURLは http:// または https:// で始まる必要があります。"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "APIエンドポイントのベースURL（例: https://example.com/v1）"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "ベースURL（例: https://example.com/v1）"
+
+msgid "Base URL: %1"
+msgstr "ベースURL: %1"
 
 msgid "Book Analysis"
 msgstr "書籍分析"
@@ -388,6 +409,9 @@ msgstr "AI LLMの応答言語を設定します。デフォルトはKOReaderの�
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "設定されたノートブックフォルダにアクセスできません: %1"
+
+msgid "Connection test successful."
+msgstr "接続テストに成功しました。"
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "文化的意義"
 
 msgid "Current Chapter Only"
 msgstr "現在の章のみ"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "カスタム"
 
 msgid "Custom Prompt"
 msgstr "カスタムプロンプト"
@@ -593,8 +621,8 @@ msgstr "詳細は、GitHubの「Configuration」wikiページを参照してく�
 msgid "Fun Analogy"
 msgstr "楽しい例え"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API。 /models セグメントを含める必要があります。例: .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "一般的な会話"
@@ -619,6 +647,9 @@ msgstr "ハンドラー %1 はプロバイダー %2 では利用できません�
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "ハンドラーが見つかりません: %1。configuration.lua ファイルを確認してください。"
+
+msgid "Handler: %1"
+msgstr "ハンドラー: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "ハイライトとノートの分析"
@@ -714,20 +745,20 @@ msgstr "調べる"
 msgid "Main Themes"
 msgstr "主要テーマ"
 
-msgid "Manual"
-msgstr "マニュアル"
-
 msgid "Markdown Engine"
 msgstr "Markdownエンジン"
 
 msgid "Meaning"
 msgstr "意味"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "モデル - 利用可能なモデルを選ぶには「モデルを参照」をタップ"
+msgid "Model"
+msgstr "モデル"
 
 msgid "Model Built-In"
 msgstr "モデル内蔵"
+
+msgid "Model replied: %1"
+msgstr "モデルの応答: %1"
 
 msgid "Model reset: %1"
 msgstr "モデルをリセットしました: %1"
@@ -884,11 +915,11 @@ msgstr "ブックコンテキストを有効にしたプロンプトでのみ使
 msgid "Open conflict or mystery:"
 msgstr "未解決の対立または謎："
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - 組み込みのウェブ検索を含める"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI互換のchat/completionsエンドポイント（例: https://api.openai.com/v1）"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI互換のChat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "未解決の疑問："
@@ -932,8 +963,8 @@ msgstr "プロバイダ %1 未設定"
 msgid "Provider API"
 msgstr "プロバイダーAPI"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "プロバイダ名 - メニューに表示されます。空のままにすると API プロトコル名（例: \"openai\"）が使用されます"
+msgid "Provider Name"
+msgstr "プロバイダー名"
 
 msgid "Provider data not initialized."
 msgstr "プロバイダーデータが初期化されていません。"
@@ -1001,6 +1032,9 @@ msgstr "ユーザーによってリクエストがキャンセルされました
 
 msgid "Request cancelled by user."
 msgstr "ユーザーによってリクエストがキャンセルされました。"
+
+msgid "Request failed: %1"
+msgstr "リクエストに失敗しました: %1"
 
 msgid "Reset"
 msgstr "リセット"
@@ -1163,6 +1197,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "用語と概念"
+
+msgid "Test"
+msgstr "テスト"
 
 msgid "Text Size: %1"
 msgstr "テキストサイズ: %1"

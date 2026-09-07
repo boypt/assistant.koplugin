@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 02:47+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: عربى (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### قد تهمك هذه الموضوعات:"
 msgid "%1 - choose an action"
 msgstr "%1 - اختر إجراءً"
 
+msgid "%1 handler does not support connection testing"
+msgstr "معالج %1 لا يدعم اختبار الاتصال"
+
 msgid "(No response)"
 msgstr "(لا يوجد رد)"
+
+msgid "(empty response body)"
+msgstr "(نص استجابة فارغ)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "هل تريد إضافة هذا الزر إلى قائمة التمييز؟"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API مشغول (الحالة: 429)</b>\n"
-"المحاولات %1/%2 - إعادة المحاولة خلال"
+"<b>الواجهة مشغولة</b>\n"
+"محاولات %1/%2 ... إعادة المحاولة خلال"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>تعذّر الوصول إلى المجلد الافتراضي للسجلات: %1</b>\n"
 "سيتم استخدام الموقع الأصلي."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>التفاصيل:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>المعلمات</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>تمت الإزالة</b> [%1 (AI)] من قائمة التمييز."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>الطلب</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>الاستجابة</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "جارٍ اختبار الاتصال..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>نوع ميزة غير معروف:</b> %1"
@@ -211,9 +232,6 @@ msgstr "الذكاء الاصطناعي يرد"
 
 msgid "API Key"
 msgstr "مفتاح API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "مفتاح API - أدخل مفتاحك، ثم اضغط على تصفح النماذج لعرض النماذج المتاحة"
 
 msgid "API key is required for %1."
 msgstr "مفتاح API مطلوب لـ %1."
@@ -321,8 +339,11 @@ msgstr "عنوان URL الأساسي مطلوب."
 msgid "Base URL must start with http:// or https://"
 msgstr "يجب أن يبدأ عنوان URL الأساسي بـ http:// أو https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "عنوان URL الأساسي لنقطة نهاية API، مثال: https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "عنوان URL الأساسي، مثل: https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "عنوان URL الأساسي: %1"
 
 msgid "Book Analysis"
 msgstr "تحليل الكتاب"
@@ -388,6 +409,9 @@ msgstr "قم بتكوين لغة استجابة AI LLM. يتم تعيين الا
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "مجلد المفكرات المُهيأ غير قابل للوصول: %1"
+
+msgid "Connection test successful."
+msgstr "تم اختبار الاتصال بنجاح."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "الأهمية الثقافية"
 
 msgid "Current Chapter Only"
 msgstr "الفصل الحالي فقط"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "مخصص"
 
 msgid "Custom Prompt"
 msgstr "موجه مخصص"
@@ -593,8 +621,8 @@ msgstr "للتفاصيل، تفضل بزيارة صفحة الويكي 'Configur
 msgid "Fun Analogy"
 msgstr "تشبيه ممتع"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. يجب أن يتضمن الجزء /models، على سبيل المثال .../v1beta/models"
+msgid "Gemini API"
+msgstr "واجهة برمجة تطبيقات Gemini"
 
 msgid "General Conversation"
 msgstr "محادثة عامة"
@@ -619,6 +647,9 @@ msgstr "المعالج %1 غير متاح للمزوّد: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "لم يتم العثور على المعالج لـ: %1. يرجى التحقق من ملف configuration.lua الخاص بك."
+
+msgid "Handler: %1"
+msgstr "المعالج: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "تحليل التمييز والملاحظات"
@@ -719,20 +750,20 @@ msgstr "ابحث"
 msgid "Main Themes"
 msgstr "الموضوعات الرئيسية"
 
-msgid "Manual"
-msgstr "دليل"
-
 msgid "Markdown Engine"
 msgstr "محرك ماركداون"
 
 msgid "Meaning"
 msgstr "المعنى"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "النموذج - اضغط تصفح النماذج لاختيار نموذج متاح"
+msgid "Model"
+msgstr "النموذج"
 
 msgid "Model Built-In"
 msgstr "النموذج المدمج"
+
+msgid "Model replied: %1"
+msgstr "رد النموذج: %1"
 
 msgid "Model reset: %1"
 msgstr "تمت إعادة تعيين النموذج: %1"
@@ -889,11 +920,11 @@ msgstr "يُستخدم فقط بواسطة المطالبات التي تختا�
 msgid "Open conflict or mystery:"
 msgstr "الصراع أو اللغز المفتوح:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - تضمين بحث الويب المدمج"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "نقطة نهاية chat/completions المتوافقة مع OpenAI، مثال: https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "Chat Completions API المتوافق مع OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "الأسئلة المعلقة:"
@@ -937,8 +968,8 @@ msgstr "المزوّد %1 غير مكوّن"
 msgid "Provider API"
 msgstr "API المزوّد"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "اسم المزوّد - يظهر في القوائم؛ اتركه فارغًا لاستخدام اسم بروتوكول API (مثل \"openai\")"
+msgid "Provider Name"
+msgstr "اسم المزود"
 
 msgid "Provider data not initialized."
 msgstr "لم تتم تهيئة بيانات المزوّد."
@@ -1006,6 +1037,9 @@ msgstr "تم إلغاء الطلب من قبل المستخدم."
 
 msgid "Request cancelled by user."
 msgstr "تم إلغاء الطلب من قبل المستخدم."
+
+msgid "Request failed: %1"
+msgstr "فشل الطلب: %1"
 
 msgid "Reset"
 msgstr "إعادة تعيين"
@@ -1168,6 +1202,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "المصطلحات والمفاهيم"
+
+msgid "Test"
+msgstr "اختبار"
 
 msgid "Text Size: %1"
 msgstr "حجم النص: %1"

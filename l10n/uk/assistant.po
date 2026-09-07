@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Можливо, вам будуть цікаві ці теми:"
 msgid "%1 - choose an action"
 msgstr "%1 — виберіть дію"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Обробник %1 не підтримує перевірку з'єднання"
+
 msgid "(No response)"
 msgstr "(Немає відповіді)"
+
+msgid "(empty response body)"
+msgstr "(порожнє тіло відповіді)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Додати цю кнопку до меню виділення?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API зайнятий (Статус: 429)</b>\n"
-"Спроби %1/%2 — повтор через"
+"<b>API зайнятий</b>\n"
+"Спроби %1/%2 ... Повтор через"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Немає доступу до стандартної теки для логів: %1</b>\n"
 "Використовується початкове розташування."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Деталі:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -159,8 +168,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Параметри</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Видалено</b> [%1 (AI)] з меню виділення."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Запит</b> — POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Відповідь</b> — HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Перевірка з'єднання..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Невідомий тип функції:</b> %1"
@@ -203,9 +224,6 @@ msgstr "ШІ відповідає"
 
 msgid "API Key"
 msgstr "API-ключ"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Ключ API — введіть свій ключ, а потім натисніть «Переглянути моделі», щоб показати доступні моделі"
 
 msgid "API key is required for %1."
 msgstr "Для %1 потрібен API-ключ."
@@ -313,8 +331,11 @@ msgstr "Базовий URL обов'язковий."
 msgid "Base URL must start with http:// or https://"
 msgstr "Базовий URL має починатися з http:// або https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Базовий URL кінцевої точки API, наприклад https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Базовий URL, напр. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Базовий URL: %1"
 
 msgid "Book Analysis"
 msgstr "Аналіз книги"
@@ -380,6 +401,9 @@ msgstr "Налаштувати мову відповідей AI LLM. За зам
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Налаштована папка записників недоступна: %1"
+
+msgid "Connection test successful."
+msgstr "Перевірку з'єднання успішно виконано."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -459,6 +483,10 @@ msgstr "Культурне значення"
 
 msgid "Current Chapter Only"
 msgstr "Лише поточний розділ"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Власний"
 
 msgid "Custom Prompt"
 msgstr "Власний промпт"
@@ -585,8 +613,8 @@ msgstr "Докладніше див. на сторінці вікі «Configurat
 msgid "Fun Analogy"
 msgstr "Цікава аналогія"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. має містити сегмент /models, напр. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Загальна розмова"
@@ -611,6 +639,9 @@ msgstr "Обробник %1 недоступний для провайдера: 
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Обробник для %1 не знайдено. Перевірте ваш файл configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Обробник: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Аналіз виділень і нотаток"
@@ -709,20 +740,20 @@ msgstr "Знайти"
 msgid "Main Themes"
 msgstr "Головні теми"
 
-msgid "Manual"
-msgstr "Інструкція"
-
 msgid "Markdown Engine"
 msgstr "Рушій Markdown"
 
 msgid "Meaning"
 msgstr "Значення"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Модель — натисніть «Переглянути моделі», щоб вибрати доступну модель"
+msgid "Model"
+msgstr "Модель"
 
 msgid "Model Built-In"
 msgstr "Вбудовано в модель"
+
+msgid "Model replied: %1"
+msgstr "Модель відповіла: %1"
 
 msgid "Model reset: %1"
 msgstr "Модель скинуто: %1"
@@ -879,11 +910,11 @@ msgstr "Використовується лише запитами, які ак�
 msgid "Open conflict or mystery:"
 msgstr "Відкритий конфлікт або загадка:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API — Увімкнути вбудований вебпошук"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Сумісний з OpenAI кінцевий точок чату/завершень, наприклад https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-сумісний Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Відкриті питання:"
@@ -927,8 +958,8 @@ msgstr "Провайдер %1 НЕ НАЛАШТОВАНО"
 msgid "Provider API"
 msgstr "API провайдера"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Назва провайдера — відображається в меню; залиште порожнім, щоб використовувати назву протоколу API (напр. \"openai\")"
+msgid "Provider Name"
+msgstr "Назва постачальника"
 
 msgid "Provider data not initialized."
 msgstr "Дані провайдера не ініціалізовано."
@@ -996,6 +1027,9 @@ msgstr "Запит скасовано користувачем."
 
 msgid "Request cancelled by user."
 msgstr "Запит скасовано користувачем."
+
+msgid "Request failed: %1"
+msgstr "Помилка запиту: %1"
 
 msgid "Reset"
 msgstr "Скинути"
@@ -1159,6 +1193,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Терміни та поняття"
+
+msgid "Test"
+msgstr "Тест"
 
 msgid "Text Size: %1"
 msgstr "Розмір шрифту: %1"

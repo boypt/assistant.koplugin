@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Ces sujets pourraient vous intéresser :"
 msgid "%1 - choose an action"
 msgstr "%1 - choisir une action"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Le gestionnaire %1 ne prend pas en charge le test de connexion"
+
 msgid "(No response)"
 msgstr "(Aucune réponse)"
+
+msgid "(empty response body)"
+msgstr "(corps de réponse vide)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Ajouter ce bouton au menu Surlignage ?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API occupée (Statut : 429)</b>\n"
-"Tentatives %1/%2 - nouvelle tentative dans"
+"<b>API occupée</b>\n"
+"Tentatives %1/%2 ... Nouvel essai dans"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Impossible d'accéder au dossier par défaut des journaux : %1</b>\n"
 "Utilisation de l'emplacement d'origine."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Détail :</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Paramètres</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Retiré</b> [%1 (IA)] du menu de surlignage."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Requête</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Réponse</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "<b>Test de connexion...</b>"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Type de fonctionnalité inconnu :</b> %1"
@@ -211,9 +232,6 @@ msgstr "L'IA répond"
 
 msgid "API Key"
 msgstr "Clé API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Clé API : saisissez votre clé, puis appuyez sur Parcourir les modèles pour lister les modèles disponibles."
 
 msgid "API key is required for %1."
 msgstr "La clé API est requise pour %1."
@@ -321,8 +339,11 @@ msgstr "L'URL de base est requise."
 msgid "Base URL must start with http:// or https://"
 msgstr "L'URL de base doit commencer par http:// ou https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL de base du point de terminaison de l'API, p. ex. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "URL de base, p. ex. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "URL de base : %1"
 
 msgid "Book Analysis"
 msgstr "Analyse du livre"
@@ -388,6 +409,9 @@ msgstr "Configurez la langue de réponse de l'IA (LLM). Par défaut, elle corres
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Le dossier des carnets configuré n'est pas accessible : %1"
+
+msgid "Connection test successful."
+msgstr "Test de connexion réussi."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Importance culturelle"
 
 msgid "Current Chapter Only"
 msgstr "Chapitre actuel uniquement"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Personnalisé"
 
 msgid "Custom Prompt"
 msgstr "Prompt personnalisé"
@@ -593,8 +621,8 @@ msgstr "Pour plus de détails, consultez la page wiki « Configuration » sur Gi
 msgid "Fun Analogy"
 msgstr "Analogie amusante"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "API Gemini : doit inclure le segment /models, p. ex. .../v1beta/models"
+msgid "Gemini API"
+msgstr "API Gemini"
 
 msgid "General Conversation"
 msgstr "Conversation générale"
@@ -619,6 +647,9 @@ msgstr "Gestionnaire %1 non disponible pour le fournisseur : %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Gestionnaire introuvable pour : %1. Veuillez vérifier votre fichier configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Gestionnaire : %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Analyse des surlignages et notes"
@@ -715,20 +746,20 @@ msgstr "Rechercher"
 msgid "Main Themes"
 msgstr "Thèmes principaux"
 
-msgid "Manual"
-msgstr "Manuel"
-
 msgid "Markdown Engine"
 msgstr "Moteur Markdown"
 
 msgid "Meaning"
 msgstr "Signification"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Modèle - appuyez sur Parcourir les modèles pour choisir un modèle disponible"
+msgid "Model"
+msgstr "Modèle"
 
 msgid "Model Built-In"
 msgstr "Modèle intégré"
+
+msgid "Model replied: %1"
+msgstr "Le modèle a répondu : %1"
 
 msgid "Model reset: %1"
 msgstr "Modèle réinitialisé : %1"
@@ -885,11 +916,11 @@ msgstr "Uniquement utilisé par les prompts qui optent pour le contexte du livre
 msgid "Open conflict or mystery:"
 msgstr "Conflit ouvert ou mystère :"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Inclure la recherche web intégrée"
+msgid "OpenAI Responses API"
+msgstr "API Responses d'OpenAI"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Point de terminaison chat/completions compatible OpenAI, p. ex. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "API Chat Completions compatible OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "Questions en suspens :"
@@ -933,8 +964,8 @@ msgstr "Fournisseur %1 NON CONFIGURÉ"
 msgid "Provider API"
 msgstr "API du fournisseur"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Nom du fournisseur - affiché dans les menus ; laissez vide pour utiliser le nom du protocole API (par exemple \"openai\")"
+msgid "Provider Name"
+msgstr "Nom du fournisseur"
 
 msgid "Provider data not initialized."
 msgstr "Données du fournisseur non initialisées."
@@ -1002,6 +1033,9 @@ msgstr "Requête annulée par l'utilisateur."
 
 msgid "Request cancelled by user."
 msgstr "Requête annulée par l'utilisateur."
+
+msgid "Request failed: %1"
+msgstr "Échec de la requête : %1"
 
 msgid "Reset"
 msgstr "Réinitialiser"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Termes et concepts"
+
+msgid "Test"
+msgstr "Tester"
 
 msgid "Text Size: %1"
 msgstr "Taille du texte : %1"

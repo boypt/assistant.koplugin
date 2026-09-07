@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Можда ће вас занимати ове теме:"
 msgid "%1 - choose an action"
 msgstr "%1 - изаберите радњу"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 upravljač ne podržava testiranje veze"
+
 msgid "(No response)"
 msgstr "(Нема одговора)"
+
+msgid "(empty response body)"
+msgstr "(prazno telo odgovora)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Додати ово дугме у мени за истицање?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API заузет (Status: 429)</b>\n"
-"Покушај %1/%2 - поновни покушај за"
+"<b>API zauzet</b>\n"
+"Pokušaji %1/%2 ... Ponovi za"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Не могу да приступим подразумеваној фасцикли за логове: %1</b>\n"
 "Користим оригиналну локацију."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Detalji:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametri</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Уклоњено</b> [%1 (AI)] из менија за означавање."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Zahtev</b> – POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Odgovor</b> – HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Тестирање"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Непознат тип функције:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI odgovara"
 
 msgid "API Key"
 msgstr "API кључ"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API кључ - унесите свој кључ, затим додирните Прегледај моделе да бисте приказали доступне моделе"
 
 msgid "API key is required for %1."
 msgstr "API ključ je obavezan za %1."
@@ -321,8 +339,11 @@ msgstr "Основна URL адреса је обавезна."
 msgid "Base URL must start with http:// or https://"
 msgstr "Основна URL адреса мора почињати са http:// или https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Osnovna URL adresa API krajnje tačke, npr. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Базна URL адреса"
+
+msgid "Base URL: %1"
+msgstr "Базна URL адреса: %1"
 
 msgid "Book Analysis"
 msgstr "Анализа књиге"
@@ -388,6 +409,9 @@ msgstr "Konfiguriši jezik odgovora AI LLM-a. Podrazumevano koristi jezik KORead
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Подешена фасцикла за бележнице није доступна: %1"
+
+msgid "Connection test successful."
+msgstr "Тест повезивања је успео."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Културни значај"
 
 msgid "Current Chapter Only"
 msgstr "Само тренутно поглавље"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Прилагођено"
 
 msgid "Custom Prompt"
 msgstr "Прилагођени промпт"
@@ -593,8 +621,8 @@ msgstr "За детаље, посетите 'Configuration' wiki страниц�
 msgid "Fun Analogy"
 msgstr "Забавна аналогија"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. мора да садржи сегмент /models, нпр. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Општи разговор"
@@ -619,6 +647,9 @@ msgstr "Руковалац %1 није доступан за провајдер�
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Руковалац није пронађен за: %1. Проверите своју configuration.lua датотеку."
+
+msgid "Handler: %1"
+msgstr "Руковалац: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Анализа истицања и бележака"
@@ -716,20 +747,20 @@ msgstr "Потражи"
 msgid "Main Themes"
 msgstr "Главне теме"
 
-msgid "Manual"
-msgstr "Приручник"
-
 msgid "Markdown Engine"
 msgstr "Маркдаун енџин"
 
 msgid "Meaning"
 msgstr "Значење"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Модел - додирните Прегледај моделе да бисте изабрали доступни модел"
+msgid "Model"
+msgstr "Модел"
 
 msgid "Model Built-In"
 msgstr "Уграђено у модел"
+
+msgid "Model replied: %1"
+msgstr "Модел је одговорио: %1"
 
 msgid "Model reset: %1"
 msgstr "Модел ресетован: %1"
@@ -886,11 +917,11 @@ msgstr "Koriste ga samo promptovi koji su opredeljeni za kontekst knjige (podraz
 msgid "Open conflict or mystery:"
 msgstr "Отворени сукоб или мистерија:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Укључи уграђену веб претрагу"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-kompatibilna chat/completions krajnja tačka, npr. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-компатибилан Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Отворена питања:"
@@ -934,8 +965,8 @@ msgstr "Провајдер %1 НИЈЕ КОНФИГУРИСАН"
 msgid "Provider API"
 msgstr "API провајдера"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Назив провајдера - приказује се у менијима; оставите празно да бисте користили назив API протокола (нпр. „openai“)"
+msgid "Provider Name"
+msgstr "Назив провајдера"
 
 msgid "Provider data not initialized."
 msgstr "Подаци провајдера нису иницијализовани."
@@ -1003,6 +1034,9 @@ msgstr "Zahtev je otkazao korisnik."
 
 msgid "Request cancelled by user."
 msgstr "Zahtev je otkazao korisnik."
+
+msgid "Request failed: %1"
+msgstr "Захтев није успео: %1"
 
 msgid "Reset"
 msgstr "Ресетуј"
@@ -1166,6 +1200,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Појмови и концепти"
+
+msgid "Test"
+msgstr "Test"
 
 msgid "Text Size: %1"
 msgstr "Veličina teksta: %1"

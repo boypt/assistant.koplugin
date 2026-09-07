@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### B'fhéidir go mbeidh na hábhair seo suimiúil duit:"
 msgid "%1 - choose an action"
 msgstr "%1 - roghnaigh gníomh"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Ní thacaíonn láimhseálaí %1 le tástáil naisc"
+
 msgid "(No response)"
 msgstr "(Gan freagra)"
+
+msgid "(empty response body)"
+msgstr "(comhlacht freagra folamh)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "An gcuirfear an cnaipe seo leis an Roghchlár Aibhsithe?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API Gnóthach (Stádas: 429)</b>\n"
-"Iarrachtaí %1/%2 - bain triail as arís i"
+"<b>API Gnóthach</b>\n"
+"Iarrachtaí %1/%2 ... Fan arís i"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Ní féidir rochtain a fháil ar an bhfillteán réamhshocraithe do logaí: %1</b>\n"
 "Ag úsáid an tsuímh bhunaidh."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Sonraí:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Paraiméadair</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Bainte</b> [%1 (AI)] den Roghchlár Aibhsithe."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Iarratas</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Freagra</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Bonn URL"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Cineál gné anaithnid:</b> %1"
@@ -211,9 +232,6 @@ msgstr "Tá AI ag freagairt"
 
 msgid "API Key"
 msgstr "Eochair API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Eochair API - cuir isteach d'eochair, ansin tapáil Brabhsáil Samhlacha chun na samhlacha atá ar fáil a liostú"
 
 msgid "API key is required for %1."
 msgstr "Tá eochair API ag teastáil le haghaidh %1."
@@ -321,8 +339,11 @@ msgstr "Tá bun-URL ag teastáil."
 msgid "Base URL must start with http:// or https://"
 msgstr "Caithfidh an bun-URL tosú le http:// nó https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL bonn an chríochphointe API, m.sh. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Bonn URL, m.sh. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Bonn URL: %1"
 
 msgid "Book Analysis"
 msgstr "Anailís Leabhar"
@@ -388,6 +409,9 @@ msgstr "Cumraigh teanga freagartha an AI LLM. Réamhshocraítear go teanga chomh
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Níl rochtain ar fhillteán na leabhar nótaí atá cumraithe: %1"
+
+msgid "Connection test successful."
+msgstr "D'éirigh leis an tástáil ceangail."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Tábhacht Chultúrtha"
 
 msgid "Current Chapter Only"
 msgstr "Caibidil Reatha Amháin"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Saincheaptha"
 
 msgid "Custom Prompt"
 msgstr "Treoir Shaincheaptha"
@@ -593,8 +621,8 @@ msgstr "Le haghaidh sonraí, tabhair cuairt ar leathanach wiki 'Configuration' a
 msgid "Fun Analogy"
 msgstr "Analaí Spraíúil"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. caithfidh sé an deighleog /models a áireamh, m.sh. .../v1beta/models"
+msgid "Gemini API"
+msgstr "API Gemini"
 
 msgid "General Conversation"
 msgstr "Comhrá Ginearálta"
@@ -619,6 +647,9 @@ msgstr "Níl láimhseálaí %1 ar fáil don soláthraí: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Níor aimsíodh láimhseálaí do: %1. Seiceáil do chomhad configuration.lua le do thoil."
+
+msgid "Handler: %1"
+msgstr "Láimhseálaí: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Anailís ar Aibhsithe agus Nótaí"
@@ -718,20 +749,20 @@ msgstr "Cuardaigh"
 msgid "Main Themes"
 msgstr "Príomhthéamaí"
 
-msgid "Manual"
-msgstr "Lámhleabhar"
-
 msgid "Markdown Engine"
 msgstr "Inneall Markdown"
 
 msgid "Meaning"
 msgstr "Brí"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Múnla - tapáil Brabhsáil Múnlaí chun múnla atá ar fáil a roghnú"
+msgid "Model"
+msgstr "Samhail"
 
 msgid "Model Built-In"
 msgstr "Samhail Ionsuite"
+
+msgid "Model replied: %1"
+msgstr "D'fhreagair an tsamhail: %1"
 
 msgid "Model reset: %1"
 msgstr "Samhail athshocraithe: %1"
@@ -888,11 +919,11 @@ msgstr "Úsáidtear é ach amháin ag prasanna a roghnaíonn comhthéacs an leab
 msgid "Open conflict or mystery:"
 msgstr "Coimhlint nó rúndiamhair gan réiteach:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Cuir cuardach gréasáin ionsuite san áireamh"
+msgid "OpenAI Responses API"
+msgstr "API Freagraí OpenAI"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Críochphointe comhrá/críochnuithe atá comhoiriúnach le OpenAI, m.sh. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "Chat Completions API comhoiriúnach le OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "Ceisteanna gan freagra:"
@@ -936,8 +967,8 @@ msgstr "Soláthraí %1 GAN CHUMRAÍOCHT"
 msgid "Provider API"
 msgstr "API Soláthraí"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Ainm an tsoláthraí - taispeántar i roghchláir; fág bán chun ainm phrótacal an API a úsáid (m.sh. \"openai\")"
+msgid "Provider Name"
+msgstr "Ainm an tSoláthraí"
 
 msgid "Provider data not initialized."
 msgstr "Níl sonraí an tsoláthraí curtha ar bun."
@@ -1005,6 +1036,9 @@ msgstr "Cealaíodh an t-iarratas ag an úsáideoir."
 
 msgid "Request cancelled by user."
 msgstr "Cealaíodh an t-iarratas ag an úsáideoir."
+
+msgid "Request failed: %1"
+msgstr "Theip ar an iarratas: %1"
 
 msgid "Reset"
 msgstr "Athshocraigh"
@@ -1166,6 +1200,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Téarmaí & Coincheapa"
+
+msgid "Test"
+msgstr "Tástáil"
 
 msgid "Text Size: %1"
 msgstr "Méid Téacs: %1"

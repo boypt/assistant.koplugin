@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Bạn có thể thấy các chủ đề này thú vị:"
 msgid "%1 - choose an action"
 msgstr "%1 - chọn hành động"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Trình xử lý %1 không hỗ trợ kiểm tra kết nối"
+
 msgid "(No response)"
 msgstr "(Không có phản hồi)"
+
+msgid "(empty response body)"
+msgstr "(nội dung phản hồi trống)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Thêm nút này vào Menu Đánh dấu?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API bận (Trạng thái: 429)</b>\n"
-"Lần thử %1/%2 - thử lại sau"
+"<b>API Bận</b>\n"
+"Lần thử %1/%2 ... Thử lại sau"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Không thể truy cập thư mục mặc định cho nhật ký: %1</b>\n"
 "Đang sử dụng vị trí ban đầu."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Chi tiết:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Tham số</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Đã xóa</b> [%1 (AI)] khỏi menu tô sáng."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Yêu cầu</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Phản hồi</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Kiểm tra kết nối..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Loại tính năng không xác định:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI đang phản hồi"
 
 msgid "API Key"
 msgstr "Khóa API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Khóa API - nhập khóa của bạn, sau đó nhấn Duyệt mô hình để liệt kê các mô hình khả dụng"
 
 msgid "API key is required for %1."
 msgstr "Cần có khóa API cho %1."
@@ -321,8 +339,11 @@ msgstr "URL gốc là bắt buộc."
 msgid "Base URL must start with http:// or https://"
 msgstr "URL gốc phải bắt đầu bằng http:// hoặc https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL cơ sở của điểm cuối API, ví dụ: https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Kiểm tra kết nối"
+
+msgid "Base URL: %1"
+msgstr "URL cơ sở: %1"
 
 msgid "Book Analysis"
 msgstr "Phân tích sách"
@@ -388,6 +409,9 @@ msgstr "Định cấu hình ngôn ngữ phản hồi của AI LLM. Mặc định
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Không thể truy cập thư mục sổ ghi chép đã cấu hình: %1"
+
+msgid "Connection test successful."
+msgstr "Kiểm tra kết nối thành công."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Ý nghĩa văn hóa"
 
 msgid "Current Chapter Only"
 msgstr "Chỉ chương hiện tại"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Tùy chỉnh"
 
 msgid "Custom Prompt"
 msgstr "Lời nhắc tùy chỉnh"
@@ -593,8 +621,8 @@ msgstr "Để biết chi tiết, hãy truy cập trang wiki 'Configuration' trê
 msgid "Fun Analogy"
 msgstr "Phép so sánh thú vị"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "API Gemini. phải bao gồm đoạn /models, ví dụ .../v1beta/models"
+msgid "Gemini API"
+msgstr "API Gemini"
 
 msgid "General Conversation"
 msgstr "Trò chuyện chung"
@@ -619,6 +647,9 @@ msgstr "Trình xử lý %1 không khả dụng cho nhà cung cấp: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Không tìm thấy trình xử lý cho: %1. Vui lòng kiểm tra tệp configuration.lua của bạn."
+
+msgid "Handler: %1"
+msgstr "Trình xử lý: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Phân tích Đánh dấu & Ghi chú"
@@ -714,20 +745,20 @@ msgstr "Tra cứu"
 msgid "Main Themes"
 msgstr "Chủ đề chính"
 
-msgid "Manual"
-msgstr "Hướng dẫn"
-
 msgid "Markdown Engine"
 msgstr "Công cụ Markdown"
 
 msgid "Meaning"
 msgstr "Nghĩa"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Mô hình - nhấn Duyệt mô hình để chọn mô hình khả dụng"
+msgid "Model"
+msgstr "Mô hình"
 
 msgid "Model Built-In"
 msgstr "Mô hình tích hợp sẵn"
+
+msgid "Model replied: %1"
+msgstr "Mô hình đã trả lời: %1"
 
 msgid "Model reset: %1"
 msgstr "Đã đặt lại mô hình: %1"
@@ -884,11 +915,11 @@ msgstr "Chỉ được sử dụng bởi các prompt chọn tham gia ngữ cản
 msgid "Open conflict or mystery:"
 msgstr "Xung đột hoặc bí ẩn còn bỏ ngỏ:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "API Responses của OpenAI - Bao gồm tìm kiếm web tích hợp"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Điểm cuối chat/completions tương thích OpenAI, ví dụ: https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "API Chat Completions tương thích với OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "Những câu hỏi còn bỏ ngỏ:"
@@ -932,8 +963,8 @@ msgstr "Nhà cung cấp %1 CHƯA ĐƯỢC CẤU HÌNH"
 msgid "Provider API"
 msgstr "API nhà cung cấp"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Tên nhà cung cấp - hiển thị trong menu; để trống để dùng tên giao thức API (ví dụ \"openai\")"
+msgid "Provider Name"
+msgstr "Tên nhà cung cấp"
 
 msgid "Provider data not initialized."
 msgstr "Dữ liệu nhà cung cấp chưa được khởi tạo."
@@ -1001,6 +1032,9 @@ msgstr "Yêu cầu đã bị người dùng hủy."
 
 msgid "Request cancelled by user."
 msgstr "Yêu cầu đã bị người dùng hủy."
+
+msgid "Request failed: %1"
+msgstr "Yêu cầu thất bại: %1"
 
 msgid "Reset"
 msgstr "Đặt lại"
@@ -1163,6 +1197,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Thuật ngữ & Khái niệm"
+
+msgid "Test"
+msgstr "Kiểm tra"
 
 msgid "Text Size: %1"
 msgstr "Cỡ chữ: %1"

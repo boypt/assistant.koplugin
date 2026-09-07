@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Morda vas bodo te teme zanimale:"
 msgid "%1 - choose an action"
 msgstr "%1 – vyberte akciu"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Obdelovalnik %1 ne podpira testiranja povezave"
+
 msgid "(No response)"
 msgstr "(Žiadna odpoveď)"
+
+msgid "(empty response body)"
+msgstr "(prazen odziv)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Pridať toto tlačidlo do ponuky zvýraznenia?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API zaneprázdnené (Stav: 429)</b>\n"
-"Pokus %1/%2 – opakovať o"
+"<b>API zaseden</b>\n"
+"Poskusi %1/%2 ... Ponovni poskus čez"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Ni mogoče dostopati do privzete mape za dnevnike: %1</b>\n"
 "Uporabljam prvotno lokacijo."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Podrobnosti:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametri</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Odstranjeno</b> [%1 (AI)] iz menija označb."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Zahteva</b> – POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Odgovor</b> – HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Osnovni URL"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Neznámy typ funkcie:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI odpovedá"
 
 msgid "API Key"
 msgstr "API kľúč"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Kľúč API – zadajte svoj kľúč a potom klepnite na Prehľadávať modely pre zobrazenie dostupných modelov"
 
 msgid "API key is required for %1."
 msgstr "Pre %1 sa vyžaduje API kľúč."
@@ -321,8 +339,11 @@ msgstr "Základná URL adresa je povinná."
 msgid "Base URL must start with http:// or https://"
 msgstr "Základná URL adresa musí začínať na http:// alebo https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "Osnovni URL API končne točke, npr. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Osnovni URL, npr. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Osnovni URL: %1"
 
 msgid "Book Analysis"
 msgstr "Analýza knihy"
@@ -388,6 +409,9 @@ msgstr "Nastavi jezik odgovorov AI LLM. Privzeto se uporabi jezik vmesnika KORea
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Nastavljena mapa beležnic ni dostopna: %1"
+
+msgid "Connection test successful."
+msgstr "Test povezave je uspel."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Kultúrny význam"
 
 msgid "Current Chapter Only"
 msgstr "Iba aktuálna kapitola"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Po meri"
 
 msgid "Custom Prompt"
 msgstr "Vlastný prompt"
@@ -593,8 +621,8 @@ msgstr "Podrobnosti nájdete na wiki stránke 'Configuration' na GitHube."
 msgid "Fun Analogy"
 msgstr "Zábavná analógia"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. musí obsahovať segment /models, napr. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Všeobecná konverzácia"
@@ -619,6 +647,9 @@ msgstr "Handler %1 nie je k dispozícii pre poskytovateľa: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Handler sa nenašiel pre: %1. Skontrolujte svoj súbor configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Upravljalnik: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Analýza zvýraznení a poznámok"
@@ -717,20 +748,20 @@ msgstr "Vyhľadať"
 msgid "Main Themes"
 msgstr "Hlavné témy"
 
-msgid "Manual"
-msgstr "Manuál"
-
 msgid "Markdown Engine"
 msgstr "Markdown pogon"
 
 msgid "Meaning"
 msgstr "Význam"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Model – klepnite na Prehľadávať modely pre výber dostupného modelu"
+msgid "Model"
+msgstr "Model"
 
 msgid "Model Built-In"
 msgstr "Vstavaný model"
+
+msgid "Model replied: %1"
+msgstr "Model je odgovoril: %1"
 
 msgid "Model reset: %1"
 msgstr "Reset modelu: %1"
@@ -887,11 +918,11 @@ msgstr "Uporabljajo ga samo pozivi, ki se odločijo za kontekst knjige (privzeto
 msgid "Open conflict or mystery:"
 msgstr "Otvorený konflikt alebo záhada:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API – zahrnúť vstavané vyhľadávanie na webe"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-združljiva končna točka za chat/completions, npr. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-kompatibilné Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Otvorené otázky:"
@@ -935,8 +966,8 @@ msgstr "Poskytovateľ %1 NIE JE NAKONFIGUROVANÝ"
 msgid "Provider API"
 msgstr "API poskytovateľa"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Názov poskytovateľa – zobrazuje sa v ponukách; ponechajte prázdne pre použitie názvu protokolu API (napr. „openai“)"
+msgid "Provider Name"
+msgstr "Ime ponudnika"
 
 msgid "Provider data not initialized."
 msgstr "Dáta poskytovateľa nie sú inicializované."
@@ -1004,6 +1035,9 @@ msgstr "Požiadavka zrušená používateľom."
 
 msgid "Request cancelled by user."
 msgstr "Požiadavka zrušená používateľom."
+
+msgid "Request failed: %1"
+msgstr "Zahteva ni uspela: %1"
 
 msgid "Reset"
 msgstr "Resetovať"
@@ -1167,6 +1201,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Pojmy a koncepty"
+
+msgid "Test"
+msgstr "Preizkus"
 
 msgid "Text Size: %1"
 msgstr "Velikost besedila: %1"

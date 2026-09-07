@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### Iespējams, šīs tēmas jums šķitīs interesantas:"
 msgid "%1 - choose an action"
 msgstr "%1 - izvēlieties darbību"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 apstrādātājs neatbalsta savienojuma pārbaudi"
+
 msgid "(No response)"
 msgstr "(Nav atbildes)"
+
+msgid "(empty response body)"
+msgstr "(tukša atbildes pamatteksts)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Pievienot šo pogu iezīmju izvēlnei?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API aizņemts (Statuss: 429)</b>\n"
-"Mēģinājumi %1/%2 - atkārtot pēc"
+"<b>API aizņemts</b>\n"
+"Mēģinājumi %1/%2 ... Atkārtot pēc"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Nevar piekļūt noklusējuma žurnālu mapei: %1</b>\n"
 "Tiek izmantota sākotnējā atrašanās vieta."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Detaļas:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametri</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Noņemts</b> [%1 (AI)] no iezīmēšanas izvēlnes."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Pieprasījums</b> — POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Atbilde</b> — HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Pamata URL, piem., https://example.com/v1"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Nezināms funkcijas veids:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI atbild"
 
 msgid "API Key"
 msgstr "API atslēga"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API atslēga - ievadiet savu atslēgu, pēc tam pieskarieties \"Pārlūkot modeļus\", lai parādītu pieejamos modeļus."
 
 msgid "API key is required for %1."
 msgstr "API atslēga ir nepieciešama %1."
@@ -321,8 +339,11 @@ msgstr "Bāzes URL ir obligāts."
 msgid "Base URL must start with http:// or https://"
 msgstr "Bāzes URL jāsākas ar http:// vai https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API galapunkta bāzes URL, piem., https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "Pamata URL, piem., https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "Pamata URL: %1"
 
 msgid "Book Analysis"
 msgstr "Grāmatas analīze"
@@ -388,6 +409,9 @@ msgstr "Konfigurējiet AI LLM atbildes valodu. Pēc noklusējuma tiek izmantota 
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Konfigurētā piezīmju klažu mape nav pieejama: %1"
+
+msgid "Connection test successful."
+msgstr "Savienojuma pārbaude veiksmīga."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Kultūras nozīme"
 
 msgid "Current Chapter Only"
 msgstr "Tikai pašreizējā nodaļa"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Pielāgots"
 
 msgid "Custom Prompt"
 msgstr "Pielāgota uzvedne"
@@ -593,8 +621,8 @@ msgstr "Detalizētai informācijai apmeklējiet 'Configuration' wiki lapu vietn�
 msgid "Fun Analogy"
 msgstr "Jautra analoģija"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. jāiekļauj /models segments, piem., .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "Vispārīga saruna"
@@ -619,6 +647,9 @@ msgstr "Apstrādātājs %1 nav pieejams pakalpojumu sniedzējam: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Apstrādātājs nav atrasts: %1. Lūdzu, pārbaudiet savu configuration.lua failu."
+
+msgid "Handler: %1"
+msgstr "Apstrādātājs: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Iezīmju un piezīmju analīze"
@@ -716,20 +747,20 @@ msgstr "Uzmeklēt"
 msgid "Main Themes"
 msgstr "Galvenās tēmas"
 
-msgid "Manual"
-msgstr "Manuāli"
-
 msgid "Markdown Engine"
 msgstr "Markdown dzinis"
 
 msgid "Meaning"
 msgstr "Nozīme"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Modelis - pieskarieties \"Pārlūkot modeļus\", lai izvēlētos pieejamo modeli."
+msgid "Model"
+msgstr "Modelis"
 
 msgid "Model Built-In"
 msgstr "Modeļa iebūvētais"
+
+msgid "Model replied: %1"
+msgstr "Modelis atbildēja: %1"
 
 msgid "Model reset: %1"
 msgstr "Modelis atiestatīts: %1"
@@ -886,11 +917,11 @@ msgstr "Tiek izmantots tikai ar tām uzvednēm, kas aktivizē grāmatas kontekst
 msgid "Open conflict or mystery:"
 msgstr "Atklāts konflikts vai noslēpums:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - iekļaut iebūvēto tīmekļa meklēšanu."
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI saderīgs chat/completions galapunkts, piem., https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI saderīgs Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "Neatbildētie jautājumi:"
@@ -934,8 +965,8 @@ msgstr "Nodrošinātājs %1 NAV KONFIGURĒTS"
 msgid "Provider API"
 msgstr "Pakalpojumu sniedzēja API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Nodrošinātāja nosaukums - tiek rādīts izvēlnēs; atstājiet tukšu, lai izmantotu API protokola nosaukumu (piemēram, \"openai\")"
+msgid "Provider Name"
+msgstr "Pakalpojuma sniedzēja nosaukums"
 
 msgid "Provider data not initialized."
 msgstr "Pakalpojumu sniedzēja dati nav inicializēti."
@@ -1003,6 +1034,9 @@ msgstr "Lietotājs atcēla pieprasījumu."
 
 msgid "Request cancelled by user."
 msgstr "Lietotājs atcēla pieprasījumu."
+
+msgid "Request failed: %1"
+msgstr "Pieprasījums neizdevās: %1"
 
 msgid "Reset"
 msgstr "Atiestatīt"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Termini un jēdzieni"
+
+msgid "Test"
+msgstr "Pārbaudīt"
 
 msgid "Text Size: %1"
 msgstr "Fonta lielums: %1"

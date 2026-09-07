@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 10:35+0800\n"
 "Last-Translator: Automatically generated\n"
 "Language-Team: none\n"
@@ -47,8 +47,14 @@ msgstr "##### S-ar putea să vă intereseze aceste subiecte:"
 msgid "%1 - choose an action"
 msgstr "%1 - alegeți o acțiune"
 
+msgid "%1 handler does not support connection testing"
+msgstr "Handlerul %1 nu suportă testarea conexiunii"
+
 msgid "(No response)"
 msgstr "(Fără răspuns)"
+
+msgid "(empty response body)"
+msgstr "(corp de răspuns gol)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "Adaugă acest buton în meniul de evidențiere?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API Ocupat (Stare: 429)</b>\n"
-"Încercări %1/%2 - reîncercare în"
+"<b>API Ocupat</b>\n"
+"Încercări %1/%2 ... Reîncercare în"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>Nu se poate accesa folderul implicit pentru jurnale: %1</b>\n"
 "Se folosește locația originală."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>Detaliu:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>Parametri</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>Eliminat</b> [%1 (AI)] din meniul de evidențiere."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>Cerere</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>Răspuns</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "Furnizor"
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>Tip de funcționalitate necunoscut:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI răspunde"
 
 msgid "API Key"
 msgstr "Cheie API"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "Cheie API - introduceți cheia, apoi atingeți Răsfoire Modele pentru a lista modelele disponibile."
 
 msgid "API key is required for %1."
 msgstr "Cheia API este necesară pentru %1."
@@ -321,8 +339,11 @@ msgstr "URL-ul de bază este obligatoriu."
 msgid "Base URL must start with http:// or https://"
 msgstr "URL-ul de bază trebuie să înceapă cu http:// sau https://"
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "URL-ul de bază al punctului final API, de ex. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "URL de bază, ex. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "URL de bază: %1"
 
 msgid "Book Analysis"
 msgstr "Analiza cărții"
@@ -388,6 +409,9 @@ msgstr "Configurați limba de răspuns a LLM-ului AI. Implicit, folosește limba
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "Folderul configurat pentru caiete nu este accesibil: %1"
+
+msgid "Connection test successful."
+msgstr "Testul de conexiune a reușit."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "Semnificație culturală"
 
 msgid "Current Chapter Only"
 msgstr "Doar capitolul curent"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "Personalizat"
 
 msgid "Custom Prompt"
 msgstr "Prompt personalizat"
@@ -593,8 +621,8 @@ msgstr "Pentru detalii, vizitează pagina wiki „Configuration” de pe GitHub.
 msgid "Fun Analogy"
 msgstr "Analogia amuzantă"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. Trebuie să includă segmentul /models, de ex. .../v1beta/models"
+msgid "Gemini API"
+msgstr "API Gemini"
 
 msgid "General Conversation"
 msgstr "Conversație generală"
@@ -619,6 +647,9 @@ msgstr "Handler-ul %1 nu este disponibil pentru furnizorul: %2"
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "Handler-ul nu a fost găsit pentru: %1. Verificați fișierul configuration.lua."
+
+msgid "Handler: %1"
+msgstr "Handler: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "Analiza evidențierilor și notelor"
@@ -716,20 +747,20 @@ msgstr "Caută"
 msgid "Main Themes"
 msgstr "Teme principale"
 
-msgid "Manual"
-msgstr "Manual"
-
 msgid "Markdown Engine"
 msgstr "Motor Markdown"
 
 msgid "Meaning"
 msgstr "Sens"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "Model - atingeți Răsfoire modele pentru a alege un model disponibil"
+msgid "Model"
+msgstr "Model"
 
 msgid "Model Built-In"
 msgstr "Model încorporat"
+
+msgid "Model replied: %1"
+msgstr "Modelul a răspuns: %1"
 
 msgid "Model reset: %1"
 msgstr "Model resetat: %1"
@@ -886,11 +917,11 @@ msgstr "Folosit doar de prompterele care optează pentru contextul cărții (imp
 msgid "Open conflict or mystery:"
 msgstr "Conflict deschis sau mister:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - Include căutarea web integrată"
+msgid "OpenAI Responses API"
+msgstr "OpenAI Responses API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "Punct final chat/completions compatibil cu OpenAI, de ex. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "API Chat Completions compatibil cu OpenAI"
 
 msgid "Outstanding questions:"
 msgstr "Întrebări rămase fără răspuns:"
@@ -934,8 +965,8 @@ msgstr "Furnizor %1 NECONFIGURAT"
 msgid "Provider API"
 msgstr "API-ul furnizorului"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "Numele furnizorului - afișat în meniuri; lăsați gol pentru a folosi numele protocolului API (ex.: \"openai\")"
+msgid "Provider Name"
+msgstr "Numele furnizorului"
 
 msgid "Provider data not initialized."
 msgstr "Datele furnizorului nu sunt inițializate."
@@ -1003,6 +1034,9 @@ msgstr "Cerere anulată de utilizator."
 
 msgid "Request cancelled by user."
 msgstr "Cerere anulată de utilizator."
+
+msgid "Request failed: %1"
+msgstr "Cererea a eșuat: %1"
 
 msgid "Reset"
 msgstr "Resetare"
@@ -1166,6 +1200,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "Termeni și concepte"
+
+msgid "Test"
+msgstr "Test"
 
 msgid "Text Size: %1"
 msgstr "Dimensiunea Textului: %1"

@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: assistant.koplugin 1.15\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-05 00:08+0800\n"
+"POT-Creation-Date: 2026-09-07 10:52+0800\n"
 "PO-Revision-Date: 2026-08-13 03:59+0000\n"
 "Last-Translator: AI (auto)\n"
 "Language-Team: ಕನ್ನಡ (AI translation)\n"
@@ -47,8 +47,14 @@ msgstr "##### ಈ ವಿಷಯಗಳು ನಿಮಗೆ ಆಸಕ್ತಿದಾ
 msgid "%1 - choose an action"
 msgstr "%1 - ಕ್ರಿಯೆಯನ್ನು ಆಯ್ಕೆಮಾಡಿ"
 
+msgid "%1 handler does not support connection testing"
+msgstr "%1 ಹ್ಯಾಂಡ್ಲರ್ ಸಂಪರ್ಕ ಪರೀಕ್ಷೆಯನ್ನು ಬೆಂಬಲಿಸುವುದಿಲ್ಲ"
+
 msgid "(No response)"
 msgstr "(ಪ್ರತಿಕ್ರಿಯೆ ಇಲ್ಲ)"
+
+msgid "(empty response body)"
+msgstr "(ಖಾಲಿ ಪ್ರತಿಕ್ರಿಯೆ ದೇಹ)"
 
 msgid ""
 "<b>%1:</b> %2\n"
@@ -60,11 +66,11 @@ msgstr ""
 "ಈ ಬಟನ್ ಅನ್ನು ಹೈಲೈಟ್ ಮೆನುಗೆ ಸೇರಿಸುವುದೇ?"
 
 msgid ""
-"<b>API Busy (Status: 429)</b>\n"
-"Attempts %1/%2 - retry in"
+"<b>API Busy</b>\n"
+"Attempts %1/%2 ... Retry in"
 msgstr ""
-"<b>API ಕಾರ್ಯನಿರತ (ಸ್ಥಿತಿ: 429)</b>\n"
-"ಪ್ರಯತ್ನಗಳು %1/%2 - ಮರುಪ್ರಯತ್ನ"
+"<b>API ಕಾರ್ಯನಿರತವಾಗಿದೆ</b>\n"
+"ಪ್ರಯತ್ನಗಳು %1/%2 ... ಮರುಪ್ರಯತ್ನಿಸಿ"
 
 msgid ""
 "<b>API Error</b>\n"
@@ -102,6 +108,9 @@ msgid ""
 msgstr ""
 "<b>ಲಾಗ್ಗಳಿಗಾಗಿ ಡೀಫಾಲ್ಟ್ ಫೋಲ್ಡರ್ ಅನ್ನು ಪ್ರವೇಶಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ: %1</b>\n"
 "ಮೂಲ ಸ್ಥಳವನ್ನು ಬಳಸಲಾಗುತ್ತಿದೆ."
+
+msgid "<b>Detail:</b>"
+msgstr "<b>ವಿವರ:</b>"
 
 msgid ""
 "<b>Downloading ...</b>\n"
@@ -167,8 +176,20 @@ msgstr ""
 "\n"
 "%1"
 
+msgid "<b>Parameters</b>"
+msgstr "<b>ಪ್ಯಾರಾಮೀಟರ್ಗಳು</b>"
+
 msgid "<b>Removed</b> [%1 (AI)] from Highlight Menu."
 msgstr "<b>ತೆಗೆದುಹಾಕಲಾಗಿದೆ</b> [%1 (AI)] ಹೈಲೈಟ್ ಮೆನುವಿನಿಂದ."
+
+msgid "<b>Request</b> - POST %1"
+msgstr "<b>ವಿನಂತಿ</b> - POST %1"
+
+msgid "<b>Response</b> - HTTP %1"
+msgstr "<b>ಪ್ರತಿಕ್ರಿಯೆ</b> - HTTP %1"
+
+msgid "<b>Testing connection...</b>"
+msgstr "ಸಂಪರ್ಕವನ್ನು ಪರೀಕ್ಷಿಸಲಾಗುತ್ತಿದೆ..."
 
 msgid "<b>Unknown feature type:</b> %1"
 msgstr "<b>ಅಜ್ಞಾತ ವೈಶಿಷ್ಟ್ಯ ಪ್ರಕಾರ:</b> %1"
@@ -211,9 +232,6 @@ msgstr "AI ಪ್ರತಿಕ್ರಿಯಿಸುತ್ತಿದೆ"
 
 msgid "API Key"
 msgstr "API ಕೀ"
-
-msgid "API Key - enter your key, then tap Browse Models to list available models"
-msgstr "API ಕೀ - ನಿಮ್ಮ ಕೀಯನ್ನು ನಮೂದಿಸಿ, ನಂತರ ಲಭ್ಯವಿರುವ ಮಾದರಿಗಳನ್ನು ಪಟ್ಟಿ ಮಾಡಲು Browse Models ಟ್ಯಾಪ್ ಮಾಡಿ"
 
 msgid "API key is required for %1."
 msgstr "%1 ಗಾಗಿ API ಕೀ ಅಗತ್ಯವಿದೆ."
@@ -321,8 +339,11 @@ msgstr "ಬೇಸ್ URL ಅಗತ್ಯವಿದೆ."
 msgid "Base URL must start with http:// or https://"
 msgstr "ಬೇಸ್ URL http:// ಅಥವಾ https:// ನಿಂದ ಪ್ರಾರಂಭವಾಗಬೇಕು."
 
-msgid "Base URL of the API endpoint, e.g. https://example.com/v1"
-msgstr "API ಎಂಡ್ಪಾಯಿಂಟ್ನ ಮೂಲ URL, ಉದಾ. https://example.com/v1"
+msgid "Base URL, e.g. https://example.com/v1"
+msgstr "ಮೂಲ URL, ಉದಾ. https://example.com/v1"
+
+msgid "Base URL: %1"
+msgstr "ಮೂಲ URL: %1"
 
 msgid "Book Analysis"
 msgstr "ಪುಸ್ತಕ ವಿಶ್ಲೇಷಣೆ"
@@ -388,6 +409,9 @@ msgstr "AI LLM ನ ಪ್ರತಿಕ್ರಿಯೆ ಭಾಷೆಯನ್ನು
 
 msgid "Configured notebooks folder is not accessible: %1"
 msgstr "ಕಾನ್ಫಿಗರ್ ಮಾಡಿದ ನೋಟ್ಬುಕ್ಗಳ ಫೋಲ್ಡರ್ ಪ್ರವೇಶಿಸಲು ಸಾಧ್ಯವಿಲ್ಲ: %1"
+
+msgid "Connection test successful."
+msgstr "ಸಂಪರ್ಕ ಪರೀಕ್ಷೆ ಯಶಸ್ವಿಯಾಗಿದೆ."
 
 #. @translators term_xray: "Context Limitations" section header
 msgid "Context Limitations"
@@ -467,6 +491,10 @@ msgstr "ಸಾಂಸ್ಕೃತಿಕ ಮಹತ್ವ"
 
 msgid "Current Chapter Only"
 msgstr "ಪ್ರಸ್ತುತ ಅಧ್ಯಾಯ ಮಾತ್ರ"
+
+#. @translators Button text: means custom input, keep translation short
+msgid "Custom"
+msgstr "ಕಸ್ಟಮ್"
 
 msgid "Custom Prompt"
 msgstr "ಕಸ್ಟಮ್ ಪ್ರಾಂಪ್ಟ್"
@@ -593,8 +621,8 @@ msgstr "ವಿವರಗಳಿಗಾಗಿ, github ನಲ್ಲಿ 'Configuration
 msgid "Fun Analogy"
 msgstr "ಮೋಜಿನ ಸಾದೃಶ್ಯ"
 
-msgid "Gemini API. must include the /models segment, e.g. .../v1beta/models"
-msgstr "Gemini API. /models ವಿಭಾಗವನ್ನು ಒಳಗೊಂಡಿರಬೇಕು, ಉದಾ. .../v1beta/models"
+msgid "Gemini API"
+msgstr "Gemini API"
 
 msgid "General Conversation"
 msgstr "ಸಾಮಾನ್ಯ ಸಂಭಾಷಣೆ"
@@ -619,6 +647,9 @@ msgstr "ಪೂರೈಕೆದಾರ %2 ಗಾಗಿ ಹ್ಯಾಂಡ್ಲರ�
 
 msgid "Handler not found for: %1. Please check your configuration.lua file."
 msgstr "ಹ್ಯಾಂಡ್ಲರ್ %1 ಗಾಗಿ ಕಂಡುಬಂದಿಲ್ಲ. ದಯವಿಟ್ಟು ನಿಮ್ಮ configuration.lua ಫೈಲ್ ಪರಿಶೀಲಿಸಿ."
+
+msgid "Handler: %1"
+msgstr "ಹ್ಯಾಂಡ್ಲರ್: %1"
 
 msgid "Highlight & Note Analysis"
 msgstr "ಹೈಲೈಟ್ ಮತ್ತು ಟಿಪ್ಪಣಿ ವಿಶ್ಲೇಷಣೆ"
@@ -715,20 +746,20 @@ msgstr "ಹುಡುಕು"
 msgid "Main Themes"
 msgstr "ಮುಖ್ಯ ವಿಷಯಗಳು"
 
-msgid "Manual"
-msgstr "ಕೈಪಿಡಿ"
-
 msgid "Markdown Engine"
 msgstr "ಮಾರ್ಕ್ಡೌನ್ ಎಂಜಿನ್"
 
 msgid "Meaning"
 msgstr "ಅರ್ಥ"
 
-msgid "Model - tap Browse Models to pick an available model"
-msgstr "ಮಾದರಿ - ಲಭ್ಯವಿರುವ ಮಾದರಿಯನ್ನು ಆಯ್ಕೆ ಮಾಡಲು Browse Models ಒತ್ತಿರಿ"
+msgid "Model"
+msgstr "ಮಾದರಿ"
 
 msgid "Model Built-In"
 msgstr "ಮಾದರಿ ಅಂತರ್ನಿರ್ಮಿತ"
+
+msgid "Model replied: %1"
+msgstr "ಮಾದರಿ ಉತ್ತರಿಸಿದೆ: %1"
 
 msgid "Model reset: %1"
 msgstr "ಮಾದರಿ ಮರುಹೊಂದಿಸಲಾಗಿದೆ: %1"
@@ -885,11 +916,11 @@ msgstr "ಪುಸ್ತಕ ಸಂದರ್ಭವನ್ನು ಆಯ್ಕೆ ಮ
 msgid "Open conflict or mystery:"
 msgstr "ಬಗೆಹರಿಯದ ಸಂಘರ್ಷ ಅಥವಾ ರಹಸ್ಯ:"
 
-msgid "OpenAI Responses API - Include built-in web search"
-msgstr "OpenAI Responses API - ಅಂತರ್ನಿರ್ಮಿತ ವೆಬ್ ಹುಡುಕಾಟವನ್ನು ಸೇರಿಸಿ"
+msgid "OpenAI Responses API"
+msgstr "OpenAI ಪ್ರತಿಕ್ರಿಯೆ API"
 
-msgid "OpenAI-compatible chat/completions endpoint, e.g. https://api.openai.com/v1"
-msgstr "OpenAI-ಹೊಂದಾಣಿಕೆಯ ಚಾಟ್/ಕಂಪ್ಲೀಷನ್ಸ್ ಎಂಡ್ಪಾಯಿಂಟ್, ಉದಾ. https://api.openai.com/v1"
+msgid "OpenAI-compatible Chat Completions API"
+msgstr "OpenAI-ಹೊಂದಾಣಿಕೆಯ Chat Completions API"
 
 msgid "Outstanding questions:"
 msgstr "ಬಗೆಹರಿಯದ ಪ್ರಶ್ನೆಗಳು:"
@@ -933,8 +964,8 @@ msgstr "ಪ್ರೊವೈಡರ್ %1 ಸಂರಚಿಸಲಾಗಿಲ್ಲ"
 msgid "Provider API"
 msgstr "ಪೂರೈಕೆದಾರ API"
 
-msgid "Provider Name - shown in menus; leave empty to use the API protocol name (e.g. \"openai\")"
-msgstr "ಪ್ರೊವೈಡರ್ ಹೆಸರು - ಮೆನುಗಳಲ್ಲಿ ತೋರಿಸಲಾಗುತ್ತದೆ; API ಪ್ರೋಟೋಕಾಲ್ ಹೆಸರನ್ನು ಬಳಸಲು ಖಾಲಿ ಬಿಡಿ (ಉದಾ. \"openai\")"
+msgid "Provider Name"
+msgstr "ಪೂರೈಕೆದಾರರ ಹೆಸರು"
 
 msgid "Provider data not initialized."
 msgstr "ಪೂರೈಕೆದಾರರ ಡೇಟಾ ಆರಂಭಿಸಲಾಗಿಲ್ಲ."
@@ -1002,6 +1033,9 @@ msgstr "ಬಳಕೆದಾರರಿಂದ ವಿನಂತಿ ರದ್ದುಗ�
 
 msgid "Request cancelled by user."
 msgstr "ಬಳಕೆದಾರರಿಂದ ವಿನಂತಿ ರದ್ದುಗೊಳಿಸಲಾಗಿದೆ."
+
+msgid "Request failed: %1"
+msgstr "ವಿನಂತಿ ವಿಫಲವಾಗಿದೆ: %1"
 
 msgid "Reset"
 msgstr "ಮರುಹೊಂದಿಸು"
@@ -1165,6 +1199,9 @@ msgstr "Term X-Ray"
 
 msgid "Terms & Concepts"
 msgstr "ಪದಗಳು ಮತ್ತು ಪರಿಕಲ್ಪನೆಗಳು"
+
+msgid "Test"
+msgstr "ಪರೀಕ್ಷಿಸಿ"
 
 msgid "Text Size: %1"
 msgstr "ಪಠ್ಯ ಗಾತ್ರ: %1"
