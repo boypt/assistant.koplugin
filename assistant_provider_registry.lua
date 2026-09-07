@@ -882,9 +882,7 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
                                     dialog.input_fields[4]:moveCursorToCharPos(#model_id + 1)
                                 end
                             end,
-                            -- Title shows the provider being edited (fields[1]
-                            -- is its display_name); falls back to the active
-                            -- provider's label when still empty.
+                            -- Title shows the provider being edited.
                             fields[1] ~= "" and fields[1] or nil
                         )
                     end)
@@ -935,14 +933,8 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
                         end
                         local ok_status = report.status >= 200 and report.status < 300
                         if ok_status then
-                            -- Success: blocking InfoMessage instead of a
-                            -- transient Notification. Deliberate exception
-                            -- to the Notification-for-success convention:
-                            -- the user explicitly ran a test and is waiting
-                            -- on its result, so it must stay on screen until
-                            -- acknowledged instead of fading away like a
-                            -- toast. Reuses the existing msgid, so no new
-                            -- strings need translating.
+                            -- Success stays on screen until acknowledged (the
+                            -- user ran a test and is waiting on its result).
                             UIManager:show(InfoMessage:new{
                                 face = Font:getFace("xx_smallinfofont"),
                                 text = _("Connection test successful."),

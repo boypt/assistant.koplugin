@@ -72,9 +72,7 @@ function ModelPickerDialog:init()
     local total_pages = math.max(1, math.ceil(model_count / MODELS_PER_PAGE))
     if self.page > total_pages then self.page = total_pages end
 
-    -- Title with page info, prefixed by the provider label so it is clear
-    -- whose models are listed. Callers pass an explicit label when picking
-    -- for a provider that is being edited rather than the active one.
+    -- Title prefix: whose models are listed (falls back to the active provider).
     local provider_label = self.provider_label
     if (not provider_label or provider_label == "") and self.assistant.querier then
         provider_label = self.assistant.querier:getProviderLabel()
