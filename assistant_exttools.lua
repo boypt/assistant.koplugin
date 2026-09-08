@@ -87,11 +87,11 @@ function serpapi:AccoutInfo()
     return true, ret
 end
 
-local tarvily = SearchToolBase:new({ 
-    name = "Tarvily", base_url = "https://api.tavily.com",
+local tavily = SearchToolBase:new({ 
+    name = "Tavily", base_url = "https://api.tavily.com",
     is_external = true,
 })
-function tarvily:SearchKeywords(keywords, trap_widget)
+function tavily:SearchKeywords(keywords, trap_widget)
     local search_url = self.base_url .. "/search"
     local requestBodyTable = {
         api_key              = self.api_key,
@@ -134,7 +134,7 @@ function tarvily:SearchKeywords(keywords, trap_widget)
     return true, segments:get()
 end
 
-function tarvily:AccoutInfo()
+function tavily:AccoutInfo()
     local acc_url  = self.base_url .. "/usage"
     local reqHeaders = { ["Authorization"]="Bearer " .. self.api_key }
     local parsed, err = ASUtils.fetchJSON(acc_url, reqHeaders, "loading...", 30, 60)
@@ -144,7 +144,7 @@ function tarvily:AccoutInfo()
         end
         return false, err
     end
-    local ret = T("Tarvily API\n\nPlan: %1\nUsed: %2\nLimits: %3",
+    local ret = T("Tavily API\n\nPlan: %1\nUsed: %2\nLimits: %3",
         json_default(parsed.account.current_plan, ""),
         json_default(parsed.account.plan_usage, ""),
         json_default(parsed.account.plan_limit), "")
@@ -262,7 +262,7 @@ return {
     none = SearchToolBase:new{name = _("None")},
     builtin = SearchToolBase:new{name = _("Model Built-In")},
     serpapi   = serpapi,
-    tavilyapi = tarvily,
+    tavilyapi = tavily,
     searxngapi = searxng,
     exaapi    = exaai,
 }
