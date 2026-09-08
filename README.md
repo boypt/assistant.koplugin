@@ -10,10 +10,9 @@ A powerful plugin that lets you interact with AI language models (Claude, GPT-4,
 
 ## Features
 
-- **Multiple AI Providers**: Support for:
-  - Claude, OpenAI, Gemini, DeepSeek, etc.
-  - OpenRouter, Ollama, etc.
-  - Other OpenAI-compatible API services (Groq, NVIDIA, etc.)
+- **Multiple AI Providers**: Speaks the mainstream protocols natively — OpenAI Chat Completions, OpenAI Responses, Anthropic Messages, and Google Gemini — so most platforms work out of the box. Examples:
+  - OpenAI, DeepSeek, OpenRouter, Ollama, Groq, Mistral, NVIDIA, etc. (via OpenAI-compatible endpoints)
+  - Claude (Anthropic), Gemini, and the OpenAI Responses API
 - **Stream Mode**: Real-time responses from the API. Get the full LLM experience on e-ink devices.
 - **Multiple Providers/Models**: Select different models or AI provider platforms in the UI.
 - **UI-Based Setup**: Add providers and models entirely from the UI, with built-in model browsing and connection testing.
@@ -23,15 +22,14 @@ A powerful plugin that lets you interact with AI language models (Claude, GPT-4,
   - **Quick Actions**: One-click buttons for common tasks like summarizing or explaining
   - **Dictionary**: Get synonyms, context-aware dictionary explanations, and examples for the selected word. (thanks to [plateaukao](https://github.com/plateaukao))
   - **Term X-Ray**: For single word or phrase highlights, get the meaning of it based on the previously mentioned places. (thanks to [Michael Kucek](https://github.com/michael-kucek))
-  - **Recap**: Get a quick recap of a book when you open it, for books that haven't been opened in 28 hours and are less than 95% complete. Also available via shortcut/gesture for on-demand access. Fully configurable prompts. (thanks to [jbhul](https://github.com/jbhul))
-  - **X-Ray**: Generate a spoiler-free, structured book X-Ray up to your current progress, listing key characters, locations, themes, terms, a concise timeline, and a quick re-immersion section. Fully configurable prompts; available via shortcut/gesture.
-- **Custom Prompts**: Create your own specialized AI helpers with their own quick actions and prompts. Possible for highlighted text and book-level.
-- **Smart Display**: Automatically hides long text snippets for cleaner viewing
+  - **Recap**: Catch up on a book you haven't opened for a while. (thanks to [jbhul](https://github.com/jbhul))
+  - **X-Ray**: A spoiler-free guide to characters, places, themes, and timeline up to your progress.
 - **Markdown Support**: (thanks to [David Fan](https://github.com/d-fan))
-- **"Add to Note" and "Copy to Clipboard"**: Easily add the entire response as a note to highlighted text or copy it for later use.
-- **Quick Access**: Ability to access some custom prompts directly from the main highlight menu (configurable).
-- **Gesture-Enabled Prompts**: You can assign gestures to **Ask**, **Recap**, and **X-Ray**. This enables the user to ask anything about the book without needing to highlight text first. It also enables triggering the recap at any time. Additionally, you can access these prompts through a [quick menu](https://koreader.rocks/user_guide/#L1-qmandprofiles) as well. (thanks to [Jayphen](https://github.com/Jayphen))
-- **AI Dictionary Gesture**: Override the default "Translate" long-press gesture to use the AI Dictionary directly for instant definitions and context.
+- **Notebook & Quick Notes**: Save AI conversations and quick notes as Markdown, either to the current book or a general notebook, with optional auto-save.
+- **Highlight Menu Presets**: Pin built-in prompts to the highlight popup for one-tap access (configurable).
+- **Book Insights**: Explore the whole book without highlighting — Book Summary & Recs, AI X-Ray, AI Recaps, and analysis or summaries built from your highlights and notes.
+- **Gesture Shortcuts**: Trigger Ask, Recap, and X-Ray by gesture, no highlighting needed. (thanks to [Jayphen](https://github.com/Jayphen))
+- **AI Dictionary**: Get instant, context-aware definitions, synonyms, and examples for any word.
 - **l10n Support**: Supports all languages that the KOReader project supports.
 
 ## Basic Requirements
