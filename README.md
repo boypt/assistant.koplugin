@@ -16,7 +16,8 @@ A powerful plugin that lets you interact with AI language models (Claude, GPT-4,
   - Other OpenAI-compatible API services (Groq, NVIDIA, etc.)
 - **Stream Mode**: Real-time responses from the API. Get the full LLM experience on e-ink devices.
 - **Multiple Providers/Models**: Select different models or AI provider platforms in the UI.
-- **Web Search Tool Calling**: LLMs search the web and improve the answer with real and updated information.
+- **UI-Based Setup**: Add providers and models entirely from the UI, with built-in model browsing and connection testing.
+- **Web Search**: Let LLMs search the web for real and up-to-date information. Supports SerpAPI, Tavily, Exa, and SearXNG, with a per-question toggle.
 - **Built-in Prompts**:
   - **Translation**: Instantly translate highlighted text to any language
   - **Quick Actions**: One-click buttons for common tasks like summarizing or explaining
@@ -49,9 +50,26 @@ See [Obtaining API Keys](../../wiki/Obtaining-API-Keys) from the wiki page.
 
 [Installation Guide](../../wiki/Installation)
 
-Create/modify `configuration.lua` as needed.
-
 ### 3. Configure the Plugin
+
+All setup can be done directly from the KOReader UI.
+
+#### Option A: Configure from the UI
+
+**Providers:**
+
+1. Go to `⚙ → AI Assistant → Settings → Provider API` and choose a preset (e.g. OpenAI, Gemini, Anthropic, DeepSeek, OpenRouter). For any other OpenAI-compatible endpoint, start from the `OpenAI` preset and update the URL.
+2. Fill in the dialog:
+   - **Provider Name** — the label shown in menus
+   - **Base URL** — pre-filled by the preset, editable
+   - **API Key** — your provider key
+   - **Model** — type it manually, or tap **Browse Models** to fetch the list online and pick one
+3. Tap **Test** to check the connection, then **OK** to save. The new provider becomes active right away.
+4. To switch providers later, go to `⚙ → AI Assistant → Settings → Providers and Models` and select one. Only providers added from the UI can be edited or deleted.
+
+**Web search keys (SerpAPI / Tavily / Exa / SearXNG):** available both via UI configuration (`Settings → WebSearch API`) and via the configuration file. In the Ask dialog, use the `🌐 Web Search` checkbox to enable it per question.
+
+#### Option B (Advanced): Use `configuration.lua`
 
 1. Copy `configuration.sample.lua` to `configuration.lua` (do not modify the sample file directly).
 2. Edit the `configuration.lua` file as needed.
@@ -70,6 +88,8 @@ The plugin supports any OpenAI-compatible API through a flexible naming pattern.
 - `anthropic_websearch` → uses the `anthropic` handler with web search enabled
 
 You can create multiple configurations using the same handler with different settings. The part before the first underscore determines which handler is used.
+
+In the UI, this is the same as picking the `OpenAI` preset and replacing the Base URL — use `Clear` to start from a blank URL if needed.
 
 Here's the minimum working example:
 
@@ -141,6 +161,8 @@ The Assistant plugin adds AI-powered buttons (Wikipedia, Term X-Ray, Dictionary,
 - Use **"Ask"** for specific questions about the text
 - Try the pre-made buttons for quick analysis
 - Add your own custom prompts for specialized tasks
+- **Entering API keys on e-ink**: save the key in a `.txt` file, send it to your reader, open it as a book, copy the key, then long-press the API Key field and paste.
+- **Entering very long URLs**: save the provider with a short placeholder URL first, then reopen it with **Edit** and replace it with the full URL.
 
 ## Contributors ✨
 
