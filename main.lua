@@ -1243,16 +1243,9 @@ function Assistant:syncTranslateOverride()
         return
       end
 
-      local words = koutil.splitToWords(text)
       ASUtils.runWhenOnlineFast(function()
         Trapper:wrap(function()
-          -- splitToWords result like this: { "The", " ", "good", " ", "news" }
-          if #words > 5 then
-              self.assistant_dialog:showPrompt(text, "translate")
-          else
-            -- Show AI Dictionary dialog
-            showDictionaryDialog(self, text)
-          end
+          self.assistant_dialog:showPrompt(text, "translate")
         end)
       end)
     end
