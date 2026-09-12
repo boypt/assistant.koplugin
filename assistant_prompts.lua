@@ -96,7 +96,7 @@ Briefly note what important information appears to be missing or what questions 
         use_websearch = false,
         use_book_context = false,
         show_suggestions = false,
-        desc = _("This prompt acts as a dictionary for the highlighted text, to a word or phrase."),
+        desc = _("This prompt acts as a book-aware dictionary for the highlighted text, to a word or phrase."),
         -- this prompt is a stub (will not shown in follow-up questions)
         -- it will be replaced by the actual prompt in the code below
     },
