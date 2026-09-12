@@ -40,6 +40,7 @@ local ASUtils = require("assistant_utils")
 local Registry = require("assistant_provider_registry")
 local SearchRegistry = require("assistant_search_registry")
 local Notebook = require("assistant_notebook")
+local Prompts = require("assistant_prompts")
 
 -- Custom Widget: auto fill the empty field
 local MultiInputDialog = require("ui/widget/multiinputdialog")
@@ -488,6 +489,74 @@ SettingsDialog.genWebSearchSubMenuItem = function(assistant, key)
     }
 end
 
+SettingsDialog.genDictionaryOutputMenu = function(assistant)
+    local items = {}
+    local function set_preset(preset)
+        assistant.settings:saveSetting("dict_output_preset", preset)
+        assistant.settings:saveSetting("dict_output_sections", Prompts.presetToMap(preset))
+        assistant.updated = true
+    end
+
+    for _, preset in ipairs({
+        { id = "concise", text = _("Concise") },
+        { id = "standard", text = _("Standard") },
+        { id = "full", text = _("Full") },
+    }) do
+        table.insert(items, {
+            text = preset.text,
+            radio = true,
+            checked_func = function()
+                return assistant.settings:readSetting("dict_output_preset", "standard") == preset.id
+            end,
+            callback = function() set_preset(preset.id) end,
+            hold_callback = function()
+                UIManager:show(InfoMessage:new{ text = _("Preset list of AI Dictionary sections.") })
+            end,
+        })
+    end
+
+    table.insert(items, {
+        text = _("Custom"),
+        radio = true,
+        checked_func = function()
+            return assistant.settings:readSetting("dict_output_preset", "standard") == "custom"
+        end,
+        callback = function()
+            assistant.settings:saveSetting("dict_output_preset", "custom")
+            assistant.updated = true
+        end,
+    })
+
+    for _, sec in ipairs(Prompts.dict_sections) do
+        table.insert(items, {
+            text = sec.header,
+            checked_func = function()
+                local preset = assistant.settings:readSetting("dict_output_preset", "standard")
+                if preset == "custom" then
+                    local saved = assistant.settings:readSetting("dict_output_sections") or {}
+                    return saved[sec.id] == true
+                end
+                return Prompts.presetToMap(preset)[sec.id] == true
+            end,
+            callback = function()
+                local preset = assistant.settings:readSetting("dict_output_preset", "standard")
+                local current
+                if preset == "custom" then
+                    current = assistant.settings:readSetting("dict_output_sections") or {}
+                else
+                    current = Prompts.presetToMap(preset)
+                end
+                current[sec.id] = not current[sec.id]
+                assistant.settings:saveSetting("dict_output_sections", current)
+                assistant.settings:saveSetting("dict_output_preset", "custom")
+                assistant.updated = true
+            end,
+        })
+    end
+
+    return items
+end
+
 SettingsDialog.genMenuSettings = function(assistant)
     local sub_item_table = {
         {
@@ -630,6 +699,12 @@ SettingsDialog.genMenuSettings = function(assistant)
                     end
                 },
             }
+        },
+        {
+            text = _("Dictionary Settings"),
+            sub_item_table_func = function()
+                return SettingsDialog.genDictionaryOutputMenu(assistant)
+            end,
         },
         {
             text = _("Notebook Settings"),

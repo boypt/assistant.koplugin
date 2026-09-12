@@ -411,7 +411,10 @@ local function showDictionaryDialog(assistant, highlightedText, message_history,
         }
         table.insert(message_history, context_message)
     else
-        user_prompt = dict_prompts.user_prompt
+        local dict_preset = assistant.settings:readSetting("dict_output_preset", "standard")
+        user_prompt = Prompts.build_dict_prompt(
+            Prompts.resolveDictSections(assistant.settings),
+            { concise = dict_preset == "concise" })
         context_content = prev_context .. highlightedText .. next_context
         title = _("Dictionary")
         loading_message = _("Loading AI Dictionary ...")

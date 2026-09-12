@@ -344,4 +344,147 @@ for _, t in ipairs(phase2_tests) do
     table.insert(tests, t)
 end
 
+-- =========================================================================
+-- 8. AI Dictionary output sections / presets
+-- =========================================================================
+
+local dict_tests = {
+    test("dict_presets: concise/standard/full exact lists", function()
+        assert.equal(#M.dict_presets.concise, 2, "concise should have 2 sections")
+        assert.equal(M.dict_presets.concise[1], "meaning")
+        assert.equal(M.dict_presets.concise[2], "translation")
+
+        assert.equal(#M.dict_presets.standard, 3, "standard should have 3 sections")
+        assert.equal(M.dict_presets.standard[1], "meaning")
+        assert.equal(M.dict_presets.standard[2], "translation")
+        assert.equal(M.dict_presets.standard[3], "synonyms")
+
+        local full = M.dict_presets.full
+        assert.equal(#full, 6, "full should have 6 sections")
+        assert.equal(full[1], "meaning")
+        assert.equal(full[2], "translation")
+        assert.equal(full[3], "synonyms")
+        assert.equal(full[4], "word_form")
+        assert.equal(full[5], "example")
+        assert.equal(full[6], "origin")
+    end),
+
+    test("build_dict_prompt: standard has three sections and omits the rest", function()
+        local p = M.build_dict_prompt(M.dict_presets.standard)
+        assert.matches(p, "Meaning & Usage")
+        assert.matches(p, "Translation")
+        assert.matches(p, "Synonyms")
+        assert.notMatches(p, "Word Form & Lemma")
+        assert.notMatches(p, "Example")
+        assert.notMatches(p, "Word Origin")
+    end),
+
+    test("build_dict_prompt: full has all six sections and word-form rules", function()
+        local p = M.build_dict_prompt(M.dict_presets.full)
+        assert.matches(p, "Meaning & Usage")
+        assert.matches(p, "Translation")
+        assert.matches(p, "Synonyms")
+        assert.matches(p, "Word Form & Lemma")
+        assert.matches(p, "Example")
+        assert.matches(p, "Word Origin")
+        assert.matches(p, "Word%-Form Analysis %(required%)")
+    end),
+
+    test("build_dict_prompt: concise omits word-form task and analysis rules", function()
+        local p = M.build_dict_prompt({ "meaning", "translation" })
+        assert.notMatches(p, "Word%-Form Analysis %(required%)")
+        assert.matches(p, "## Task: Book%-Aware Dictionary")
+        assert.notMatches(p, "and Word%-Form Analysis")
+    end),
+
+    test("build_dict_prompt: keeps caller placeholders", function()
+        local p = M.build_dict_prompt(M.dict_presets.standard)
+        assert.matches(p, "{word}")
+        assert.matches(p, "{context}")
+        assert.matches(p, "{language}")
+    end),
+
+    test("presetToMap: concise maps exactly meaning+translation", function()
+        local map = M.presetToMap("concise")
+        assert.equal(map.meaning, true)
+        assert.equal(map.translation, true)
+        assert.equal(map.synonyms, nil)
+        assert.equal(map.word_form, nil)
+    end),
+
+    test("resolveDictSections: default returns standard", function()
+        local store = {}
+        local settings = { readSetting = function(self, k, d) return store[k] or d end }
+        local result = M.resolveDictSections(settings)
+        assert.equal(#result, 3)
+        assert.equal(result[1], "meaning")
+        assert.equal(result[2], "translation")
+        assert.equal(result[3], "synonyms")
+    end),
+
+    test("resolveDictSections: preset full returns full", function()
+        local store = { dict_output_preset = "full" }
+        local settings = { readSetting = function(self, k, d) return store[k] or d end }
+        local result = M.resolveDictSections(settings)
+        assert.equal(#result, 6)
+        assert.equal(result[4], "word_form")
+        assert.equal(result[5], "example")
+        assert.equal(result[6], "origin")
+    end),
+
+    test("resolveDictSections: custom reads the saved section map in order", function()
+        local store = {
+            dict_output_preset = "custom",
+            dict_output_sections = { meaning = true },
+        }
+        local settings = { readSetting = function(self, k, d) return store[k] or d end }
+        local result = M.resolveDictSections(settings)
+        assert.equal(#result, 1)
+        assert.equal(result[1], "meaning")
+    end),
+
+    test("resolveDictSections: custom with empty map falls back to standard", function()
+        local store = {
+            dict_output_preset = "custom",
+            dict_output_sections = {},
+        }
+        local settings = { readSetting = function(self, k, d) return store[k] or d end }
+        local result = M.resolveDictSections(settings)
+        assert.equal(#result, 3)
+        assert.equal(result[1], "meaning")
+        assert.equal(result[2], "translation")
+        assert.equal(result[3], "synonyms")
+    end),
+
+    test("build_dict_prompt: concise opts swaps Book-Awareness for Brevity", function()
+        local p = M.build_dict_prompt(M.dict_presets.concise, { concise = true })
+        assert.matches(p, "%*%*Brevity%*%*")
+        assert.notMatches(p, "Book%-Awareness")
+    end),
+
+    test("build_dict_prompt: concise opts uses the short meaning body", function()
+        local p = M.build_dict_prompt(M.dict_presets.concise, { concise = true })
+        assert.matches(p, "in one sentence")
+        assert.notMatches(p, "what it suggests about the characters")
+    end),
+
+    test("build_dict_prompt: standard without opts keeps the full meaning body", function()
+        local p = M.build_dict_prompt(M.dict_presets.standard)
+        assert.matches(p, "Book%-Awareness")
+        assert.notMatches(p, "%*%*Brevity%*%*")
+        assert.matches(p, "what it suggests about the characters")
+    end),
+
+    test("build_dict_prompt: full with concise opts keeps sections but Brevity rules", function()
+        local p = M.build_dict_prompt(M.dict_presets.full, { concise = true })
+        assert.matches(p, "%*%*Brevity%*%*")
+        assert.notMatches(p, "Book%-Awareness")
+        assert.matches(p, "Word Form & Lemma")
+    end),
+}
+
+for _, t in ipairs(dict_tests) do
+    table.insert(tests, t)
+end
+
 return helper.runTests("assistant_prompts.lua", tests)

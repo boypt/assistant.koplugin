@@ -22,6 +22,24 @@ Do not use LaTeX math blocks (like $...$) for standard text or emphasis. Never w
 Standard Markdown formatting (including quotes, tables, lists) is fully supported and encouraged where appropriate.
 ]]
 
+-- AI Dictionary output sections. The user prompt is composed from the enabled
+-- subset so the model never generates disabled sections. `header` strings are
+-- localized and later rendered by the model in the response language.
+local dict_sections = {
+    { id = "meaning", header = _("Meaning & Usage"), body = [[Give the literal, context-free meaning of the word or expression, then explain how "{word}" is specifically used in THIS BOOK and what it suggests about the characters, tone, or themes.]], body_concise = [[Give the literal, context-free meaning of "{word}" in one sentence, then at most one short sentence on how it is used in THIS BOOK.]] },
+    { id = "translation", header = _("Translation"), body = [[Translate the whole sentence containing the word. Highlight the occurrence of **{word}** in bold, with no spaces inside the Markdown markers.]] },
+    { id = "synonyms", header = _("Synonyms"), body = [[Give up to 3 simple synonyms and briefly note which one(s) best fit the book's usage.]] },
+    { id = "word_form", header = _("Word Form & Lemma"), body = [[State the surface form, any correction, part of speech, grammatical features, lemma/dictionary form, and morphological base or source lexeme when applicable. Explicitly show the relationship between the selected form and its base form.]] },
+    { id = "example", header = _("Example"), body = [[Write one original example sentence showing the word's use, preferably in the same literary genre.]] },
+    { id = "origin", header = _("Word Origin"), body = [[Give reliable etymological information or explain the word's significance. Distinguish etymological origin from the immediate morphological base. If the origin is uncertain, say so.]] },
+}
+
+local dict_presets = {
+    concise = { "meaning", "translation" },
+    standard = { "meaning", "translation", "synonyms" },
+    full = { "meaning", "translation", "synonyms", "word_form", "example", "origin" },
+}
+
 -- prompts attributes can be overridden in the configuration file.
 local builtin_prompts = {
     term_xray = {
@@ -573,55 +591,6 @@ Now begin the analysis with the provided book_text and highlights.]],
         use_websearch = true,
         show_suggestions = false,
         system_prompt = markdown_format_prompt,
-        user_prompt = T([[
-## Task: Book-Aware Dictionary and Word-Form Analysis
-Explain "{word}" as used in "{title}" by {author}, strictly based on the context below. Treat the selected text as potentially inflected, derived, misspelled, or part of a phrase.
-
-## Context from the Book
-{context}
-
-## Execution Rules
-1. **Language**: Render the entire response, including all headers and labels, in {language}. The example sentence in "%6" may remain in the language being learned.
-2. **Word-Form Analysis (required)**: Analyze the form before explaining its meaning.
-   - Identify the exact surface form, part of speech, and relevant grammatical features (such as tense, number, person, degree, or participle).
-   - Give the lemma/dictionary form: infinitive for verbs, singular form for nouns, and positive form for adjectives and adverbs where applicable.
-   - Distinguish inflection from derivation. If the word is transparently derived, explicitly identify its morphological base or source lexeme rather than merely repeating the selected word. For example, analyze `recognition` as the noun related to the verb `recognize` (with the suffix `-tion`).
-   - Correct an obvious spelling error before analyzing it, and clearly distinguish the selected form from the corrected form. For example, treat `reconization` as a likely misspelling/OCR variant, consider `recognition` as the standard noun, and identify its source verb as `recognize` (not `reconize`) when the context supports that reading. Do not derive a word from a misspelling; if the intended correction or derivation is uncertain, say so instead of guessing.
-3. **Book-Awareness**: Focus heavily on how "{word}" functions in this specific book. Contrast its general dictionary meaning with its narrative, thematic, or worldbuilding usage.
-4. **Output**: Start directly with the structured analysis. Do not include introductory or concluding commentary.
-
-## Output Structure
-Use a normal Markdown heading (`###`) for every section and bullets (`-`) only for lists.
-
-### %1
-State the surface form, any correction, part of speech, grammatical features, lemma/dictionary form, and morphological base or source lexeme when applicable. Explicitly show the relationship between the selected form and its base form.
-
-### %2
-Give up to 3 simple synonyms and briefly note which one(s) best fit the book's usage.
-
-### %3
-Give the literal, context-free meaning of the word or expression.
-
-### %4
-Translate the whole sentence containing the word. Highlight the occurrence of **{word}** in bold, with no spaces inside the Markdown markers.
-
-### %5
-Explain how "{word}" is specifically used in THIS BOOK and what it suggests about the characters, tone, or themes.
-
-### %6
-Write one original example sentence showing the word's use, preferably in the same literary genre.
-
-### %7
-Give reliable etymological information or explain the word's significance. Distinguish etymological origin from the immediate morphological base. If the origin is uncertain, say so.
-]],
-            -- @translators used in the dictionary.
-            _("Word Form & Lemma"),
-            _("Synonyms"),
-            _("Meaning"),
-            _("Translation"),
-            _("Book Usage"),
-            _("Example"),
-            _("Word Origin"))
     },
     suggestions_prompt = [[
 
@@ -687,6 +656,102 @@ local M = {
     sorted_prompts = nil,                  -- Sorted merged prompts
     WEBSEARCH_ICON = WEBSEARCH_ICON,
 }
+
+M.dict_sections = dict_sections
+M.dict_presets = dict_presets
+
+M.presetToMap = function(preset)
+    local map = {}
+    for _, id in ipairs(dict_presets[preset] or dict_presets.standard) do
+        map[id] = true
+    end
+    return map
+end
+
+-- Resolve the enabled section ids (in dict_sections order) from settings.
+-- preset == "custom" reads the saved per-section map; anything else uses the
+-- preset list. Falls back to "standard" when nothing is enabled.
+M.resolveDictSections = function(settings)
+    local preset = settings:readSetting("dict_output_preset", "standard")
+    if preset ~= "custom" and dict_presets[preset] then
+        return dict_presets[preset]
+    end
+    local saved = settings:readSetting("dict_output_sections") or {}
+    local enabled = {}
+    for _, sec in ipairs(dict_sections) do
+        if saved[sec.id] then
+            enabled[#enabled + 1] = sec.id
+        end
+    end
+    if #enabled == 0 then
+        return dict_presets.standard
+    end
+    return enabled
+end
+
+-- Build the English AI Dictionary user prompt for the given ordered section ids.
+-- Leaves {word}/{title}/{author}/{language}/{context} placeholders for the caller.
+M.build_dict_prompt = function(enabled_ids, opts)
+    local enabled = {}
+    for _, id in ipairs(enabled_ids or {}) do
+        enabled[id] = true
+    end
+
+    local has_word_form = enabled["word_form"] == true
+    local has_example = enabled["example"] == true
+
+    local p = {}
+    local function add(s) p[#p + 1] = s end
+
+    opts = opts or {}
+    local concise = opts.concise == true
+
+    add(has_word_form
+        and "## Task: Book-Aware Dictionary and Word-Form Analysis"
+        or  "## Task: Book-Aware Dictionary")
+    add('Explain "{word}" as used in "{title}" by {author}, strictly based on the context below.'
+        .. (has_word_form and " Treat the selected text as potentially inflected, derived, misspelled, or part of a phrase." or ""))
+    add("")
+    add("## Context from the Book")
+    add("{context}")
+    add("")
+    add("## Execution Rules")
+
+    local n = 0
+    n = n + 1
+    add(([[%d. **Language**: Render the entire response, including all headers and labels, in {language}.%s]])
+        :format(n, has_example and " An example sentence may remain in the language being learned." or ""))
+
+    if concise then
+        n = n + 1
+        add(([[%d. **Brevity**: Keep the entire response short. Use at most one or two sentences per section and do not add extra commentary.]]):format(n))
+    else
+        if has_word_form then
+            n = n + 1
+            add(([[%d. **Word-Form Analysis (required)**: Analyze the form before explaining its meaning. Identify the exact surface form, part of speech, and relevant grammatical features (such as tense, number, person, degree, or participle). Give the lemma/dictionary form: infinitive for verbs, singular form for nouns, and positive form for adjectives and adverbs where applicable. Distinguish inflection from derivation. If the word is transparently derived, explicitly identify its morphological base or source lexeme rather than merely repeating the selected word. For example, analyze `recognition` as the noun related to the verb `recognize` (with the suffix `-tion`). Correct an obvious spelling error before analyzing it, and clearly distinguish the selected form from the corrected form; do not derive a word from a misspelling, and say so when the intended correction or derivation is uncertain.]]):format(n))
+        end
+
+        n = n + 1
+        add(([[%d. **Book-Awareness**: Focus heavily on how "{word}" functions in this specific book. Contrast its general dictionary meaning with its narrative, thematic, or worldbuilding usage.]]):format(n))
+    end
+
+    n = n + 1
+    add(([[%d. **Output**: Start directly with the structured analysis. Do not include introductory or concluding commentary.]]):format(n))
+
+    add("")
+    add("## Output Structure")
+    add("Use a normal Markdown heading (`###`) for every section and bullets (`-`) only for lists.")
+    add("")
+    for _, sec in ipairs(dict_sections) do
+        if enabled[sec.id] then
+            add("### " .. sec.header)
+            add((concise and sec.body_concise) or sec.body)
+            add("")
+        end
+    end
+
+    return table.concat(p, "\n")
+end
 
 M.isWebSearchEnabled = function(settings)
     return settings:readSetting("use_websearch", "none") ~= "none"
