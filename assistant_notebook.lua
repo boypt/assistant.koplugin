@@ -598,7 +598,7 @@ function M.showPicker(assistant, options)
     local items = {}
     local active_index
 
-    for _, notebook in ipairs(notebooks) do
+    for _idx, notebook in ipairs(notebooks) do
         local is_active = active
             and notebook.path
             and active.path == notebook.path
