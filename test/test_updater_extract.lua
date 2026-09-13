@@ -405,7 +405,7 @@ local tests = {
 }
 
 -- Final global cleanup (in case a test left TMP)
-local passed, failed, errors = helper.runTests("assistant_updater_extract", tests)
+local result = helper.runTests("assistant_updater_extract", tests)
 -- Ensure TMP removed even if runTests short-circuits
 os.execute("rm -rf " .. TMP)
 -- Restore originals (best effort, not required for headless run but clean)
@@ -413,4 +413,4 @@ DataStorage.getFullDataDir = _origGetFull
 DataStorage.getDataDir = _origGetData
 FFIUtil.purgeDir = _origPurge
 
-return passed, failed, errors
+return result

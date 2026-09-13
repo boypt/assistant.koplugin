@@ -58,18 +58,21 @@ print("=== assistant.koplugin Test Suite ===")
 print(string.format("  Running %d test file(s)", #test_files))
 
 for _, test_file in ipairs(test_files) do
-    local ok, passed, failed, errors = pcall(require, test_file)
+    -- Each test file returns helper.runTests(...) as a single result table
+    -- (require only propagates one return value, so counts must live in it).
+    local ok, result = pcall(require, test_file)
     if not ok then
-        print("  ERROR loading " .. test_file .. ": " .. tostring(passed))
+        print("  ERROR loading " .. test_file .. ": " .. tostring(result))
         total_failed = total_failed + 1
-    else
-        total_passed = total_passed + (passed or 0)
-        total_failed = total_failed + (failed or 0)
-        if errors then
-            for _, e in ipairs(errors) do
-                table.insert(all_errors, { file = test_file, name = e.name, error = e.error })
-            end
+    elseif type(result) == "table" then
+        total_passed = total_passed + (result.passed or 0)
+        total_failed = total_failed + (result.failed or 0)
+        for _, e in ipairs(result.errors or {}) do
+            table.insert(all_errors, { file = test_file, name = e.name, error = e.error })
         end
+    else
+        print("  ERROR loading " .. test_file .. ": expected result table, got " .. type(result))
+        total_failed = total_failed + 1
     end
 end
 

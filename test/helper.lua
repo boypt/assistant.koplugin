@@ -202,7 +202,9 @@ function M.runTests(name, tests)
     end
 
     print(string.format("\n%s: %d passed, %d failed", name, passed, failed))
-    return passed, failed, errors
+    -- Return a single result table: Lua 5.1's require() only propagates the
+    -- first return value, so multiple returns would drop the failure counts.
+    return { passed = passed, failed = failed, errors = errors }
 end
 
 return M
