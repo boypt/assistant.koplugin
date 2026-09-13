@@ -498,7 +498,7 @@ SettingsDialog.genDictionaryOutputMenu = function(assistant)
     end
 
     table.insert(items, {
-        text = _("Concise") .. " - " .. _("simplest version"),
+        text = _("Concise - reply in short sentences"),
         separator = true,
         checked_func = function()
             return assistant.settings:readSetting("dict_concise", false)
@@ -515,8 +515,8 @@ SettingsDialog.genDictionaryOutputMenu = function(assistant)
     })
 
     for i, preset in ipairs({
-        { id = "standard", text = _("Standard") .. " - " .. _("standard definitions") },
-        { id = "full", text = _("Full") .. " - " .. _("full definitions") },
+        { id = "standard", text = _("Standard - standard definitions") },
+        { id = "full", text = _("Full - full definitions") },
     }) do
         table.insert(items, {
             text = preset.text,
@@ -532,7 +532,7 @@ SettingsDialog.genDictionaryOutputMenu = function(assistant)
     end
 
     table.insert(items, {
-        text = _("Custom") .. " - " .. _("choose sections"),
+        text = _("Custom - choose sections"),
         radio = true,
         checked_func = function()
             return assistant.settings:readSetting("dict_output_preset", "standard") == "custom"
