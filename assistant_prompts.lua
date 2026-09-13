@@ -35,7 +35,6 @@ local dict_sections = {
 }
 
 local dict_presets = {
-    concise = { "meaning", "translation" },
     standard = { "meaning", "translation", "synonyms" },
     full = { "meaning", "translation", "synonyms", "word_form", "example", "origin" },
 }
@@ -662,7 +661,7 @@ M.dict_presets = dict_presets
 
 M.presetToMap = function(preset)
     local map = {}
-    for _, id in ipairs(dict_presets[preset] or dict_presets.standard) do
+    for i, id in ipairs(dict_presets[preset] or dict_presets.standard) do
         map[id] = true
     end
     return map
@@ -678,7 +677,7 @@ M.resolveDictSections = function(settings)
     end
     local saved = settings:readSetting("dict_output_sections") or {}
     local enabled = {}
-    for _, sec in ipairs(dict_sections) do
+    for i, sec in ipairs(dict_sections) do
         if saved[sec.id] then
             enabled[#enabled + 1] = sec.id
         end
@@ -693,7 +692,7 @@ end
 -- Leaves {word}/{title}/{author}/{language}/{context} placeholders for the caller.
 M.build_dict_prompt = function(enabled_ids, opts)
     local enabled = {}
-    for _, id in ipairs(enabled_ids or {}) do
+    for i, id in ipairs(enabled_ids or {}) do
         enabled[id] = true
     end
 
@@ -742,7 +741,7 @@ M.build_dict_prompt = function(enabled_ids, opts)
     add("## Output Structure")
     add("Use a normal Markdown heading (`###`) for every section and bullets (`-`) only for lists.")
     add("")
-    for _, sec in ipairs(dict_sections) do
+    for i, sec in ipairs(dict_sections) do
         if enabled[sec.id] then
             add("### " .. sec.header)
             add((concise and sec.body_concise) or sec.body)

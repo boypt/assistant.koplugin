@@ -349,10 +349,8 @@ end
 -- =========================================================================
 
 local dict_tests = {
-    test("dict_presets: concise/standard/full exact lists", function()
-        assert.equal(#M.dict_presets.concise, 2, "concise should have 2 sections")
-        assert.equal(M.dict_presets.concise[1], "meaning")
-        assert.equal(M.dict_presets.concise[2], "translation")
+    test("dict_presets: standard/full exact lists and no concise preset", function()
+        assert.equal(M.dict_presets.concise, nil, "concise is no longer a preset")
 
         assert.equal(#M.dict_presets.standard, 3, "standard should have 3 sections")
         assert.equal(M.dict_presets.standard[1], "meaning")
@@ -404,11 +402,11 @@ local dict_tests = {
         assert.matches(p, "{language}")
     end),
 
-    test("presetToMap: concise maps exactly meaning+translation", function()
-        local map = M.presetToMap("concise")
+    test("presetToMap: standard maps meaning+translation+synonyms", function()
+        local map = M.presetToMap("standard")
         assert.equal(map.meaning, true)
         assert.equal(map.translation, true)
-        assert.equal(map.synonyms, nil)
+        assert.equal(map.synonyms, true)
         assert.equal(map.word_form, nil)
     end),
 
@@ -457,13 +455,13 @@ local dict_tests = {
     end),
 
     test("build_dict_prompt: concise opts swaps Book-Awareness for Brevity", function()
-        local p = M.build_dict_prompt(M.dict_presets.concise, { concise = true })
+        local p = M.build_dict_prompt({ "meaning", "translation" }, { concise = true })
         assert.matches(p, "%*%*Brevity%*%*")
         assert.notMatches(p, "Book%-Awareness")
     end),
 
     test("build_dict_prompt: concise opts uses the short meaning body", function()
-        local p = M.build_dict_prompt(M.dict_presets.concise, { concise = true })
+        local p = M.build_dict_prompt({ "meaning", "translation" }, { concise = true })
         assert.matches(p, "in one sentence")
         assert.notMatches(p, "what it suggests about the characters")
     end),

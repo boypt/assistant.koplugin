@@ -497,10 +497,26 @@ SettingsDialog.genDictionaryOutputMenu = function(assistant)
         assistant.updated = true
     end
 
-    for _, preset in ipairs({
-        { id = "concise", text = _("Concise") },
-        { id = "standard", text = _("Standard") },
-        { id = "full", text = _("Full") },
+    table.insert(items, {
+        text = _("Concise") .. " - " .. _("simplest version"),
+        separator = true,
+        checked_func = function()
+            return assistant.settings:readSetting("dict_concise", false)
+        end,
+        callback = function()
+            assistant.settings:toggle("dict_concise")
+            assistant.updated = true
+        end,
+        hold_callback = function()
+            UIManager:show(InfoMessage:new{
+                text = _("Keep dictionary answers short: at most one or two sentences per section."),
+            })
+        end,
+    })
+
+    for i, preset in ipairs({
+        { id = "standard", text = _("Standard") .. " - " .. _("standard definitions") },
+        { id = "full", text = _("Full") .. " - " .. _("full definitions") },
     }) do
         table.insert(items, {
             text = preset.text,
@@ -516,7 +532,7 @@ SettingsDialog.genDictionaryOutputMenu = function(assistant)
     end
 
     table.insert(items, {
-        text = _("Custom"),
+        text = _("Custom") .. " - " .. _("choose sections"),
         radio = true,
         checked_func = function()
             return assistant.settings:readSetting("dict_output_preset", "standard") == "custom"
@@ -527,7 +543,7 @@ SettingsDialog.genDictionaryOutputMenu = function(assistant)
         end,
     })
 
-    for _, sec in ipairs(Prompts.dict_sections) do
+    for i, sec in ipairs(Prompts.dict_sections) do
         table.insert(items, {
             text = sec.header,
             checked_func = function()
