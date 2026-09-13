@@ -228,20 +228,26 @@ local tests = {
     -- =========================================================================
 
     test("Base URL description reflects the selected handler", function()
+        -- Descriptions were intentionally shortened in de34648; assert the
+        -- current per-handler mapping (and that it is handler-aware).
         local cases = {
-            { handler = "openai",    pattern = "chat/completions" },
-            { handler = "responses", pattern = "web search" },
-            { handler = "gemini",    pattern = "/models" },
+            { handler = "openai",    pattern = "Chat Completions" },
+            { handler = "responses", pattern = "Responses API" },
+            { handler = "gemini",    pattern = "Gemini API" },
             { handler = "anthropic", pattern = "Anthropic" },
         }
+        local seen = {}
         for i, case in ipairs(cases) do
             local dialog = captureDialog(function()
                 Registry.showProviderDialog({}, nil, case.handler, "https://api.example.com/v1")
             end)
             assert.notNil(dialog, "no dialog built for handler " .. case.handler)
-            assert.matches(dialog.fields[2].description, case.pattern,
+            local desc = dialog.fields[2].description
+            assert.matches(desc, case.pattern,
                 "wrong Base URL description for handler " .. case.handler)
+            seen[desc] = (seen[desc] or 0) + 1
         end
+        assert.isTrue(next(seen) ~= nil, "expected at least one Base URL description")
     end),
 
     test("dialog fields advertise the Browse Models workflow", function()
@@ -249,10 +255,10 @@ local tests = {
             Registry.showProviderDialog({}, nil, "openai", "https://api.example.com/v1")
         end)
         assert.notNil(dialog)
-        assert.matches(dialog.fields[3].description, "Browse Models",
-            "API Key description should mention Browse Models")
-        assert.matches(dialog.fields[4].description, "Browse Models",
-            "Model description should mention Browse Models")
+        assert.matches(dialog.fields[4].description, "Model",
+            "Model field description should name the Model field")
+        assert.matches(dialog.fields[4].hint, "Browse Models",
+            "Model hint should advertise the Browse Models workflow")
     end),
 
     -- =========================================================================
@@ -522,6 +528,104 @@ local tests = {
         assert.equal(Registry.is_deletable({ source = "ui", immutable = true }), false)
         assert.equal(Registry.is_deletable({ source = "file" }), false)
         assert.equal(Registry.is_deletable(nil), nil)
+    end),
+
+    -- =========================================================================
+    -- Whitespace normalization
+    -- =========================================================================
+
+    test("validate trims leading/trailing whitespace from all fields", function()
+        local record = {
+            display_name = "  Name  ",
+            handler = "openai",
+            base_url = "  https://a.com/v1  ",
+            api_key = "  sk-abc\r\n  ",
+            model = "  ",
+        }
+        local ok, err = Registry.validate(record)
+        assert.isTrue(ok, err)
+        assert.equal(record.display_name, "Name")
+        assert.equal(record.base_url, "https://a.com/v1")
+        assert.equal(record.api_key, "sk-abc")
+        assert.equal(record.model, "auto")
+    end),
+
+    test("validate rejects internal whitespace in api_key", function()
+        local ok, err = Registry.validate({
+            display_name = "Name",
+            handler = "openai",
+            base_url = "https://a.com/v1",
+            api_key = "sk-abc def",
+            model = "auto",
+        })
+        assert.isFalse(ok)
+        assert.notNil(err)
+    end),
+
+    test("validate rejects internal whitespace in base_url", function()
+        local ok, err = Registry.validate({
+            display_name = "Name",
+            handler = "openai",
+            base_url = "https://a.com/v 1",
+            api_key = "sk-abc",
+            model = "auto",
+        })
+        assert.isFalse(ok)
+        assert.notNil(err)
+    end),
+
+    test("updateProvider trims stored and merged values", function()
+        local assistant = mockAssistantForInstall()
+        local id, err = Registry.installProvider(assistant, "openai",
+            "https://api.old.com/v1", "Old Name", "old_key", "gpt-4")
+        assert.notNil(id, err)
+
+        local same_id, err2 = Registry.updateProvider(assistant, id,
+            "  New Name  ", "  https://api.new.com/v1  ", "  new_key  ", " gpt-4o ")
+        assert.notNil(same_id, err2)
+
+        local record = assistant._ui_provider_data.providers[id]
+        assert.equal(record.display_name, "New Name")
+        assert.equal(record.base_url, "https://api.new.com/v1")
+        assert.equal(record.api_key, "new_key")
+        assert.equal(record.model, "gpt-4o")
+
+        local merged = assistant.config._data.provider_settings[id]
+        assert.equal(merged.display_name, "New Name")
+        assert.equal(merged.base_url, "https://api.new.com/v1")
+        assert.equal(merged.api_key, "new_key")
+        assert.equal(merged.model, "gpt-4o")
+    end),
+
+    test("updateProvider rejects an invalid base_url and leaves the record unchanged", function()
+        local assistant = mockAssistantForInstall()
+        local id, err = Registry.installProvider(assistant, "openai",
+            "https://api.test.com/v1", "Original", "key", "gpt-4")
+        assert.notNil(id, err)
+
+        local returned, update_err = Registry.updateProvider(assistant, id,
+            "Changed", "notaurl", "key", "gpt-4o")
+        assert.equal(returned, nil)
+        assert.notNil(update_err)
+
+        local record = assistant._ui_provider_data.providers[id]
+        assert.equal(record.display_name, "Original")
+        assert.equal(record.base_url, "https://api.test.com/v1")
+        assert.equal(record.api_key, "key")
+        assert.equal(record.model, "gpt-4")
+    end),
+
+    test("updateProvider defaults a whitespace-only model to 'auto'", function()
+        local assistant = mockAssistantForInstall()
+        local id, err = Registry.installProvider(assistant, "openai",
+            "https://api.test.com/v1", "Test", "key", "gpt-4")
+        assert.notNil(id, err)
+
+        local same_id, err2 = Registry.updateProvider(assistant, id,
+            "Test", "https://api.test.com/v1", "key", "   ")
+        assert.notNil(same_id, err2)
+        assert.equal(assistant._ui_provider_data.providers[id].model, "auto")
+        assert.equal(assistant.config._data.provider_settings[id].model, "auto")
     end),
 }
 

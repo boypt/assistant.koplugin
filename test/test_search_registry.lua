@@ -600,6 +600,49 @@ local tests = {
             assert.notNil(sub_item.hold_callback, "sub_item " .. i .. " should have hold_callback")
         end
     end),
+
+    -- =========================================================================
+    -- Whitespace normalization
+    -- =========================================================================
+
+    test("validate trims surrounding whitespace in api_key", function()
+        local record = { api_key = "  sk-123\r\n  " }
+        local ok, err = SearchRegistry.validate(record, "serpapi")
+        assert.isTrue(ok, err)
+        assert.equal(record.api_key, "sk-123")
+    end),
+
+    test("upsert stores the trimmed api_key", function()
+        local data = { tools = {} }
+        local ok, err = SearchRegistry.upsert(data, "serpapi", {
+            api_key = "  sk-123\r\n  ",
+        })
+        assert.isTrue(ok, err)
+        assert.equal(data.tools.serpapi.api_key, "sk-123")
+    end),
+
+    test("validate rejects internal whitespace in api_key", function()
+        local ok, err = SearchRegistry.validate({
+            api_key = "sk-123 xyz",
+        }, "serpapi")
+        assert.isFalse(ok)
+        assert.notNil(err)
+    end),
+
+    test("validate trims surrounding whitespace in searxng base_url", function()
+        local record = { base_url = "  https://searx.example.com/  " }
+        local ok, err = SearchRegistry.validate(record, "searxngapi")
+        assert.isTrue(ok, err)
+        assert.equal(record.base_url, "https://searx.example.com/")
+    end),
+
+    test("validate rejects internal whitespace in searxng base_url", function()
+        local ok, err = SearchRegistry.validate({
+            base_url = "https://searx.exa mple.com",
+        }, "searxngapi")
+        assert.isFalse(ok)
+        assert.notNil(err)
+    end),
 }
 
 return helper.runTests("assistant_search_registry", tests)

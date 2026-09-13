@@ -260,6 +260,9 @@ function Registry.validate(record)
     end
 
     -- display_name
+    if type(record.display_name) == "string" then
+        record.display_name = koutil.trim(record.display_name)
+    end
     if not record.display_name or type(record.display_name) ~= "string"
         or record.display_name:match("^%s*$") then
         return false, _("Provider name is required.")
@@ -271,23 +274,38 @@ function Registry.validate(record)
     end
 
     -- model: default to "auto" if empty
+    if type(record.model) == "string" then
+        record.model = koutil.trim(record.model)
+    end
     if not record.model or type(record.model) ~= "string"
         or record.model:match("^%s*$") then
         record.model = "auto"
     end
 
     -- base_url
+    if type(record.base_url) == "string" then
+        record.base_url = koutil.trim(record.base_url)
+    end
     if not record.base_url or type(record.base_url) ~= "string" then
         return false, _("Base URL is required.")
     end
     if not record.base_url:match("^https?://") then
         return false, _("Base URL must start with http:// or https://")
     end
+    if record.base_url:match("%s") then
+        return false, _("Base URL must not contain spaces.")
+    end
 
     -- api_key
+    if type(record.api_key) == "string" then
+        record.api_key = koutil.trim(record.api_key)
+    end
     if not record.api_key or type(record.api_key) ~= "string"
         or record.api_key:match("^%s*$") then
         return false, _("API key is required.")
+    end
+    if record.api_key:match("%s") then
+        return false, _("API key must not contain spaces or line breaks.")
     end
 
     -- additional_parameters (default empty)
@@ -399,11 +417,26 @@ function Registry.updateProvider(assistant, id, display_name, base_url, api_key,
         return nil, _("Provider not found.")
     end
 
+    -- Compose a candidate and validate before mutating the stored record, so a
+    -- rejected update leaves the existing provider untouched.
+    local candidate = {
+        display_name = display_name,
+        handler = existing.handler,
+        base_url = base_url,
+        api_key = api_key,
+        model = model,
+        additional_parameters = additional_parameters ~= nil and additional_parameters or existing.additional_parameters,
+    }
+    local ok, err = Registry.validate(candidate)
+    if not ok then
+        return nil, err
+    end
+
     -- Update mutable fields in place; handler is kept.
-    existing.display_name = display_name
-    existing.base_url = base_url
-    existing.api_key = api_key
-    existing.model = model ~= "" and model or "auto"
+    existing.display_name = candidate.display_name
+    existing.base_url = candidate.base_url
+    existing.api_key = candidate.api_key
+    existing.model = candidate.model
     if additional_parameters ~= nil then
         existing.additional_parameters = koutil.tableDeepCopy(additional_parameters)
     end
@@ -836,6 +869,11 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
 
     local dialog_ref = {}  -- forward ref for enabled_func closure in buttons
     local dialog
+    local function readFields()
+        local f = dialog:getFields()
+        for i = 1, #f do f[i] = koutil.trim(f[i]) end
+        return f
+    end
     local dialog_buttons = {{
         {
             id = "cancel",
@@ -848,10 +886,10 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
             enabled_func = function()
                 local d = dialog_ref[1]
                 if not d then return false end
-                return d:getFields()[3] ~= ""  -- enabled when API key is filled
+                return koutil.trim(d:getFields()[3] or "") ~= ""  -- enabled when API key is filled
             end,
             callback = function()
-                local fields = dialog:getFields()
+                local fields = readFields()
                 local api_key = fields[3]
                 local url = fields[2]
                 if api_key == "" or url == "" then return end
@@ -899,7 +937,7 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
                 return f[1] ~= "" and f[2] ~= "" and f[3] ~= "" and f[4] ~= ""
             end,
             callback = function()
-                local fields = dialog:getFields()
+                local fields = readFields()
                 local url, api_key, model = fields[2], fields[3], fields[4]
                 -- Fire the test through the handler's own Test() on a
                 -- throwaway instance (same pattern as model_picker.fetchModels)
@@ -956,7 +994,7 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
             text = _("OK"),
             is_enter_default = true,
             callback = function()
-                local fields = dialog:getFields()
+                local fields = readFields()
                 local name = fields[1]
                 local url = fields[2]
                 local api_key = fields[3]
@@ -971,9 +1009,23 @@ function Registry.showProviderDialog(assistant, preset_name, handler, base_url, 
                     return
                 end
                 if is_edit then
-                    Registry.updateProvider(assistant, edit_id, name, url, api_key, model)
+                    local saved, err = Registry.updateProvider(assistant, edit_id, name, url, api_key, model)
+                    if not saved then
+                        UIManager:show(InfoMessage:new{
+                            icon = "notice-warning",
+                            text = err or _("Failed to save provider."),
+                        })
+                        return
+                    end
                 else
-                    Registry.installProvider(assistant, handler, url, name, api_key, model, additional_parameters)
+                    local saved, err = Registry.installProvider(assistant, handler, url, name, api_key, model, additional_parameters)
+                    if not saved then
+                        UIManager:show(InfoMessage:new{
+                            icon = "notice-warning",
+                            text = err or _("Failed to save provider."),
+                        })
+                        return
+                    end
                 end
                 UIManager:close(dialog)
                 -- Close any stale settings dialog, then open a fresh
